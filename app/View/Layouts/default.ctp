@@ -10,7 +10,7 @@
       		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     	<![endif]-->
 
-		
+
 		<?php
 		if(!Configure::read('debug')):
 		?>
@@ -27,7 +27,7 @@
 			<script src="<?php echo $this->webroot; ?>js/vendor/bootstrap.min.js"></script>
 		<?php
 		endif;
-		?>	
+		?>
 		<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/select2.css" />
        <link rel="stylesheet" href="<?php echo $this->webroot; ?>css/bootstrap-responsive.min.css">
 		<!--[if IE 7]>
@@ -35,15 +35,15 @@
 		<![endif]-->
         <script src="<?php echo $this->webroot; ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="<?php echo $this->webroot; ?>js/vendor/js-webshim/minified/polyfiller.js"></script>
-		
+
 		<script type="text/javascript" src="<?php echo $this->webroot; ?>js/select2.min.js"></script>
 		<script type="text/javascript" src="<?php echo $this->webroot; ?>js/vendor/jquery.bootstrap.confirm.popover.js"></script>
 		<script type="text/javascript" src="<?php echo $this->webroot; ?>js/main.js"></script>
-		
+
 		<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/main.css" />
- 
+
 		<?php echo $this->Js->writeBuffer(); ?>
-		
+
     	<?php
 			echo $this->fetch('meta');
     	?>
@@ -59,39 +59,37 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </a>
-	          <?php echo $this->Html->link('<img alt="COS Archival" src="'.$this->webroot.'img/cos_archival_logo_mini.png" width="43" height="22">', '/', array('class' => 'brand','escape'=>false)); ?>
+	          <a href='/' class='brand'><img alt="COS Archival" src="/img/cos_archival_logo_mini.png" width="70"></a>
 	          <div class="container nav-collapse">
 	            <ul class="nav">
-	                <li><?php echo $this->Html->link('About the Archival Project', '/'); ?></li>
 	                <li><?php echo $this->Html->link('Getting involved', '/pages/getting_involved'); ?></li>
+	                <li><a href='/interactive_tutorial/#/'>Interactive Tutorial</a></li>
+<?php if(AuthComponent::user() !== NULL){ ?>
+					<li><?php echo $this->Html->link('Contact', '/pages/feedback'); ?></li>
+<?php } ?>
+	            </ul>
 
-<?php
-if(AuthComponent::user() !== NULL): ?>
+	            <div class='nav pull-right btn-group' style='position:relative;top:13px'>
+<?php if(AuthComponent::user() !== NULL){ ?>
 
-	                <li><?php echo $this->Html->link('Your dashboard', '/papers/index'); ?></li>
-	                <li><?php echo $this->Html->link('Contact', '/pages/feedback'); ?></li>
+					<a href='/papers/index' class='btn btn-small btn-warning'>Your Dashboard</a>
+					<a href='/users/logout' class='btn btn-small btn-warning'>Log out</a>
+<?php } else { ?>
+					<a href='/users/register' class='btn btn-warning'>Register</a>
+					<a href='/users/login' class='btn btn-warning'>Log in</a>
+<?php } ?>
+	</div>
 
-<?php
-else:
-?>
-			    <li><?php echo $this->Html->link('Sign up', '/users/register', array('class'=>'')); ?></li>
 
-<?php
-endif;
-?>
-				
-				
 
-				
 <?php
 if(AuthComponent::user() === NULL): ?>
-	            <li><?php echo $this->Html->link('Login', '/users/login', array('class'=>'')); ?></li>
+
 <?php
 else: ?>
-				<li><?php echo $this->Html->link("Logout", '/users/logout', array('title' => 
-					 "[". AuthComponent::user('Group.name').'] '.AuthComponent::user('username'))); ?></li>
+
 <?php endif; ?>
-				
+
 <?php if(AuthComponent::user('Group.name')=='admin'): ?>
   	<li class="divider-vertical"></li>
 	<li class="dropdown">
@@ -101,7 +99,7 @@ else: ?>
                 <li><?php echo $this->Html->link('Add paper', '/papers/add'); ?></li>
                 <li><?php echo $this->Html->link('List my coded papers', '/codedpapers/index_mine'); ?></li>
                 <li><?php echo $this->Html->link('List all coded papers', '/codedpapers/index'); ?></li>
-				
+
                 <li><?php echo $this->Html->link('Export CSV', '/joinedCodedpapers/export/CSV'); ?></li>
                 <li><?php echo $this->Html->link('Export TSV', '/joinedCodedpapers/export/TSV'); ?></li>
                 <li><?php echo $this->Html->link('Export Excel', '/joinedCodedpapers/export/excel'); ?></li>
@@ -110,20 +108,20 @@ else: ?>
 <?php endif; ?>
 				<?php echo $this->fetch('more_nav'); ?>
 			</ul>
-				
+
 				<?php echo $this->fetch('sub_nav'); ?>
 	          </div><!--/.nav-collapse -->
-  	  		
-	        </div>
-	  		
-	      </div>
-  		
-	    </div>
-		
-	
 
-	  <div class="container-fluid">
-            <div class="row-fluid">
+	        </div>
+
+	      </div>
+
+	    </div>
+
+
+
+	  <div class="container">
+            <div class="row">
                 <?php echo $this->fetch('sidebar'); ?>
 
 	           	<div id="main-content">
@@ -138,12 +136,6 @@ else: ?>
 	            </div><!--/span-->
 
 	        </div><!--/row-->
-
-	      <footer class="row-fluid">
-			  <div class="span6 center">
-			  <p><img alt="COS" src="<?=$this->webroot?>img/cos_logo_mini.png" width="50" height="30"> &copy; Archival Project <?php echo date('Y'); ?></p>
-		  </div>
-	      </footer>
 
 	    </div> <!-- /container -->
 	</div>

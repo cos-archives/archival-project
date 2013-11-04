@@ -1,15 +1,18 @@
-<h2>Login</h2>
-<div class="users form">
-<?php echo $this->Session->flash('auth'); ?>
-<?php echo $this->Form->create('User'); ?>
-        <p><?php echo __('Please enter your email address and password'); ?></p>
-				<p><?=$this->Html->link(__('Forgot your password?'),'/users/forgotPassword'); ?></p>
+<div class='row'>
+    <div class='span4 offset4'>
+        <div class="form">
+            <div class='well'>
+                <legend>Log In</legend>
+                    <?php echo $this->Session->flash('auth'); ?>
+                    <?php echo $this->Form->create('User'); ?>
 
-    <?php   
-		echo $this->Form->input('email', array('autofocus'=>'autofocus'));
-        echo $this->Form->input('password');
-    ?>
-<?php echo $this->Form->end(array(
-		'label' => 'Login',
-		'class' => 'btn btn-success')); ?>
+                    <?php echo $this->Form->input('email', array('autofocus'=>'autofocus')); ?>
+                    <?php echo $this->Form->input('password'); ?>
+
+        <?php echo $this->Form->end(array(
+            'label' => 'Login',
+            'class' => 'btn btn-success')); ?>
+        </div>
+        <p><?=$this->Html->link(__('Forgot your password?'),'/users/forgotPassword'); ?></p>
+    </div>
 </div>

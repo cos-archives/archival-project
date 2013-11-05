@@ -1,14 +1,8 @@
-<?php
-$this->start('sub_nav');
-?>
-<ul class="nav-offset3 sub_nav nav nav-pills">
-  <li><?php echo $this->Html->link(__('All papers'),'/papers/index'); ?></li>
-  <li><?php echo $this->Html->link(__('Leaderboard'),'/users/leaderboard'); ?></li>
-  <li class="active"><?php echo $this->Html->link('Coding scheme', '/pages/coding_scheme'); ?></li>
-</ul>
-<?php $this->end(); ?>
-<?php $this->start('sidebar'); ?>
-<div class="sidenav-span">
+<?php echo $this->element('dashboard-menu'); ?>
+</div>
+<div class='row'>
+
+<div class="span3">
 <ul class="nav nav-list osfa-affix-sidenav" data-spy="affix">
 	<li class="active"><a href="#overview"><i class="icon-chevron-right"></i> Overview</a></li>
 	<li><a href="#organization"><i class="icon-chevron-right"></i> Organization</a></li>
@@ -17,8 +11,7 @@ $this->start('sub_nav');
 	<li><a href="#effects"><i class="icon-chevron-right"></i> &nbsp;&nbsp;Effect tests</a></li>
 </ul>
 </div>
-<?php $this->end(); ?>
-<div class="span9 scoot">
+<div class="span9">
 <header id="overview">
    <h1>Coding scheme</h1>
    <p class="lead">What is the coding scheme?</p>
@@ -27,10 +20,10 @@ $this->start('sub_nav');
 <p>
 	In Stage 1, articles from the 2008 sample will be coded according to a scheme. In Stage 2, coders will search the literature forward for articles published after that sample, that have explicitly replicated one or more of each 2008 article’s key effects.
 </p>
-<p>	The Stage 1 coding scheme can be applied to any empirical article in psychology that reports quantitative methods and inferential statistics. It follows a “nested” format, explained below.  
+<p>	The Stage 1 coding scheme can be applied to any empirical article in psychology that reports quantitative methods and inferential statistics. It follows a “nested” format, explained below.
 </p>
 <p>	The scheme is implemented using a Web front end at <a href="http://archivalproject.org/" title="This website">http://archivalproject.org/</a>. Coders should register with a username and password, log in, and proceed to the “Coding” section (tab at the top of the page) where they can select from a number of articles to code.</p>
-	
+
 <section id="organization">
 <h2>Moving from the highest level of organization to the lowest: </h2>
 
@@ -62,7 +55,7 @@ $this->start('sub_nav');
 	<p><i>
 		Example 1: An article reports a study that presented symmetrical and asymmetrical toys to 3 year old children, recording their interest in each. An article published afterwards cites the first article, but says it will use the same method while testing children 18 months, 3 years, 5 years and 7 years old. Here, the effect of toy shape for the 3 year olds replicates the first study, while the other conditions seek to extend the findings to other ages.<br><br>
 		Example 2: An article criticizes a previously published demographic study looking at the effects of gender on support for left-wing policy positions, because it did not take into account the fact of a pay gap between men and women, making it possible that economic class and not gender account for the effects. It looks at the same data but now controls for income using multiple regression, and shows that the gender effect is still there but much weaker. If the article reports the gender-policy relationship before the income factor is added, that is a replication test of the original, and the test controlling for pay extends the findings.
-		
+
 	</i></p>
 
 	<h5>Specific design issues in effects: Overall versus specific effects</h5>
@@ -104,8 +97,8 @@ $this->start('sub_nav');
 
 <ol>
 	<li>Study number, as written in the article (such as Study 1, Study 2, Study 3a, Study 3b, etc.) If there is only one study put “1”.</li>
-	<li>Replication code: The Introduction and pre-study material is the main authority for whether the authors consider their study to be a replication in any way. Coders should only apply a replication code if the authors specifically cite a preceding study or group of studies as a source whose hypothesis is being reproduced in the present research, with or without the same methodology. The word “replicate” does not need to be used, but the previous paper should be cited and explicitly named as a source of methodology for <b>at least one independent</b> and <b>at least one dependent</b> variable. However, the independent and dependent variable need not be put into practice in the exact same way as the original paper. See Schmidt (2009) for a further explanation of the types and purposes of replication. 
-	<br><br>Citing a previously published methodology that covers only one variable is not enough to constitute replication, unless both the cited study and the present one are meant to validate the methodology, rather than to use it to test a hypothesis. 
+	<li>Replication code: The Introduction and pre-study material is the main authority for whether the authors consider their study to be a replication in any way. Coders should only apply a replication code if the authors specifically cite a preceding study or group of studies as a source whose hypothesis is being reproduced in the present research, with or without the same methodology. The word “replicate” does not need to be used, but the previous paper should be cited and explicitly named as a source of methodology for <b>at least one independent</b> and <b>at least one dependent</b> variable. However, the independent and dependent variable need not be put into practice in the exact same way as the original paper. See Schmidt (2009) for a further explanation of the types and purposes of replication.
+	<br><br>Citing a previously published methodology that covers only one variable is not enough to constitute replication, unless both the cited study and the present one are meant to validate the methodology, rather than to use it to test a hypothesis.
 	<br><br><i>Example: The current paper cites a previous paper that initially developed and validated a previously used methodology to measure attitudes, the Implicit Color Test (ICT). If the current paper’s hypothesis is that the ICT would also be valid among a community sample of adults, not just university students, then this is a replication. If the current paper’s hypothesis is that people subjected to a mindfulness exercise would show more favorable ICT scores, then this is a use of the method, not a replication of the validation article.</i>
 	<br><br>This scheme is meant to also count replications that are nested within a larger design, as part of a “replicate and extend” research strategy.
 	<br><br><i>For example, if a study reports that two of its conditions replicate conditions and measures from a previous study, but there are two additional conditions to answer additional questions and three additional measures, this should be counted as a replication based on the conditions and measures that do replicate previous work. </i>
@@ -154,15 +147,15 @@ $this->start('sub_nav');
 				<blockquote>Example 1: “People who had exercised recently should be more likely to discount their emotional reaction.” This is a directional hypothesis says that one variable – exercise – will increase another. In other words, it predicts a positive relationship between the variables.<br><br>
 Example 2: “Men, but not women, should show increased threat response in the condition where masculinity is questioned, and not in the other condition.” This is a directional hypothesis for an interaction between gender and condition. It specifically describes the pattern of results that is expected.
 </blockquote></li>
-			<li>Yes, nondirectional. The test deals with a <strong>nondirectional</strong> hypothesis that is stated in the Introduction – a hypothesis that only states that two or more variables should be related, but does not specify the expected direction anywhere in the Introduction. This code also applies to an Introduction that proposes multiple alternative hypotheses relevant to different possibilities for the same test, but only if the authors do not commit themselves to supporting one of those hypotheses over the other. 
+			<li>Yes, nondirectional. The test deals with a <strong>nondirectional</strong> hypothesis that is stated in the Introduction – a hypothesis that only states that two or more variables should be related, but does not specify the expected direction anywhere in the Introduction. This code also applies to an Introduction that proposes multiple alternative hypotheses relevant to different possibilities for the same test, but only if the authors do not commit themselves to supporting one of those hypotheses over the other.
 				<blockquote>Example 1: “People who had exercised recently and people who had not will show differences in discounting their emotional reaction.” If there are no other clues to the authors’ expectations in the Introduction, this should be taken as a nondirectional hypothesis, because it doesn’t say whether exercise will increase or decrease discounting.<br><br>
-					
+
 							Example 2: “Self-esteem maintenance theory would predict that men, but not women, should show increased threat response in the condition where masculinity is questioned, and not in the other condition. Gender-system justification theory would predict that both women and men should show equally increased threat responses if masculinity is questioned. We carried out this experiment to see which theory was better supported in this context.” If the authors do not elsewhere say that they support one theory over the other, this can be treated as a nondirectional hypothesis.
 </blockquote></li>
 			<li>No, no hypothesis relevant to the test. This code applies to effect mentioned in the Abstract but not relevant to the hypotheses in the Introduction, or to replication effects which were not included in the Introduction’s hypotheses.</li>
 		</ul>
 	</li>
-	
+
 	<li>Analytic design codes (use only one) <ol>
 		<li><b>C = correlational/multivariate analysis without manipulation</b>
 		<br>The test uses a number of variables that were measured at the same or different time – including continuous or categorical variables - but none of the test’s variables relate to the outcome of a controlled experimental manipulation.</li>

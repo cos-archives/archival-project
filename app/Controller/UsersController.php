@@ -1,15 +1,15 @@
 <?php
 App::uses('AppController', 'Controller');
 class UsersController extends AppController {
-	function isAuthorized($user = null, $request = null) {	
+	function isAuthorized($user = null, $request = null) {
 		$admin = parent::isAuthorized($user); # allow admins to do anything
 		$req_action = $this->request->params['action'];
-		
+
 		if($req_action == 'edit' AND $user['Group']['name']==='admin') return true; # only admins can change groups
 		elseif($req_action == 'edit') return false;
-		
+
 		if($admin) return true;
-		
+
 		if(in_array($req_action, array('index','leaderboard'))) return true; # viewing and adding is allowed to all users
 	}
 	public function leaderboard() {
@@ -18,7 +18,7 @@ class UsersController extends AppController {
 	public function login() {
 	    if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
-	            $this->redirect($this->Auth->redirect());
+	            $this->redirect('/papers/index');
 	        } else {
 	            $this->Session->setFlash(__('Invalid username or password, try again'));
 	        }
@@ -60,7 +60,7 @@ class UsersController extends AppController {
 				    ->send(
 "Dear user,
 
-You asked us to send you a link to reset your 
+You asked us to send you a link to reset your
 password. If it wasn't you who requested the
 link, please contact us by replying to this
 email.
@@ -86,7 +86,7 @@ the COS Archival Project team");
 						'fields' => array('id','hashed_reset_token'),
 						'conditions' => array(
 							'User.email' => $email,
-							'User.reset_token_expiration >' => date('Y-m-d H:i:s') 
+							'User.reset_token_expiration >' => date('Y-m-d H:i:s')
 						)
 				));
 				$user_id = $user['User']['id'];

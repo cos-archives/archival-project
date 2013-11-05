@@ -1,23 +1,11 @@
-<?php
-$this->start('sub_nav');
-?>
-<ul class="nav-offset3 sub_nav nav nav-pills">
-  <li class="active"><?php echo $this->Html->link(__('All papers'),'/papers/index'); ?></li>
-  <li><?php echo $this->Html->link(__('Leaderboard'),'/users/leaderboard'); ?></li>
-  <li><?php echo $this->Html->link('Coding scheme', '/pages/coding_scheme'); ?></li>
-</ul>
-<?php
-$this->end();
-?>
+<?php echo $this->element('dashboard-menu'); ?>
 
-<div class="scoot papers index">
-	<h2><?php echo __('All articles'); ?> <?php if(AuthComponent::user('Group.name')=='admin'): ?>
-		<small>
-		<?php echo $this->Html->link(__('add new'), '/papers/add'); ?></li>
-	</small>
-	<?php endif; ?></h2>
-	
-	
+<div class="papers index">
+	<div class='pull-right'>
+		<a href='/papers/add' class='btn btn-primary'>Add Paper</a>
+		<a href='/codedpapers/index' class='btn btn-primary'>List Coded Papers</a>
+	</div>
+	<h2>All Papers</h2>
 	<table class="table">
 	<tr>
 			<th><?php echo $this->Paginator->sort('DOI'); ?></th>
@@ -34,13 +22,13 @@ $this->end();
 	}
 	foreach ($papers as $paper): ?>
 	<tr>
-		<td><?php 
+		<td><?php
 		echo $this->Html->link(shortensome($paper['Paper']['DOI']), $paper['Paper']['URL']); ?>&nbsp;</td>
 		<td><?php echo h($paper['Paper']['title']); ?>&nbsp;</td>
 		<td><?php echo h($paper['Paper']['first_author']); ?>&nbsp;</td>
 		<td><?php echo h($paper['Paper']['year']); ?>&nbsp;</td>
 		<td><?php echo h($paper['Paper']['journal']); ?>&nbsp;</td>
-		<td class="actions span5">
+		<td class="actions">
 			<div class="btn-toolbar">
 				<div class="actions btn-group">
 					<?php echo $this->Html->link(__('View'), array('action' => 'view', $paper['Paper']['id']), array('class' => 'btn')); ?>
@@ -48,7 +36,7 @@ $this->end();
 					 <button class="btn dropdown-toggle" data-toggle="dropdown">
 					    <span class="caret"></span>
 					 </button>
-					 
+
 					<ul class="dropdown-menu">
 						<li><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $paper['Paper']['id'])); ?></li>
 						<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $paper['Paper']['id']), null, __('Are you sure you want to delete # %s?', $paper['Paper']['id'])); ?></li>
@@ -63,14 +51,6 @@ $this->end();
 	</tr>
 <?php endforeach; ?>
 	</table>
-	<div class="actions btn-group">
-		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><?php echo __('Actions'); ?><span class="caret"></span>
-		  </a>
-		<ul class="dropdown-menu">
-			<li><?php echo $this->Html->link(__('New Paper'), array('action' => 'add')); ?></li>
-			<li><?php echo $this->Html->link(__('List Codedpapers'), array('controller' => 'codedpapers', 'action' => 'index')); ?> </li>
-		</ul>
-	</div>
 
 	<div class="pagination pagination-centered">
 		<ul>

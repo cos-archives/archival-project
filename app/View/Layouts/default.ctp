@@ -64,48 +64,43 @@
 	            <ul class="nav">
 	                <li><?php echo $this->Html->link('Getting involved', '/pages/getting_involved'); ?></li>
 	                <li><a href='/interactive_tutorial/#/'>Interactive Tutorial</a></li>
+
 <?php if(AuthComponent::user() !== NULL){ ?>
-					<li><?php echo $this->Html->link('Contact', '/pages/feedback'); ?></li>
+                    <li><a href='/pages/contact'>Contact</a></li>
 <?php } ?>
-	            </ul>
+
+                </ul>
+
+
 
 	            <div class='nav pull-right btn-group' style='position:relative;top:13px'>
+
 <?php if(AuthComponent::user() !== NULL){ ?>
-
-					<a href='/papers/index' class='btn btn-small btn-warning'>Your Dashboard</a>
-					<a href='/users/logout' class='btn btn-small btn-warning'>Log out</a>
+                    <a href='/papers/index' class='btn btn-warning'>My Dashboard</a>
+                    <a href='/users/logout' class='btn btn-warning'>Log out</a>
 <?php } else { ?>
-					<a href='/users/register' class='btn btn-warning'>Register</a>
-					<a href='/users/login' class='btn btn-warning'>Log in</a>
+                    <a href='/users/register' class='btn btn-warning'>Register</a>
+                    <a href='/users/login' class='btn btn-warning'>Log in</a>
 <?php } ?>
-	</div>
+                </div>
 
-
-
-<?php
-if(AuthComponent::user() === NULL): ?>
-
-<?php
-else: ?>
-
-<?php endif; ?>
 
 <?php if(AuthComponent::user('Group.name')=='admin'): ?>
-  	<li class="divider-vertical"></li>
-	<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo __('Admin'); ?><span class="caret"></span></a>
-			<ul class="dropdown-menu">
-                <li><?php echo $this->Html->link('List users', '/users/index'); ?></li>
-                <li><?php echo $this->Html->link('Add paper', '/papers/add'); ?></li>
-                <li><?php echo $this->Html->link('List my coded papers', '/codedpapers/index_mine'); ?></li>
-                <li><?php echo $this->Html->link('List all coded papers', '/codedpapers/index'); ?></li>
+				<div class='nav pull-right btn-group' style='position:relative;top:13px;margin-right:10px;'>
+					<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Admin <span class="caret"></span></button>
+					<ul class="dropdown-menu">
 
-                <li><?php echo $this->Html->link('Export CSV', '/joinedCodedpapers/export/CSV'); ?></li>
-                <li><?php echo $this->Html->link('Export TSV', '/joinedCodedpapers/export/TSV'); ?></li>
-                <li><?php echo $this->Html->link('Export Excel', '/joinedCodedpapers/export/excel'); ?></li>
-            </ul>
-	</li>
+		                <li><a href='/users/index'>List users</a></li>
+		                <li><a href='/papers/add'>Add paper</a></li>
+		                <li><a href='/codedpapers/index_mine'>List my coded papers</a></li>
+		                <li><a href='/codedpapers/index'>List all coded papers</a></li>
+		                <li><a href='/joinedCodedpapers/export/CSV'>Export CSV</a></li>
+		                <li><a href='/joinedCodedpapers/export/TSV'>Export TSV</a></li>
+		                <li><a href='/joinedCodedpapers/export/excel'>Export Excel</a></li>
+		            </ul>
+		        </div>
 <?php endif; ?>
+
 				<?php echo $this->fetch('more_nav'); ?>
 			</ul>
 

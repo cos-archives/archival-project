@@ -8,7 +8,7 @@ function toggleAutosave() {
 	return false;
 }
 function unsavedChanges () {
-	$('#navSave').addClass('btn-info').removeAttr('disabled').text('Unsaved changes…');
+	$('#navSave').addClass('btn-warning').removeAttr('disabled').text('Save Changes');
 	if(autosaveglobal) {
 		if( ($.now() - lastSave ) > 7000) {
 			saveform();
@@ -17,14 +17,14 @@ function unsavedChanges () {
 }
 function updateOrder()
 {
-	
+
 }
 function updateProgress () {
 	formelms = $('#CodedpaperCodeForm input[type=text]:not([class*="select2-input"]), #CodedpaperCodeForm input[type=number], #CodedpaperCodeForm input[type=search], #CodedpaperCodeForm select, #CodedpaperCodeForm input[type=radio], #CodedpaperCodeForm input[type=checkbox],	#CodedpaperCodeForm textarea').filter(':visible').filter(':not([class*="hidden"])').filter(function() {
    return !($(this).css('visibility') == 'hidden'); // this shit is necessary for visibility: hidden. the pseudo-selector is about display:none (because vis.hidden still takes space)
 });;
 	either_or_elms = formelms.filter('[class*="study-freetext"]');
-	
+
 
 	var formelm_names = {};
 	formelms.map(function() {
@@ -33,7 +33,7 @@ function updateProgress () {
 			done = ($(this).prop('checked')=='') ? 0 : 1;
 		else
 			done = ($(this).val()=='') ? 0 : 1;
-			
+
 		if($(this).attr('name') && ! formelm_names[$(this).attr('name')] )
 			formelm_names[$(this).attr('name')] = done;
 	});
@@ -66,24 +66,24 @@ function activateInputs ($container) {
 		});
 		$(elm).trigger('change');
 	});
-	
+
 	formelms.filter("input[name*='data_points_excluded'],input[name*='N_total']").each(function(i,elm) {
 		$(elm).on('change',function (event) {
 			n_used = $(event.target).closest('div.row-fluid').find('input[name*=N_used_in_analysis]');
 			n_excluded = $(event.target).closest('div.row-fluid').find('input[name*=data_points_excluded]');
 			n_total = $(event.target).closest('div.row-fluid').find('input[name*=N_total]');
-			
+
 			if(!isNaN(parseFloat(n_total.prop('value'))) && !isNaN(parseFloat(n_excluded.prop('value'))))
 				n_used.prop('value', n_total.prop('value') - n_excluded.prop('value') );
 		});
 		$(elm).trigger('change');
 	});
-	
+
 	formelms.filter('input[type=radio][name*=hypothesized]').each(function(i,elm) {
 		$(elm).on('change',function (event) {
 			var val = $("input[name='" + $(event.target).attr('name') + "']:checked").prop('value');
 			opt_hide1 = $(event.target).closest('div.row-fluid').find("div.prior_hypothesis");
-			opt_hide2 = $(event.target).closest('div.formblock').find("input[type=radio][id*='HypothesisSupportedYes']").parent('div').parent('div');			
+			opt_hide2 = $(event.target).closest('div.formblock').find("input[type=radio][id*='HypothesisSupportedYes']").parent('div').parent('div');
 			if(val != 'No, no hypothesis') {
 				opt_hide1.removeClass('hidden');
 				opt_hide2.removeClass('hidden');
@@ -94,7 +94,7 @@ function activateInputs ($container) {
 		});
 		$(elm).trigger('change');
 	});
-	
+
 	formelms.filter("select[name*='[replication]']").each(function(i,elm) {
 		$(elm).on('change',function (event) {
 			opt_hide2 = $(event.target).closest('div.row-fluid').find('div.replication_optional');
@@ -106,20 +106,20 @@ function activateInputs ($container) {
 		});
 		$(elm).trigger('change');
 	});
-	
+
 	formelms.filter("select.select2replication,select.select2replication_code, select.select2effect_size_statistic, select.select2inferential_test_statistic, select.select2analytic_design_code").select2({
 		minimumResultsForSearch: 20,
 		allowClear: true,
 		placeholder: '',
 	});
-	
+
 	formelms.filter("select.select2studies").select2({
 		minimumResultsForSearch: 10,
 		allowClear: true,
 		placeholder: 'Choose a previous study in this paper'
 	});
-	
-	var pvalue_stats = 
+
+	var pvalue_stats =
 		[
 		{id: 'ns', 			text: 'ns'},
 		{id: '†', 			text: '†'},
@@ -135,11 +135,11 @@ function activateInputs ($container) {
 		];
 	formelms.filter("input.select2pvalue").select2({
 		createSearchChoice:function(term, data)
-		{ 
-			if ($(data).filter(function() 
-			{ 
-				return this.text.localeCompare(term)===0; 
-			}).length===0) 
+		{
+			if ($(data).filter(function()
+			{
+				return this.text.localeCompare(term)===0;
+			}).length===0)
 			{
 				return {id:term, text:term};
 			}
@@ -150,14 +150,14 @@ function activateInputs ($container) {
 			                       if(v.id ==  element.val()) {
 			                           data = v;
 			                           return false;
-			                       } 
+			                       }
             });
 	        callback(data);
 	    },
-		data: pvalue_stats, 
-		multiple: false, 
+		data: pvalue_stats,
+		multiple: false,
 		allowClear: true,
-		maximumSelectionSize: 1, 
+		maximumSelectionSize: 1,
 		placeholder: "Enter the p-value, its range or choose from these common representations."
 	});
 	var effect_stats = [
@@ -182,11 +182,11 @@ function activateInputs ($container) {
 	];
 	formelms.filter("input.select2effect_size_statistic").select2({
 		createSearchChoice:function(term, data)
-		{ 
-			if ($(data).filter(function() 
-			{ 
-				return this.text.localeCompare(term)===0; 
-			}).length===0) 
+		{
+			if ($(data).filter(function()
+			{
+				return this.text.localeCompare(term)===0;
+			}).length===0)
 			{
 				return {id:term, text:term};
 			}
@@ -197,31 +197,31 @@ function activateInputs ($container) {
 			                       if(v.id ==  element.val()) {
 			                           data = v;
 			                           return false;
-			                       } 
+			                       }
             });
 	        callback(data);
 	    },
-		data: effect_stats, 
-		multiple: false, 
+		data: effect_stats,
+		multiple: false,
 		allowClear: true,
-		maximumSelectionSize: 1, 
+		maximumSelectionSize: 1,
 		placeholder: "Choose an effect size statistic or type your own.",
 	});
-	
-	var test_stats = [ 
-		{id: 'chi.sq', text: 'χ²'}, 
+
+	var test_stats = [
+		{id: 'chi.sq', text: 'χ²'},
 		{id: 't', text: 't'},
 		{id: 'z', text: 'z'},
 		{id: 'F', text: 'F'}
 	];
-	
+
 	formelms.filter("input.select2inferential_test_statistic").select2({
 		createSearchChoice:function(term, data)
-			{ 
-				if ($(data).filter(function() 
-				{ 
-					return this.text.localeCompare(term)===0; 
-				}).length===0) 
+			{
+				if ($(data).filter(function()
+				{
+					return this.text.localeCompare(term)===0;
+				}).length===0)
 				{
 					return {id:term, text:term};
 				}
@@ -232,34 +232,34 @@ function activateInputs ($container) {
 			                       if(v.id ==  element.val()) {
 			                           data = v;
 			                           return false;
-			                       } 
+			                       }
             });
 	        callback(data);
 	    },
-		data: test_stats, 
-		multiple: false, 
+		data: test_stats,
+		multiple: false,
 		allowClear: true,
-		maximumSelectionSize: 1, 
+		maximumSelectionSize: 1,
 		placeholder: "Choose a test statistic or type your own.",
 	});
-	
+
 	formelms.filter("textarea.select2methodology_codes").select2({
 		tags: [
 			{id:'A',text:'archival measures'},
 			{id:'BI', text:'brain imaging measures' },
-			{id:'J', text:'judgment of the participant' }, 
+			{id:'J', text:'judgment of the participant' },
 			{id:'P', text:'non-imaging physiological measures'},
 			{id:'SR', text:'self-report measures'},
 			{id:'I', text:'indirect verbal or response-time measures'},
 			{id:'BC', text:'behavioral/choice measures'}],
 		placeholder: "Choose or write as many as apply",
-		allowClear: true, 
-		tokenSeparators : [',',', '] 
+		allowClear: true,
+		tokenSeparators : [',',', ']
 	});
-	
+
 	formelms.filter("textarea.select2variables").select2({
-		tags: [], 
-		allowClear: true, 
+		tags: [],
+		allowClear: true,
 		tokenSeparators : [',',', '],
 		formatNoMatches: function (term) {
 			return "Enter the variables, type 'comma' to add a new one.";
@@ -268,25 +268,25 @@ function activateInputs ($container) {
 	$container.find('a.selfdestroyer').each(function(i,elm) {
 		var $elm = $(elm);
 		$elm.off('click','*')
-		.click(function () 
+		.click(function ()
 		{
 			var oldlink = $elm[0].href;
 			var delete_this = $elm.closest('.formblock');
 			delete_this.hide();
-			$.ajax( 
+			$.ajax(
 			{
 				url: oldlink,
 				dataType:"html"
 			})
 			.done(function(data)
 			{
-				if(! (data.indexOf('error') >= 0) ) 
+				if(! (data.indexOf('error') >= 0) )
 				{
 					updateProgress();
 					delete_this.remove();
-				}			
+				}
 				else
-				{				
+				{
 					var $alert = $(data);
 					$('#main-content').prepend( $alert.fadeIn() );
 					$alert[0].scrollIntoView();
@@ -297,7 +297,7 @@ function activateInputs ($container) {
 				delete_this.show();
 				ajaxErrorHandling(e);
 			});
-			
+
 			return false;
 		});
 		$elm.confirmDialog({
@@ -305,9 +305,9 @@ function activateInputs ($container) {
 			cancelButton: 'Cancel',
 			confirmButton: 'Delete',
 		});
-		
+
 	});
-	
+
 	$container.find('a.copysample').each(function(i,elm) { // copy the sample information from the preceding test if it exists
 		$(elm).off('click','*');
 		$(elm).on('click', function(evnt) {
@@ -320,17 +320,17 @@ function activateInputs ($container) {
 			return false;
 		});
 	});
-	
-	$container.find("a.btn.adder").on("click", function (event) 
+
+	$container.find("a.btn.adder").on("click", function (event)
 	{
 		var oldlink = this.href;
 		var adder_elm = $(this).closest('.adder_elm');
-		$.ajax( 
+		$.ajax(
 		{
 			url: oldlink,
-			dataType:"html", 
+			dataType:"html",
 		})
-		.done(function (data, textStatus) 
+		.done(function (data, textStatus)
 		{
 			var dat = $(data);
 			adder_elm.replaceWithPolyfill(dat);
@@ -340,8 +340,8 @@ function activateInputs ($container) {
 		.fail(ajaxErrorHandling);
 		return false;
 	});
-	
-	
+
+
 	formelms.each(function(i,elm) {
 		$(elm).on('change',unsavedChanges);
 	});
@@ -349,9 +349,9 @@ function activateInputs ($container) {
 
 function saveform() {
 	options = {
-		data: $("#CodedpaperCodeFormSubmit").closest("form").serialize(), 
-		dataType:"html", 
-		type:"post", 
+		data: $("#CodedpaperCodeFormSubmit").closest("form").serialize(),
+		dataType:"html",
+		type:"post",
 		url: $("#CodedpaperCodeFormSubmit").closest("form").attr('action'),
 		timeout: 5000
 	};
@@ -359,14 +359,14 @@ function saveform() {
 	.fail(ajaxErrorHandling)
 	.done(function(data, textStatus)
 	{
-		if(! (data.indexOf('error') >= 0) ) 
+		if(! (data.indexOf('error') >= 0) )
 		{
-			$('#navSave').removeClass('btn-info').attr('disabled', 'disabled').text('Saved');
+			$('#navSave').removeClass('btn-warning').attr('disabled', 'disabled').text('Saved');
 			updateProgress();
 			lastSave = $.now();
-		}			
+		}
 		else
-		{				
+		{
 			var $alert = $(data);
 			$('#main-content').prepend( $alert.fadeIn() );
 			$alert[0].scrollIntoView();
@@ -387,9 +387,9 @@ $(document).ready(function () {
 		autosaveglobal = true;
 		$("#toggle_autosave").button('toggle').on('click', toggleAutosave);
 	}
-	
+
 	activateInputs($('#CodedpaperCodeForm'));
-	
+
 	$("#CodedpaperCodeFormSubmit").click( function (event) {
 		saveform();
 		return false;
@@ -398,10 +398,10 @@ $(document).ready(function () {
 		saveform();
 		return false;
 	});
-	
+
 	updateProgress();
 	$('#CodedpaperCompletedLabel').click(function() {
-		$('#CodedpaperCompletedLabel').toggleClass('active', $('#CodedpaperCompleted').prop('checked') ); // switch to checkbox state 
+		$('#CodedpaperCompletedLabel').toggleClass('active', $('#CodedpaperCompleted').prop('checked') ); // switch to checkbox state
 	});
 	$(document).off('keydown')
 	.keydown(function(event) { // add a key combo to save the form
@@ -411,7 +411,7 @@ $(document).ready(function () {
 		    return false;
 		} else return true;
 	});
-	
+
 	window.onbeforeunload = function() {
 		if ( $('#navSave').text() != 'Saved' ) {
 			return 'You have unsaved changes.'
@@ -419,10 +419,10 @@ $(document).ready(function () {
 	};
 });
 
-function ajaxErrorHandling (e, x, settings, exception) 
+function ajaxErrorHandling (e, x, settings, exception)
 {
 	var message;
-	var statusErrorMap = 
+	var statusErrorMap =
 	{
 	    '400' : "Server understood the request but request content was invalid.",
 	    '401' : "You don't have access.",
@@ -431,7 +431,7 @@ function ajaxErrorHandling (e, x, settings, exception)
 	    '500' : "Internal Server Error.",
 	    '503' : "Server can't be reached."
 	};
-	if (e.status) 
+	if (e.status)
 	{
 	    message =statusErrorMap[e.status];
 		if(!message)

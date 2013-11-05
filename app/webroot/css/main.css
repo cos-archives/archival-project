@@ -7,6 +7,13 @@ body
   line-height: 36px;
 }
 
+.nav .dropdown-toggle span.caret,
+.nav .dropdown-toggle:hover span.caret,
+.nav .dropdown-toggle:focus span.caret {
+  border-top-color: white;
+  border-bottom-color: white;
+}
+
 .hero-unit {
   padding: 40px;
   margin-left:-20px;
@@ -73,7 +80,6 @@ input.boxless-nameinput[type='text'] {
 }
 
 .osfa-affix-sidenav.affix {
-	top:100px;
 	width:200px;
 }
 

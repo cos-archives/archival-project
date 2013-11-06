@@ -1,4 +1,9 @@
 <?php echo $this->element('dashboard-menu'); ?>
+<style>
+	th.actions {
+		width:320px;
+	}
+</style>
 
 <div class="papers index">
 	<div class='pull-right'>

@@ -59,14 +59,14 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </a>
-	          <a href='/' class='brand'><img alt="COS Archival" src="/img/cos_archival_logo_mini.png" width="70"></a>
+	          <a href='/' class='brand'><img alt="COS Archival" src="/img/cos-archival.png"></a>
 	          <div class="container nav-collapse">
 	            <ul class="nav">
 	                <li><?php echo $this->Html->link('Getting involved', '/pages/getting_involved'); ?></li>
-	                <li><a href='/interactive_tutorial/#/'>Interactive Tutorial</a></li>
 
 <?php if(AuthComponent::user() !== NULL){ ?>
                     <li><a href='/pages/contact'>Contact</a></li>
+                    <li><a href='/interactive_tutorial/#/'>Interactive Tutorial</a></li>
 <?php } ?>
 
                 </ul>

@@ -61,6 +61,18 @@
 
             <div class="control-group">
                 <?php echo $this->Form->input(
+                    'section',
+                    array(
+                        'style'=>'width:336px',
+                        'after' => '<span class="help-block">Optional - usually a course code or professor\'s name.</span></div>',
+                        'label' => array('class' => 'control-label'),
+                        'between'=> '<div class="controls">'
+                    )
+                ); ?>
+            </div>
+
+            <div class="control-group">
+                <?php echo $this->Form->input(
                     'occupation',
                     array(
                         'style'=>'width:336px',

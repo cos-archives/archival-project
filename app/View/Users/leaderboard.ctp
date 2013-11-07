@@ -8,6 +8,7 @@
 				<th><?php echo $this->Paginator->sort('coded_papers_complete', 'Complete'); ?></th>
 				<th><?php echo $this->Paginator->sort('coded_papers_incomplete', 'Incomplete'); ?></th>
 				<th><?php echo $this->Paginator->sort('affiliated_institution'); ?></th>
+				<th><?php echo $this->Paginator->sort('section'); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,6 +19,7 @@
 				<td><?php echo $u['coded_papers_complete']; ?></td>
 				<td><?php echo $u['coded_papers_incomplete']; ?></td>
 				<td><?php echo $u['affiliated_institution']; ?></td>
+				<td><?php echo $u['section']; ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>

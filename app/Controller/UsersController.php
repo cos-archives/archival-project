@@ -1,6 +1,8 @@
 <?php
 App::uses('AppController', 'Controller');
 class UsersController extends AppController {
+
+
 	function isAuthorized($user = null, $request = null) {
 		$admin = parent::isAuthorized($user); # allow admins to do anything
 		$req_action = $this->request->params['action'];
@@ -12,8 +14,25 @@ class UsersController extends AppController {
 
 		if(in_array($req_action, array('index','leaderboard'))) return true; # viewing and adding is allowed to all users
 	}
+
+	public function index() {
+		$this->User->recursive = 0;
+		$this->set('users', $this->paginate());
+	}
+
+	public $components = array('Paginator');
+
 	public function leaderboard() {
-		$this->set($this->User->getAchievement());
+		$this->User->recursive = -1;
+		$this->Paginator->settings = array(
+			'order' => array(
+				'coded_papers_complete' => 'desc'
+			)
+		);
+
+		$data = $this->Paginator->paginate();
+
+		$this->set('users', $data);
 	}
 	public function login() {
 	    if ($this->request->is('post')) {
@@ -113,10 +132,6 @@ the COS Archival Project team");
  *
  * @return void
  */
-	public function index() {
-		$this->User->recursive = 0;
-		$this->set('users', $this->paginate());
-	}
 
 /**
  * view method

@@ -1,7 +1,7 @@
  <?php
  function nav_link($url, $text) {
     $html = '<li';
-    if($url == $_SERVER['REQUEST_URI']) {
+    if(strpos($_SERVER['REQUEST_URI'], $url) === 0) {
         $html .= ' class="active"';
     }
     $html .= '><a href="' . $url . '"';

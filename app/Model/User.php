@@ -8,11 +8,16 @@ App::uses('AppModel', 'Model');
  */
 class User extends AppModel {
 
+	public $virtualFields = array(
+		'coded_papers_complete' => '(select coalesce(sum(completed), 0) from codedpapers WHERE user_id = User.id)',
+		'coded_papers_incomplete' => '(select coalesce(count(*) - sum(completed), 0) from codedpapers WHERE user_id = User.id)'
+	);
+
 	 public $components = array(
 			'Session',
 			'Security', # the one addition
 	        'Auth' => array('authorize' => array(
-		'Controller' => 
+		'Controller' =>
 			array(
 				'userModel' => 'User',
 		'		recursive' => 3)
@@ -36,36 +41,8 @@ class User extends AppModel {
 		));
 		if($this->save())
 			return $reset_token;
-		else 
+		else
 			return false;
-	}
-	public function getAchievement($id = NULL) {
-		$achievement = $this->Codedpaper->find('all', array(
-				'group' => 'Codedpaper.completed,User.id',
-				'fields' => 'User.id,User.username,Codedpaper.completed,COUNT(*) AS count',
-				'recursive' => 0,
-		));
-		$allUsers = $this->find('all', array(
-				'recursive' => -1,
-		));
-		foreach($allUsers AS $User) {
-			$User = $User['User'];
-			$users[$User['id']] = $User;
-			$complete[$User['id']] = 0;
-			$incomplete[$User['id']] = 0;
-		}
-		foreach($achievement AS $key => $value) {
-			if($value['Codedpaper']['completed']) {
-				$complete[
-					$value['User']['id']
-				] = (int) $value[0]['count'];
-			} else {
-				$incomplete[
-					$value['User']['id']
-				] = (int) $value[0]['count'];
-			}
-		}
-		return compact('users','complete','incomplete');
 	}
 /**
  * Validation rules
@@ -93,7 +70,7 @@ class User extends AppModel {
 			'rule' => 'isUnique',
 			'message' => 'This username is already taken. Please choose another one.',
 			'on' => 'create', // Limit validation to 'create' or 'update' operations
-			
+
 		)),
 		'affiliated_institution' => array(
 	        'rule' => 'notEmpty',

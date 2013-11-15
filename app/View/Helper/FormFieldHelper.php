@@ -33,7 +33,7 @@ class FormFieldHelper extends AppHelper {
         );
     }
 
-    public function text($field, $labelText, $helpText=null, $rows=null) {
+    public function text($field, $labelText, $helpText=null, $rows=null, $class=null) {
         /* Returns a Bootstrap, form-horizontal style text input field.
 
         If $rows is specified, this returns a textarea instead. */
@@ -44,33 +44,39 @@ class FormFieldHelper extends AppHelper {
             $options['rows'] = $rows;
         }
 
+        if($class !== null) {
+            $options['class'] = $class;
+        }
+
         return $this->Form->input(
             $field, $options
         );
     }
 
-    public function dropdown($field, $labelText, $options, $helpText=null) {
-        return $this->select($field, $labelText, $options, $helpText);
+    public function dropdown($field, $labelText, $options, $helpText=null, $class=null) {
+        return $this->select($field, $labelText, $options, $helpText, null, $class);
     }
 
-    public function multi($field, $labelText, $options, $helpText=null) {
-        return $this->select($field, $labelText, $options, $helpText, true);
+    public function multi($field, $labelText, $options, $helpText=null, $class=null) {
+        return $this->select($field, $labelText, $options, $helpText, true, $class);
     }
 
-    public function checkboxes($field, $labelText, $options, $helpText=null) {
-        return $this->select($field, $labelText, $options, $helpText, 'checkbox');
+    public function checkboxes($field, $labelText, $options, $helpText=null, $class=null) {
+        return $this->select($field, $labelText, $options, $helpText, 'checkbox', $class);
     }
 
-    private function select($field, $labelText, $options, $helpText, $multi=False) {
+    private function select($field, $labelText, $options, $helpText, $multi=False, $class=null) {
         $helpHtml = $this->generateHelpSpan($helpText);
 
         // Add options for selection
+
         $params = array_merge(
             $this->inputDefaults($helpText, $labelText),
             array('options' => $options)
         );
 
         $params['multiple'] = $multi;
+        $params['class'] = $class;
 
         return $this->Form->input($field, $params);
     }
@@ -79,10 +85,22 @@ class FormFieldHelper extends AppHelper {
         $options = $options === null ? array() : $options;
 
         $tag = '<fieldset';
+
+        $classes = array();
+
         if(isset($options['hidden']) and $options['hidden'] == true) {
-            $tag .= " class='hidden'";
+            $classes[] = 'hide';
         }
+        if(isset($options['class'])){
+            $classes[] = $options['class'];
+        }
+
+        if(sizeof($classes) > 0){
+            $tag .= ' class="' . join(' ', $classes) . '"';
+        }
+
         $tag .= '>';
+
         return $tag;
     }
 

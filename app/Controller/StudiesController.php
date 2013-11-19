@@ -1,11 +1,11 @@
 <?php
 class StudiesController extends AppController {
-	function isAuthorized($user = null, $request = null) {	
+	function isAuthorized($user = null, $request = null) {
 		$admin = parent::isAuthorized($user); # allow admins to do anything
 		if($admin) return true;
-		
+
 		$req_action = $this->request->params['action'];
-	
+
 		$study_id = $this->request->params['pass'][0];
 		$this->Study->id = $study_id;
 		if (!$this->Study->exists()) {
@@ -28,7 +28,7 @@ class StudiesController extends AppController {
 	public function delete($id = null) {
 		$this->Study->id = $id;
 		if (!$this->request->is('ajax')) $ajax = TRUE; else $ajax = FALSE;
-		
+
 		if (!$this->Study->exists()) {
 			throw new NotFoundException(__('Invalid study'));
 		}
@@ -43,5 +43,29 @@ class StudiesController extends AppController {
 		}
 		$this->Session->setFlash(__('Study was not deleted'));
 	    $this->redirect("/codedpapers/index_mine");
+	}
+
+	public function add($codedpaper_id) {
+		$this->layout = null;
+
+		$this->Study->save(array('codedpaper_id'=>$codedpaper_id), False);
+		$this->request->data['Study'] = $this->Study->read(null, $this->Study->data['id']);
+
+		$this->render('/Elements/ajax_response');
+	}
+
+	public function shell($codedpaper_id, $study_id) {
+		$this->layout = null;
+
+		// Require that this be an Ajax request.
+		if(!$this->request->is('ajax')) {
+			throw new NotFoundException();
+		}
+
+		$this->data = array(
+			'codedpaper_id' => $codedpaper_id,
+			'study_index' => $study_id
+		);
+
 	}
 }

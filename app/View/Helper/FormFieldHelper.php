@@ -13,9 +13,9 @@ class FormFieldHelper extends AppHelper {
 
     private function inputDefaults($helpText, $labelText) {
         $after = '';
-        if($helpText !== null) {
-            $after .= "<span class='help-block'>$helpText</span>";
-        }
+        // if($helpText !== null) {
+        //     $after .= "<span class='help-block'>$helpText</span>";
+        // }
         $after .= '</div></div>';
 
         $label = array(
@@ -29,8 +29,60 @@ class FormFieldHelper extends AppHelper {
             'before' => "<div class='control-group'>",
             'between' => "<div class='controls'>",
             'after' => $after,
-            'label' => $label
+            'label' => $label,
+            'data-content' => $helpText
         );
+    }
+
+    private function makeCommonOptions($labelText, $tip=null, $detailedTip=null) {
+        $options = array(
+            'div' => false,
+            'placeholder' => false,
+            'before' => "<div class='control-group'>",
+            'between' => "<div class='controls'>",
+            'after' => '</div></div>',
+            'label' => array(
+                'text' => $labelText,
+                'class' => 'control-label'
+            )
+        );
+
+        if($detailedTip !== null) {
+            $options['after'] = "<span class='help-block'><button class='btn btn-small btn-info helpModalToggle'>Detailed Help</button></span>
+            <div class='modal hide fade help-modal' tabindex='-1' role='dialog'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal'>×</button>
+                    <h3>" . $labelText . "</h3>
+                </div>
+                <div class='modal-body'>" . $detailedTip . "</div>
+                <div class='modal-footer'>
+                    <button class='btn btn-primary' data-dismiss='modal'>OK</button>
+                </div>
+            </div>" . $options['after'];
+        }
+
+        if($tip !== null) {
+            $options['after'] = "<div class='hide help-popover'>$tip</div>" . $options['after'];
+        }
+
+        return $options;
+    }
+
+    public function textbox($options) {
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        foreach($strippedKeys as $k){
+            $$k = isset($options[$k]) ? $options[$k] : null;
+            unset($options[$k]);
+        }
+
+        $options = array_merge(
+            $this->makeCommonOptions($label, $tip, $detailedTip),
+            $options
+        );
+
+        return $this->Form->input($field, $options);
+
+
     }
 
     public function text($field, $labelText, $helpText=null, $rows=null, $class=null) {
@@ -53,6 +105,21 @@ class FormFieldHelper extends AppHelper {
         );
     }
 
+    public function dropdownbox($options) {
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        foreach($strippedKeys as $k){
+            $$k = isset($options[$k]) ? $options[$k] : null;
+            unset($options[$k]);
+        }
+
+        $options = array_merge(
+            $this->makeCommonOptions($label, $tip, $detailedTip),
+            $options
+        );
+
+        return $this->Form->input($field, $options);
+    }
+
     public function dropdown($field, $labelText, $options, $helpText=null, $class=null) {
         return $this->select($field, $labelText, $options, $helpText, null, $class);
     }
@@ -61,8 +128,10 @@ class FormFieldHelper extends AppHelper {
         return $this->select($field, $labelText, $options, $helpText, true, $class);
     }
 
-    public function checkboxes($field, $labelText, $options, $helpText=null, $class=null) {
-        return $this->select($field, $labelText, $options, $helpText, 'checkbox', $class);
+    public function checkboxes($options) {
+        return $this->dropdownbox(
+            array_merge($options, array('multiple' => 'checkbox'))
+        );
     }
 
     private function select($field, $labelText, $options, $helpText, $multi=False, $class=null) {

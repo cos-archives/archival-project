@@ -49,7 +49,7 @@ class TestsController extends AppController {
 			$this->render('/Codedpapers/message');
 		}
 	}
-	public function shell($s=null, $t=null) {
+	public function shell($study_id=null, $s=null, $t=null) {
 		// Require that this be an Ajax request.
 		if(!$this->request->is('ajax')) {
 			throw new NotFoundException();
@@ -63,7 +63,16 @@ class TestsController extends AppController {
 		//Since this is an Ajax request, no layout should be used
 		$this->layout = null;
 
-		$this->set(compact('s', 't'));
+		// Create a new Test object
+		$this->Test->save(
+			array('study_id'=>$study_id),
+			False
+		);
+		$this->Test->read();
+
+		$test = $this->Test->data['Test'];
+
+		$this->set(compact('s', 't', 'test'));
 
 	}
 }

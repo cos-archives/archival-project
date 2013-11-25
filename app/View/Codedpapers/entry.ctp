@@ -1,4 +1,7 @@
 <style>
+    .word-wrap {
+        word-wrap: break-work;
+    }
     #static-sidebar {
         position:fixed;
     }
@@ -42,6 +45,9 @@
     #coding-form .testFooter .buttons {
         text-align:right;
         padding-right:20px;
+    }
+    #coding-form .testFooter {
+        margin-bottom:20px;
     }
 
     #coding-form .control-group {
@@ -91,7 +97,8 @@
         for($i=0; $i<sizeof($this->data['Study']); $i++) {
             echo $this->element('partials/study', array(
                 'i' => $i,
-                'data' => $this->data
+                'data' => $this->data,
+                'study' => $this->data['Study'][$i]
             ));
         }
     ?>
@@ -239,6 +246,48 @@ $(function() {
             x = modal;
         })
 
+        $('.deleteSection').on('click', function(e) {
+            e.preventDefault();
+
+            if( $(e.target).closest('.test').length === 1 ) {
+                var parent = $(e.target).closest('.test');
+
+                $.post('/tests/delete/' + parent.data('test-id'),
+                    {
+                        'success': function(d) {
+                            // remove list item
+                            $('#outline a[href="#' + parent.attr('id') + '"]').parent()
+                                .slideUp({
+                                    'done': function () {
+                                        this.remove();
+                                    }
+                                });
+
+                            // remove form secions
+                            parent.slideUp({'done': function() {this.remove(); }});
+
+                        }
+                    }
+                );
+            } else {
+                var parent = $(e.target).closest('.study');
+
+                $.post('/studies/delete/' + parent.data('study-id'),
+                {
+                    'success': function (d) {
+                        $('#outline a[href="#' + parent.attr('id') + '"]').parent()
+                            .slideUp({
+                                'done': function() {
+                                    this.remove();
+                                }
+                            });
+
+                        parent.slideUp({'done': function() {this.remove(); }});
+                    }
+                })
+            }
+        });
+
         $('.studyFooter a.btn').off('click').on('click', addStudy);
         $('.testFooter a.btn').off('click').on('click', addTest);
         $('body').scrollspy('refresh');
@@ -248,7 +297,7 @@ $(function() {
     var ol = $('#outline');
     var studies = $('.study');
     for(var i=0; i<studies.length;i++) {
-        var tests = studies.find('.test');
+        var tests = $(studies[i]).find('.test');
         var li = $('<li><a href="#s' + i + '">Study ' + (i+1) + '</a></li>')
         if(tests.length > 0) {
             var sublist = $('<ol class="nav"></ol>');
@@ -270,22 +319,28 @@ $(function() {
         /* Add Test Button */
         e.preventDefault();
 
-        var num_tests = $(e.target).closest('.study').find('.test').length;
-        var study_id = Number($(e.target).closest('.study').data('study-seq'));
+        var t = $(e.target).closest('.study').find('.test').length;
+        var s = $(e.target).closest('.study').data('study-seq');
+        var study_id = $(e.target).closest('.study').data('study-id');
+
+        foo = e
+
+        //  return
 
         $.get(
-            '/tests/shell/' + study_id + '/' + num_tests,
+            '/tests/shell/' + study_id + '/' + s + '/' + t,
             function(d) {
                 // Add inputs to the form
                 d = $(d);
-                d.insertAfter( $(e.target).closest('.study').find('.test:last') )
+
+                d.insertBefore( $(e.target).closest('.study').find('.testFooter') )
                     .hide()
                     .slideDown();
 
                 // Add test to the list
-                var li = $('<li><a href="#s' + study_id + 't' + num_tests + '">Test ' + (study_id+1) + '.' + (num_tests+1) + '</a></li>')
+                var li = $('<li><a href="#s' + s + 't' + t + '">Test ' + (s+1) + '.' + (t+1) + '</a></li>')
                     .hide()
-                    .appendTo('ol#outline li:nth-of-type(' + (study_id+1) + ') > ol')
+                    .appendTo('ol#outline li:nth-of-type(' + (s+1) + ') > ol')
                     .slideDown();
 
                 // Add the list item to the test's div
@@ -328,10 +383,6 @@ $(function() {
             }
         )
     }
-
-    $('.deleteSection').on('click', function(e) {
-        console.log(e.target);
-    });
 });
 
 </script>

@@ -48,16 +48,65 @@ class CodedpapersController extends AppController {
 	}
 	public function entry($id = NULL)
 	{
+		// Add custom form field helper
 		$this->helpers[] = 'FormField';
+
+		// Set the object in $this->Codedpaper to the Codedpaper we're looking at.
 		$this->Codedpaper->id = $id;
 
 		if (!$this->Codedpaper->exists())
 		    throw new NotFoundException('Invalid coded paper');
 
-		$this->request->data = $this->Codedpaper->findDeep($id);
+
+		if ($this->request->is('post') OR $this->request->is('ajax'))
+		{
+			if($this->Codedpaper->saveAssociated($this->request->data, array("deep" => TRUE)	))
+			{
+				$msg = __('Study saved.');
+				$kind = 'alert-info';
+			}
+			else {
+				$msg = __('Study could not be saved!');
+				$kind = 'alert-error';
+			}
+		}
+
+		if(isset($msg)) {
+			$this->Session->setFlash($msg,$kind);
+		}
+
+		$errors = array_unique(Set::flatten($this->Codedpaper->validationErrors));
+		if(!empty($errors))
+		{
+			function inc($matches) {
+			    return ++$matches[1];
+			}
+
+			foreach($errors AS $field => $error) {
+				$field =  preg_replace_callback( "|(\d+)|", "inc", $field);
+				$field = Inflector::humanize(str_replace("."," ",$field));
+
+				$msg .= "<br>". $field . ": ". $error;
+			}
+		}
+
+		if (!$this->request->is('ajax')) {
+			if(isset($msg) ) $this->Session->setFlash($msg,$kind);
+
+			### get data again (if I submitted abstract and title as hidden fields, I wouldn't need to do it)
+			$this->request->data = $this->Codedpaper->findDeep($id);
+
+			$replicatesStudyId = $this->Codedpaper->Study->getReplicable($id);
+
+			$this->set(compact('replicatesStudyId'));
+		}
+		else {
+			$this->set(compact('msg','kind'));
+			$this->render('message');
+		}
 
 		// Add list of referenced papers to the view.
-		$this->request->data['referenced_papers'] = $this->Codedpaper->Study->getReplicable($id);
+		$this->set(array('referenced_papers' => $this->Codedpaper->Study->getReplicable($id)));
 
 
 	}
@@ -80,6 +129,8 @@ class CodedpapersController extends AppController {
 				$kind = 'alert-error';
 			}
 		}
+
+		if(isset($msg) ) $this->Session->setFlash($msg,$kind);
 
 		$errors = array_unique(Set::flatten($this->Codedpaper->validationErrors));
 		if(!empty($errors))

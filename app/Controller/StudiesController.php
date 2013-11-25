@@ -54,18 +54,51 @@ class StudiesController extends AppController {
 		$this->render('/Elements/ajax_response');
 	}
 
-	public function shell($codedpaper_id, $study_id) {
+	public function shell($codedpaper_id, $i) {
 		$this->layout = null;
+		$this->uses = array('Study', 'Test');
 
 		// Require that this be an Ajax request.
 		if(!$this->request->is('ajax')) {
 			throw new NotFoundException();
 		}
 
-		$this->data = array(
-			'codedpaper_id' => $codedpaper_id,
-			'study_index' => $study_id
+		// Create a new Study object
+		$this->Study->save(
+			array('codedpaper_id'=>$codedpaper_id),
+			False
 		);
+
+		// Create a new Test object
+		$this->Test->save(
+			array('study_id'=>$this->Study->getInsertID()),
+			False
+		);
+
+		$response = $this->Study->find('first',
+			array(
+				'recursive' => 3,
+				'contain' => array(
+					'Test'
+				),
+				'conditions' => array(
+					'id' => $this->Study->getInsertID()
+				)
+			)
+		);
+
+		$this->request->data = array(
+			'Study' => array($response['Study'])
+		);
+
+		$this->request->data['Study'][0]['Test'] = array(
+			$response['Test'][0]
+		);
+
+		$this->set(array(
+			'i' => $i,
+			'study' => $this->request->data['Study'][0]
+		));
 
 	}
 }

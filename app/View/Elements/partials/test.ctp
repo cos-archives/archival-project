@@ -1,10 +1,19 @@
-<div class='test' data-test-id='' id='<?php echo "s$s" . "t$t"; ?>'>
+<?php
+    echo "<div class='test'";
+    echo " id='s" . $s . "t" . $t . "'";
+    echo " data-test-id='" . $test['id'] . "'";
+    echo " data-test-seq='$t'";
+    echo ">";
+?>
     <header>
         <button class='btn btn-danger deleteSection'>Delete Test</button>
         <h3><?php echo 'Test ' . ($s+1) . '.' . ($t+1); ?></h3>
     </header>
 
                 <?php
+
+                echo $this->Form->hidden("Study.$s.Test.$t.id");
+                echo $this->Form->hidden("Study.$s.Test.$t.effect_id");
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.name",
@@ -161,7 +170,7 @@
                 ));
 
                 echo $this->FormField->textbox(array(
-                    'field' => "Study.$s.Test.$t.reasons for exclusion",
+                    'field' => "Study.$s.Test.$t.reasons_for_exclusions",
                     'label' => "Reasons for Exclusion",
                     'tip' => "separated by commas if multiple reasons given (using the author’s words as much as possible)"
                 ));

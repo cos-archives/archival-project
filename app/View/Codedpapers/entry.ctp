@@ -25,7 +25,7 @@
     }
     #coding-form header {
         margin-top:0;
-        padding: 0 20px 0 0;
+        padding: 0;
     }
     #coding-form header h3 {
         margin-top:0px;
@@ -35,6 +35,14 @@
     #coding-form header button {
         float:right;
     }
+    #coding-form .test {
+        border-top: 1px solid #CFCFCF;
+        padding-top: 10px;
+    }
+    #coding-form .test:last-child {
+        border-bottom: 1px solid #CFCFCF;
+    }
+
     #coding-form .formFooter,
     #coding-form .studyFooter,
     #coding-form .testFooter {
@@ -329,7 +337,7 @@ $(function() {
     $('.title_entry').trigger('input');
 
     $('#outline').slideDown()
-    $('body').scrollspy({'offset': 60});
+    $('body').scrollspy({'offset': 91});
 
     function changeTitle(e) {
         var field = $(e.target);

@@ -54,11 +54,15 @@ class CodedpapersController extends AppController {
 		// Set the object in $this->Codedpaper to the Codedpaper we're looking at.
 		$this->Codedpaper->id = $id;
 
+		// Codedpapers should be added through the above "add" action.
 		if (!$this->Codedpaper->exists())
 		    throw new NotFoundException('Invalid coded paper');
 
+		// Add list of referenced papers to the view.
+		$this->set(array('referenced_papers' => $this->Codedpaper->Study->getReplicable($id)));
 
-		if ($this->request->is('post') OR $this->request->is('ajax'))
+		// Attempt to save any submitted info
+		if ($this->request->is('put') OR $this->request->is('ajax'))
 		{
 			if($this->Codedpaper->saveAssociated($this->request->data, array("deep" => TRUE)	))
 			{
@@ -69,44 +73,39 @@ class CodedpapersController extends AppController {
 				$msg = __('Study could not be saved!');
 				$kind = 'alert-error';
 			}
-		}
 
-		if(isset($msg)) {
 			$this->Session->setFlash($msg,$kind);
-		}
 
-		$errors = array_unique(Set::flatten($this->Codedpaper->validationErrors));
-		if(!empty($errors))
-		{
-			function inc($matches) {
-			    return ++$matches[1];
+			// Handle validation errors (if any) resulting from save.
+			$errors = array_unique(Set::flatten($this->Codedpaper->validationErrors));
+			if(!empty($errors))
+			{
+				function inc($matches) {
+				    return ++$matches[1];
+				}
+
+				foreach($errors AS $field => $error) {
+					$field =  preg_replace_callback( "|(\d+)|", "inc", $field);
+					$field = Inflector::humanize(str_replace("."," ",$field));
+
+					$msg .= "<br>". $field . ": ". $error;
+				}
 			}
-
-			foreach($errors AS $field => $error) {
-				$field =  preg_replace_callback( "|(\d+)|", "inc", $field);
-				$field = Inflector::humanize(str_replace("."," ",$field));
-
-				$msg .= "<br>". $field . ": ". $error;
-			}
 		}
 
-		if (!$this->request->is('ajax')) {
-			if(isset($msg) ) $this->Session->setFlash($msg,$kind);
 
-			### get data again (if I submitted abstract and title as hidden fields, I wouldn't need to do it)
-			$this->request->data = $this->Codedpaper->findDeep($id);
-
-			$replicatesStudyId = $this->Codedpaper->Study->getReplicable($id);
-
-			$this->set(compact('replicatesStudyId'));
-		}
-		else {
+		if ($this->request->is('ajax')) {
 			$this->set(compact('msg','kind'));
 			$this->render('message');
+		} else {
+			if( isset($msg) ) {
+				$this->Session->setFlash($msg,$kind);
+			}
+
+			$this->request->data = $this->Codedpaper->findDeep($id);
 		}
 
-		// Add list of referenced papers to the view.
-		$this->set(array('referenced_papers' => $this->Codedpaper->Study->getReplicable($id)));
+
 
 
 	}

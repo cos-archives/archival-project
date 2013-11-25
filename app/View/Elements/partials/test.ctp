@@ -18,6 +18,7 @@
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.name",
                     'label' => "Test Number & Name",
+                    'class' => 'title_entry',
                     'tip' => "If others have coded this test before you, follow the naming and numbering scheme that was used."
                 ));
 

@@ -28,6 +28,7 @@
 		<?php
 		endif;
 		?>
+		<script src="<?php echo $this->webroot; ?>js/vendor/jquery.scrollTo.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/select2.css" />
        <link rel="stylesheet" href="<?php echo $this->webroot; ?>css/bootstrap-responsive.min.css">
 		<!--[if IE 7]>
@@ -49,7 +50,7 @@
     	?>
 
 	</head>
-	<body data-spy="scroll" data-offset="100">
+	<body>
 	<div class="bigouterbox">
 	    <div class="navbar-whiter navbar navbar-fixed-top">
 	      <div class="navbar-inner">

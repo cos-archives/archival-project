@@ -1,5 +1,5 @@
 <?php
-    echo "<div class='study'";
+    echo "<div class='study block'";
     echo " id='s" . $i . "'";
     echo " data-study-id='" . $study['id'] . "'";
     echo " data-study-seq='$i'";
@@ -15,6 +15,7 @@
             echo $this->FormField->textbox(array(
                 'field' => "Study.$i.name",
                 'label' => "Study Number &amp; Name",
+                'class' => 'title_entry',
                 'tip' => "Use the study's number from the article, if possible",
                 'detailedTip' => '<p>Study number, as written in the article (such as Study 1, Study 2, Study 3a, Study 3b). If there is only one study, enter <kbd>1</kbd>.</p>
                 <p>If others have coded this study before you, follow the naming and numbering scheme that was used.</p>'

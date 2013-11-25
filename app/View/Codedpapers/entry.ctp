@@ -1,9 +1,18 @@
 <style>
-    .word-wrap {
-        word-wrap: break-work;
+    .block {
+        min-height: 20px;
+        padding: 19px;
+        margin-bottom: 20px;
+        background-color: #f5f5f5;
+        border: 1px solid #e3e3e3;
+        border-radius: 10px;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
     }
     #static-sidebar {
         position:fixed;
+    }
+    #outline li {
+        line-height:24px;
     }
     #outline li.active > a {
         font-weight:bold;
@@ -16,7 +25,7 @@
     }
     #coding-form header {
         margin-top:0;
-        padding: 0 20px;
+        padding: 0 20px 0 0;
     }
     #coding-form header h3 {
         margin-top:0px;
@@ -26,21 +35,14 @@
     #coding-form header button {
         float:right;
     }
-    #coding-form .study {
-        padding:20px 0;
-        background-color: #eee;
-        border-left:5px solid #f89406;
-    }
-    #coding-form .test {
-        border-top: 1px solid #bbb;
-        padding:20px 0;
-    }
+    #coding-form .formFooter,
     #coding-form .studyFooter,
     #coding-form .testFooter {
         padding:20px 0;
         background-color:#ddd;
-        border-left:5px solid blue;
+        /*border-left:5px solid blue;*/
     }
+    #coding-form .formFooter .buttons,
     #coding-form .studyFooter .buttons,
     #coding-form .testFooter .buttons {
         text-align:right;
@@ -77,10 +79,11 @@
 
 </style>
 <div class='span4' id='static-sidebar'>
-    <ol id='outline' class='nav'>
+    <ol id='outline' class='nav block hide'>
     </ol>
 </div>
 <div class='span8 offset4' id='coding-form'><!-- Offset is required because the sidebar is fixed. -->
+    <?php echo $this->Session->flash(); ?>
     <?php
         echo $this->Form->create(
             'Codedpaper',
@@ -290,7 +293,18 @@ $(function() {
 
         $('.studyFooter a.btn').off('click').on('click', addStudy);
         $('.testFooter a.btn').off('click').on('click', addTest);
-        $('body').scrollspy('refresh');
+        $('.title_entry').off('input').on('input', changeTitle);
+
+        $('[data-spy="scroll"]').each(function () {
+          var $spy = $(this).scrollspy('refresh')
+        });
+
+        $('#outline a').off('click').on('click', function(e){
+            e.preventDefault();
+            $.scrollTo( this.hash, 200, {
+                'offset': {'top': -90 }
+            });
+        });
     }
 
     // Build the initial outline
@@ -309,11 +323,34 @@ $(function() {
 
         ol.append(li);
     }
-    $('#static-sidebar ol.nav').scrollspy();
 
     initSections();
 
+    $('.title_entry').trigger('input');
 
+    $('#outline').slideDown()
+    $('body').scrollspy({'offset': 60});
+
+    function changeTitle(e) {
+        var field = $(e.target);
+        var div = field.closest('.study, .test')
+        var sectionHeader = div.find(' > header > h3');
+        var outlineLink = $('#outline a[href="#' + div.attr('id') + '"]');
+
+        // set the header's data-original-text if it hasn't yet been set.
+        if (! sectionHeader.data('original-text') ) {
+            sectionHeader.data('original-text', sectionHeader.text());
+        }
+
+        // determine the section's title
+        var title = sectionHeader.data('original-text');
+        if (field.val() != '') {
+            title = field.val()
+        }
+
+        sectionHeader.text(title);
+        outlineLink.text(title);
+    }
 
     function addTest(e) {
         /* Add Test Button */

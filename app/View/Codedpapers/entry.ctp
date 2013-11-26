@@ -443,3 +443,4 @@ $(function() {
 });
 
 </script>
+<script src='/js/entry.js'></script>

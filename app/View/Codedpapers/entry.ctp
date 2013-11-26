@@ -11,6 +11,10 @@
     #static-sidebar {
         position:fixed;
     }
+    #outline {
+        margin-top:20px;
+    }
+
     #outline li {
         line-height:24px;
     }
@@ -87,8 +91,10 @@
 
 </style>
 <div class='span4' id='static-sidebar'>
-    <ol id='outline' class='nav block hide'>
-    </ol>
+    <div class='block'>
+        <ol id='outline' class='nav hide'>
+        </ol>
+    </div>
 </div>
 <div class='span8 offset4' id='coding-form'><!-- Offset is required because the sidebar is fixed. -->
     <?php echo $this->Session->flash(); ?>
@@ -119,7 +125,13 @@
             </div>
         </div>
         <div class='formFooter'>
+            <?php
+                echo $this->Form->hidden(
+                    'Codedpaper.completed'
+                );
+            ?>
             <div class='buttons'>
+
                 <input type='submit' class='btn btn-success' />
             </div>
         </div>

@@ -17,16 +17,16 @@
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.name",
-                    'label' => "Test Number & Name",
+                    'label' => "Test Number &amp; Name",
                     'class' => 'title_entry',
-                    'tip' => "If others have coded this test before you, follow the naming and numbering scheme that was used."
+                    'tip' => "You will only code studies whose findings are mentioned in the abstract. If others have coded this test before you, follow the naming and numbering scheme that was used."
                 ));
 
                 // Prior Hypothesis
 
                 echo $this->FormField->dropdownbox(array(
                     'field' => "Study.$s.Test.$t.hypothesized",
-                    'label' => "Prior Hypothesis",
+                    'label' => "Hypothesis",
                     'options' => array(
                         '' => '',
                         "Yes, directional" => "Yes, directional",
@@ -35,24 +35,24 @@
                     ),
                     'detailedTip' => "<dl>
                         <dt>Yes, directional</dt>
-                        <dd>The test deals with a directional hypothesis that is stated in the Introduction – a hypothesis that not only states that two or more variables will be related to each other, but the direction of that relationship. In a simple test, this will be a description of a positive or negative relationship between two variables, or a description of which groups should have the higher means. In a more complex test, a directional hypothesis attempts to use similar language to describe an interaction or model.</dd>
+                        <dd>The test deals with a directional hypothesis that is stated in the abstract or introduction. The hypothesis not only states that two or more variables will be related to each other, but the direction of that relationship. In a simple test, this will be a description of a positive or negative relationship between two variables, or a description of which groups should have the higher means. In a more complex test, a directional hypothesis attempts to use similar language to describe an interaction or model.</dd>
                         <dt>Yes, nondirectional</dt>
-                        <dd>The test deals with a nondirectional hypothesis that is stated in the Introduction – a hypothesis that only states that two or more variables should be related, but does not specify the expected direction anywhere in the Introduction. This code also applies to an Introduction that proposes multiple alternative hypotheses relevant to different possibilities for the same test, but only if the authors do not commit themselves to supporting one of those hypotheses over the other.</dd>
+                        <dd>The test deals with a nondirectional hypothesis that is stated in the abstract or introduction. The hypothesis only states that two or more variables should be related, but does not specify the expected direction. This code also applies to an study that proposes multiple alternative hypotheses relevant to different possibilities for the same test, but only if the authors do not commit themselves to supporting one of those hypotheses over the other.</dd>
                         <dt>No</dt>
-                        <dd>This code applies to effect mentioned in the Abstract but not relevant to the hypotheses in the Introduction, or to replication effects which were not included in the Introduction’s hypotheses.</dd>
+                        <dd>This code applies to studies whose effects were mentioned in the abstract, and therefore warrant coding, but did not have a particular hypothesis associated with them.</dd>
                     </dl>"
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.prior_hypothesis",
-                    'label' => "Prior Hypothesis",
-                    'tip' => "Paste the test's prior hypothesis.",
+                    'label' => "Hypothesis",
+                    'tip' => "Paste the test's hypothesis.",
                     'rows' => 2
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.prior_hypothesis_page",
-                    'label' => "Prior Hypothesis Page",
+                    'label' => "Hypothesis Page",
                     'tip' => "The page number where the hypothesis was found."
                 ));
 
@@ -75,7 +75,7 @@
                 ));
 
                 echo $this->FormField->dropdownbox(array(
-                    'field' => "Study.$s.Test.$t.analytic_design_code",
+                    'field' => "Study.$i.Test.$j.analytic_design_code",
                     'label' => "Analytic Design Code",
                     'options' => array(
                         '' => '',
@@ -92,11 +92,11 @@
                         <dt>C: correlational/multivariate analysis without manipulation</dt>
                         <dd>The test uses a number of variables that were measured at the same or different time – including continuous or categorical variables - but none of the test’s variables relate to the outcome of a controlled experimental manipulation.</dd>
                         <dt>IA: correlational/multivariate internal analysis of manipulation check</dt>
-                        <dd>The test takes place within an experimental manipulation, but does not use a variable derived from the manipulation itself as an independent variable. Instead, it substitutes a measured variable which was a “check” on the manipulation’s effects. Example: If I run an experiment in which participants listen to either an expert or inexpert communication, and measure persuasion afterwards, one possible internal analysis would test the correlation between persuasion and participants’ ratings of the communicator’s expertise. Those ratings are measuring the same thing as the experiment tried to manipulate, but do not themselves represent which condition that participant was assigned to.</dd>
+                        <dd>The test takes place within an experimental manipulation, but does not use a variable derived from the manipulation itself as an independent variable. Instead, it substitutes a measured variable which was a “check” on the manipulation’s effects. Example: If I run an experiment in which participants listen to either an expert or inexpert communication, and measure persuasion afterwards, one possible internal analysis would test the correlation between participants’ ratings of the communicator’s expertise and persuasion. Those ratings are measuring the same thing as the experiment tried to manipulate, but do not themselves represent which condition that participant was assigned to.</dd>
                         <dt>X: experimental analysis of manipulation effect</dt>
-                        <dd>One or more of the test’s independent variables represents which condition a participant was randomly assigned to. (Many write-ups of research these days do not explicitly mention random assignment because it is assumed to have taken place if a study is reported as an “experiment.”)</dd>
+                        <dd>One or more of the test’s independent variables represents which condition a participant was randomly assigned to. (Many write-ups of research do not explicitly mention random assignment because it is assumed to have taken place if a study is reported as an “experiment.”)</dd>
                         <dt>RM: experimental analysis of repeated-measures effect</dt>
-                        <dd>One or more of the test’s independent variables is an analysis of differences between different measures given to the same participant. This may be expressed by such phrases as “repeated measures” or “within-participants factor”.</dd>
+                        <dd>One or more of the test’s independent variables is an analysis of the differences between different measures given to the same participant. This may be expressed by such phrases as “repeated measures” or “within-participants factor”.</dd>
                         <dt>RMX: combined experimental and repeated-measures effect</dt>
                         <dd>The test has multiple independent variables, at least one of which would be coded “X” and at least one of which would be coded “RM” (that is, a mixed design with both between- and with-participant factors).</dd>
                         <dt>Q: quasi-experimental analysis of manipulation effect</dt>
@@ -107,7 +107,7 @@
                 ));
 
                 echo $this->FormField->checkboxes(array(
-                    'field' => "Study.$s.Test.$t.methodology_codes",
+                    'field' => "Study.$i.Test.$j.methodology_codes",
                     'label' => "Methodology Codes",
                     'options' => array(
                         'A' => 'archival measures',
@@ -120,7 +120,7 @@
                     ),
                     'detailedTip' => "<dl>
                         <dt>archival measures</dt>
-                        <dd>The analysis includes at least one variable derived from data that are found by the researchers rather than specially collected from participants, such as average school grades of students in different states, text analysis of singles’ ads on the internet.</dd>
+                        <dd>The analysis includes at least one variable derived from data that are found by the researchers rather than explicitly collected from participants, such as average school grades of students in different states or text analysis of singles’ ads on the internet.</dd>
                         <dt>brain imaging measures</dt>
                         <dd>The analysis involves at least one variable derived from fMRI or other spatial brain imaging techniques. (Do not include EEG or other non-spatial brain measurement techniques).</dd>
                         <dt>judgment measures</dt>
@@ -179,7 +179,7 @@
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.N_used_in_analysis",
                     'label' => "Number of Cases Used in Analysis",
-                    'tip' => "after exclusion (using the authors’ stated units of analysis; usually participants, but maybe other factors if hierarchical analysis is used)"
+                    'tip' => "Use the number of cases totaled after exclusion (using the authors’ stated units of analysis; usually participants, but maybe other factors if hierarchical analysis is used)"
                 ));
 
                 echo $this->FormField->textbox(array(
@@ -230,7 +230,7 @@
                         'F' => 'F'
                     ),
                     'detailedTip' => "<p>
-                        Inferential test statistic (the F-value, t-value, or chi-square associated with the test.) For example: “F = 3.92,” “t = -1.35.” If this is followed by more specific comparisons or contrasts, report here only the statistic for the overall test.
+                        Report the inferential test statistic (the F-value, t-value, or chi-square associated with the test.) For example: “F = 3.92,” “t = -1.35.” If this is followed by more specific comparisons or contrasts, report here only the statistic for the overall test.
                     </p>
                     <p>
                         Do not report values of <em>r</em>, <em>B</em> or &beta; from correlations or regressions here because they are better seen as effect size statistics, not inferential test statistics. Often, significance tests of r, B and &beta; are reported without an inferential test statistic, which usually should be <em>t</em>.
@@ -246,7 +246,7 @@
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.inferential_test_statistic_value",
                     'label' => "Value",
-                    'tip' => "If inferential statistics are missing, enter \"None reported.\""
+                    'tip' => "If inferential statistics are missing, enter <kbd>None reported</kbd>."
                 ));
 
                 echo $this->FormField->dropdownbox(array(

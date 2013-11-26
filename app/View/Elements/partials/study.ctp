@@ -16,8 +16,8 @@
                 'field' => "Study.$i.name",
                 'label' => "Study Number &amp; Name",
                 'class' => 'title_entry',
-                'tip' => "Use the study's number from the article, if possible",
-                'detailedTip' => '<p>Study number, as written in the article (such as Study 1, Study 2, Study 3a, Study 3b). If there is only one study, enter <kbd>1</kbd>.</p>
+                'tip' => "Use the study's number or name from the article, if possible",
+                'detailedTip' => '<p>Often, the article will give each study a name or number (e.g. "Experiment 1"). If there is only one study, enter <kbd>1</kbd>.</p>
                 <p>If others have coded this study before you, follow the naming and numbering scheme that was used.</p>'
             ));
 
@@ -34,7 +34,7 @@
                 ),
                 'class' => 'is-replication',
                 'tip' => 'The word "replicate" need not be used in the study.',
-                'detailedTip' => 'A study is considered to be a replication if the previous paper is cited and explicitly named as a source of methodology for at least one independent and at least one dependent variable. The word "replicate" need not be used.'
+                'detailedTip' => 'A study is considered to be a replication if a previous study–in this article or one that has already been published–is cited and explicitly named as a source of methodology for at least one independent and at least one dependent variable. The word "replicate" need not be used, so long as the present authors are measuring the same items and deriving their methodology from an older resource.'
             ));
 
             echo $this->FormField->inputGroupStart(
@@ -57,7 +57,7 @@
                 ),
                 'detailedTip' => "<dl>
                     <dt>Direct</dt>
-                    <dd>The stated goal is, at least in part of the design, to exactly reproduce the hypothesis and methods of the previous study, making only those changes that are necessary to achieve the same psychological meaning among the new participant population.</dd>
+                    <dd>The stated goal is, at least in part of the design, to exactly reproduce the hypothesis and methods of a previous study, making only those changes that are necessary to achieve the same psychological meaning among the new participant population.</dd>
                     <dt>Conceptual</dt>
                     <dd>The study’s stated goal is, at least in part of the design, to test the hypothesis of the previous study, using the same conceptual variables but changing their operationalization in ways that go beyond merely adapting the materials for a new population or occasion.</dd>
                     <dt>+X</dt>
@@ -69,21 +69,21 @@
                 'field' => "Study.$i.replicates_study_id",
                 'label' => "Previous Study from the Paper",
                 'options' => $referenced_papers,
-                'detailedTip' => "<p>The article that the authors referenced as the source for the replication effect.</p><p>If more than one article is cited, give the one from which the methods were most directly taken; if this cannot be determined, give the earliest one chronologically. If the study replicates a previous study in the same article, code as \"This article\".</p>"
+                'detailedTip' => "<p>If the study is a replication of a study performed earlier in this paper, select here the study that the authors referenced as the source for the replication effect. If this is the first study in the paper, do not choose this option. In the drop-down menu, you will see the names of all of the studies you have coded.</p>"
             ));
 
             echo $this->FormField->textbox(array(
                 'field' => "Study.$i.replication_freetext",
                 'label' => "... or paste a free-form reference",
                 'tip' => "If the article is not listed above, paste the citation here.",
-                'rows' => 2
+                'rows' => 2,
+                'detailedTip' => "<p>If more than one article is cited, give the one from which the methods were most directly taken; if this cannot be determined, give the earliest one chronologically.</p>"
             ));
 
             echo $this->FormField->textbox(array(
                 'field' => "Study.$i.replication_freetext_study",
-                'label' => "Identify Study",
-                /* TODO: I'm not sure we need the last sentence here. */
-                'tip' => "Enter <kbd>1</kbd> if there is only one study in the cited paper; otherwise, enter the number of the study with methodology closest to this one. This may also include a previous study in the same paper",
+                'label' => "Study Number",
+                'tip' => "Enter <kbd>1</kbd> if there is only one study in the cited paper; otherwise, enter the number of the study with methodology closest to this one.",
                 'rows' => 1
             ));
 

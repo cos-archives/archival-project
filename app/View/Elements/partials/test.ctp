@@ -75,7 +75,7 @@
                 ));
 
                 echo $this->FormField->dropdownbox(array(
-                    'field' => "Study.$i.Test.$j.analytic_design_code",
+                    'field' => "Study.$s.Test.$t.analytic_design_code",
                     'label' => "Analytic Design Code",
                     'options' => array(
                         '' => '',
@@ -107,7 +107,7 @@
                 ));
 
                 echo $this->FormField->checkboxes(array(
-                    'field' => "Study.$i.Test.$j.methodology_codes",
+                    'field' => "Study.$s.Test.$t.methodology_codes",
                     'label' => "Methodology Codes",
                     'options' => array(
                         'A' => 'archival measures',

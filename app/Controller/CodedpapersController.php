@@ -71,6 +71,9 @@ class CodedpapersController extends AppController {
 				for($i=0; $i<sizeof($this->request->data['Study']); $i++)
 				{
 					// each test
+					if( !isset($this->request->data['Study'][$i]) ){
+						break;
+					}
 					for($j=0; $j<sizeof($this->request->data['Study'][$i]['Test']); $j++)
 					{
 						if( is_array(@$this->request->data['Study'][$i]['Test'][$j]['methodology_codes']) )

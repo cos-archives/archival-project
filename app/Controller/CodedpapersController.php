@@ -66,18 +66,21 @@ class CodedpapersController extends AppController {
 		{
 
 			// each study
-			for($i=0; $i<sizeof($this->request->data['Study']); $i++)
+			if(isset($this->request->data['Study']))
 			{
-				// each test
-				for($j=0; $j<sizeof($this->request->data['Study'][$i]['Test']); $j++)
+				for($i=0; $i<sizeof($this->request->data['Study']); $i++)
 				{
-					if( is_array(@$this->request->data['Study'][$i]['Test'][$j]['methodology_codes']) )
+					// each test
+					for($j=0; $j<sizeof($this->request->data['Study'][$i]['Test']); $j++)
 					{
-						// join the selected values into a comma-separated string
-						$this->request->data['Study'][$i]['Test'][$j]['methodology_codes'] = implode(
-							$this->request->data['Study'][$i]['Test'][$j]['methodology_codes'],
-							','
-						);
+						if( is_array(@$this->request->data['Study'][$i]['Test'][$j]['methodology_codes']) )
+						{
+							// join the selected values into a comma-separated string
+							$this->request->data['Study'][$i]['Test'][$j]['methodology_codes'] = implode(
+								$this->request->data['Study'][$i]['Test'][$j]['methodology_codes'],
+								','
+							);
+						}
 					}
 				}
 			}

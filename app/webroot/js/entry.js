@@ -1,5 +1,6 @@
 $(function() {
-    function initProgressBars(opts) {
+    function updateProgressBars(opts) {
+        console.log('init');
         opts = opts === undefined ? {} : opts;
         var P = this;
 
@@ -8,14 +9,14 @@ $(function() {
         P.selector = setOption('selector', '.progress-section');
 
         // Constants
-        var inputSelector = 'input[type!="hidden"], select, textarea';
+        this.inputSelector = 'input[type!="hidden"], select, textarea';
 
         // Build sections
         var sections = $(P.selector);
 
         var getChildInputs = function(elem) {
-            return $(elem).find(inputSelector).not(
-                $(elem).find(P.selector).find(inputSelector)
+            return $(elem).find(P.inputSelector).not(
+                $(elem).find(P.selector).find(P.inputSelector)
             );
         };
 
@@ -91,12 +92,6 @@ $(function() {
 
         updateBarWidths();
 
-        console.log(inputSelector)
-
-        $(document).on('change', inputSelector, function() {
-            initProgressBars({'selector': P.selector});
-        });
-
         var overallTotal = 0;
         var overallDone = 0;
 
@@ -114,6 +109,33 @@ $(function() {
 
     }
 
-    initProgressBars({'selector': '.study, .test'});
+    $(document).on('change', updateProgressBars.inputSelector, function() {
+        updateProgressBars({'selector': '.study, .test'});
+    });
+
+    updateProgressBars({'selector': '.study, .test'});
+
+    /* "Complete" Checkbox */
+    $('#chkComplete')
+        .on('change', function() {
+            $('input[name="data[Codedpaper][completed]"]').val(this.checked ? 1 : 0);
+        })
+        .prop('checked', function() {
+            return $('input[name="data[Codedpaper][completed]"]').val()==1 ? true : false;
+        })
+        .wrap('<div data-on="success" data-off="danger" />')
+            .parent()
+            .addClass('make-switch')
+            .data({
+                'text-label': 'Coding Complete',
+                'off': 'danger',
+                'off-label': 'No',
+                'on': 'success',
+                'on-label': 'Yes'
+            })
+            .css({
+                'width': '100%'
+            })
+            .bootstrapSwitch();
 
 });

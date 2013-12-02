@@ -7,7 +7,7 @@
 ?>
     <header>
         <button class='btn btn-danger deleteSection'>Delete Test</button>
-        <h3><?php echo 'Test ' . ($s+1) . '.' . ($t+1); ?></h3>
+        <h3>Unnamed Test</h3>
     </header>
 
                 <?php

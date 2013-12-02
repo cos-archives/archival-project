@@ -7,7 +7,7 @@
 ?>
     <header>
         <button class='btn btn-danger deleteSection'>Delete Study</button>
-        <h3><?php echo 'Study ' . ($i+1); ?></h3>
+        <h3>Unnamed Study</h3>
     </header>
 
         <?php

@@ -1,5 +1,5 @@
 <?php
-class FormFieldHelper extends AppHelper {
+class FormFieldHelper extends FormHelper {
     public $helpers = array('Form');
 
     private function generateHelpSpan($helpText) {
@@ -78,13 +78,36 @@ class FormFieldHelper extends AppHelper {
             $options
         );
 
+        $this->setEntity($field);
+
         return $this->Form->input($field, $options);
     }
 
     public function checkboxes($options) {
-        return $this->dropdownbox(
-            array_merge($options, array('multiple' => 'checkbox'))
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        foreach($strippedKeys as $k){
+            $$k = isset($options[$k]) ? $options[$k] : null;
+            unset($options[$k]);
+        }
+
+        // Get the value of the selected items for the current field
+        $this->setEntity($field);
+        $value = $this->value();
+        $selected = explode(',', $value['value']);
+
+        $options = array_merge(
+            array(
+                'multiple' => 'checkbox',
+                'hiddenField' => false,
+                'selected' => $selected
+            ),
+            $this->_default_options($label, $tip, $detailedTip),
+            $options
         );
+
+
+
+        return $this->Form->input($field, $options);
     }
 
     public function inputGroupStart($options=null) {

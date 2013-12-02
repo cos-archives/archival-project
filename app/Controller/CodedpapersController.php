@@ -64,6 +64,24 @@ class CodedpapersController extends AppController {
 		// Attempt to save any submitted info
 		if ($this->request->is('put') OR $this->request->is('ajax'))
 		{
+
+			// each study
+			for($i=0; $i<sizeof($this->request->data['Study']); $i++)
+			{
+				// each test
+				for($j=0; $j<sizeof($this->request->data['Study'][$i]['Test']); $j++)
+				{
+					if( is_array($this->request->data['Study'][$i]['Test'][$j]['methodology_codes']) )
+					{
+						// join the selected values into a comma-separated string
+						$this->request->data['Study'][$i]['Test'][$j]['methodology_codes'] = implode(
+							$this->request->data['Study'][$i]['Test'][$j]['methodology_codes'],
+							','
+						);
+					}
+				}
+			}
+
 			if($this->Codedpaper->saveAssociated($this->request->data, array("deep" => TRUE)	))
 			{
 				$msg = __('Study saved.');

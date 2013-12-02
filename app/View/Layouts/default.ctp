@@ -29,8 +29,10 @@
 		endif;
 		?>
 		<script src="<?php echo $this->webroot; ?>js/vendor/jquery.scrollTo.min.js"></script>
+		<script src="<?php echo $this->webroot; ?>js/vendor/bootstrap-switch.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/select2.css" />
-       <link rel="stylesheet" href="<?php echo $this->webroot; ?>css/bootstrap-responsive.min.css">
+		<link rel="stylesheet" href="<?php echo $this->webroot; ?>css/bootstrap-responsive.min.css">
+		<link rel="stylesheet" href="<?php echo $this->webroot; ?>css/bootstrap-switch.css">
 		<!--[if IE 7]>
 		<link rel="stylesheet" href="<?php echo $this->webroot; ?>css/font-awesome-ie7.min.css">
 		<![endif]-->

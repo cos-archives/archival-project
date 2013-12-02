@@ -71,7 +71,7 @@ class CodedpapersController extends AppController {
 				// each test
 				for($j=0; $j<sizeof($this->request->data['Study'][$i]['Test']); $j++)
 				{
-					if( is_array($this->request->data['Study'][$i]['Test'][$j]['methodology_codes']) )
+					if( is_array(@$this->request->data['Study'][$i]['Test'][$j]['methodology_codes']) )
 					{
 						// join the selected values into a comma-separated string
 						$this->request->data['Study'][$i]['Test'][$j]['methodology_codes'] = implode(

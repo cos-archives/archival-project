@@ -1,6 +1,5 @@
 $(function() {
     function updateProgressBars(opts) {
-        console.log('init');
         opts = opts === undefined ? {} : opts;
         var P = this;
 

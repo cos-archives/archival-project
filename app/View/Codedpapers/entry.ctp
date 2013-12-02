@@ -195,107 +195,6 @@
     <?php echo $this->Form->end(); ?>
 </div><!-- #coding-form -->
 <script>
-    function fromArgs(v, default_value) {
-        return v === undefined ? (default_value==undefined ? "" : default_value) : v
-    }
-
-    function Test(args) {
-        args = args===undefined ? {} : args;
-        var Test = {
-            "N_total": fromArgs(args['N_total']),
-            "N_used_in_analysis": fromArgs(args['N_user_in_analysis']),
-            "certainty_hypothesis": fromArgs(args['certainty_hypothesis']),
-            "certainty_hypothesis_supported": fromArgs(args['certainty_hypothesis_supported']),
-            "certainty_meth_var": fromArgs(args['certainty_meth_var']),
-            "certainty_statistics": fromArgs(args['certainty_statistics']),
-            "comment": fromArgs(args['comment']),
-            "computed_significance_of_test": fromArgs(args['computed_significance_of_test'], null),
-            "data_points_excluded": fromArgs(args['data_points_excluded']),
-            "degrees_of_freedom": fromArgs(args['degrees_of_freedom']),
-            "dependent_variables": fromArgs(args['dependent_variables']),
-            "hypothesis_supported": fromArgs(args['hypothesis_supported']),
-            "hypothesized": fromArgs(args['hypothesized']),
-            "id": fromArgs(args['id']),
-            "independent_variables": fromArgs(args['independent_variables']),
-            "inferential_test_statistic": fromArgs(args['inferential_test_statistic']),
-            "inferential_test_statistic_value": fromArgs(args['inferential_test_statistic_value'], null),
-            "methodology_codes": fromArgs(args['methodology_codes']),
-            "name": fromArgs(args['name']),
-            "other_variables": fromArgs(args['other_variables']),
-            "prior_hypothesis": fromArgs(args['prior_hypothesis']),
-            "prior_hypothesis_page": fromArgs(args['prior_hypothesis_page']),
-            "reasons_for_exclusions": fromArgs(args['reasons_for_exclusions']),
-            "reported_effect_size_statistic": fromArgs(args['reported_effect_size_statistic']),
-            "reported_effect_size_statistic_value": fromArgs(args['reported_effect_size_statistic_value'], null),
-            "reported_significance_of_test": fromArgs(args['reported_significance_of_test']),
-            "subsample": fromArgs(args['subsample']),
-            "type_of_statistical_test_used": fromArgs(args['type_of_statistical_test_used'])
-        }
-
-        return Test;
-    };
-
-    var studies = <?php
-        $studies = array();
-        foreach($this->data['Study'] as $s){
-            $tests = array();
-            foreach($s['Test'] as $t){
-                $tests[] = array(
-                    'name' => $t['name'],
-                    'id' => $t['id'],
-                    #'effect_id' => $t['effect_id'],
-                    'hypothesized' => $t['hypothesized'],
-                    'prior_hypothesis' => $t['prior_hypothesis'],
-                    'prior_hypothesis_page' => $t['prior_hypothesis_page'],
-                    'subsample' => $t['subsample'],
-                    #'analytic_design_cod' => $t['analytic_design_cod'],
-                    'methodology_codes' => $t['methodology_codes'],
-                    'independent_variables' => $t['independent_variables'],
-                    'dependent_variables' => $t['dependent_variables'],
-                    'other_variables' => $t['other_variables'],
-                    'N_total' => $t['N_total'],
-                    'data_points_excluded' => $t['data_points_excluded'],
-                    'N_used_in_analysis' => $t['N_used_in_analysis'],
-                    'reasons_for_exclusions' => $t['reasons_for_exclusions'],
-                    'type_of_statistical_test_used' => $t['type_of_statistical_test_used'],
-                    'reported_effect_size_statistic' => $t['reported_effect_size_statistic'],
-                    'reported_effect_size_statistic_value' => $t['reported_effect_size_statistic_value'],
-                    'inferential_test_statistic' => $t['inferential_test_statistic'],
-                    'degrees_of_freedom' => $t['degrees_of_freedom'],
-                    'inferential_test_statistic_value' => $t['inferential_test_statistic_value'],
-                    'reported_significance_of_test' => $t['reported_significance_of_test'],
-                    'computed_significance_of_test' => $t['computed_significance_of_test'],
-                    'hypothesis_supported' => $t['hypothesis_supported'],
-                    'certainty_hypothesis' => $t['certainty_hypothesis'],
-                    'certainty_meth_var' => $t['certainty_meth_var'],
-                    'certainty_statistics' => $t['certainty_statistics'],
-                    'certainty_hypothesis_supported' => $t['certainty_hypothesis_supported'],
-                    'comment' => $t['comment']
-                );
-            }
-            $studies[] = array(
-                'id' => $s['id'],
-                'name' => $s['name'],
-                'codedpaper_id' => $s['codedpaper_id'],
-                'replication' => $s['replication'],
-                'replication_code' => $s['replication_code'],
-                'replicates_study_id' => $s['replicates_study_id'],
-                'replication_freetext' => $s['replication_freetext'],
-                'replication_freetext_study' => $s['replication_freetext_study'],
-                'certainty_key_effect_tests' => $s['certainty_key_effect_tests'],
-                'certainty_replication_status' => $s['certainty_replication_status'],
-                'study_comment' => $s['study_comment'],
-                'tests' => $tests
-            );
-        }
-        echo json_encode($studies); ?>
-
-    var paper = <?php
-        $p = $this->data['Paper'];
-        echo json_encode(array(
-            'id' => $p['id'],
-            'DOI' => $p['DOI']
-        )); ?>
 
 
 
@@ -433,10 +332,8 @@ $(function() {
         outlineLink.text(title);
 
         if(blank) {
-            console.log('it be blank, mon')
             outlineLink.parent().addClass('unnamed');
         } else {
-            console.log('it be filled!')
             outlineLink.parent().removeClass('unnamed');
         }
         foo = outlineLink.parent();

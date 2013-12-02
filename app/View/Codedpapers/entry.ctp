@@ -8,6 +8,11 @@
         border-radius: 10px;
         box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
     }
+    .block h1 {
+        font-size: 24px;
+        line-height: normal;
+        margin-top:0;
+    }
     #static-sidebar {
         position:fixed;
     }
@@ -27,6 +32,18 @@
     #outline li li {
         padding-left:10px;
     }
+
+    #outline .progress {
+        display: inline-block;
+        width: 100px;
+        height: 16px;
+        margin-bottom: 0;
+        float: right;
+        margin-top: 4px;
+        background-image: linear-gradient(to bottom,#DDDDDD,#E9E7E7);
+    }
+
+
     #coding-form header {
         margin-top:0;
         padding: 0;
@@ -92,12 +109,27 @@
 </style>
 <div class='span4' id='static-sidebar'>
     <div class='block'>
+        <div>
+            <div id='totalProgress' class="progress"><div class="bar" style="width: 0%;"></div></div>
+            <strong>Overall Progress</strong>
+        </div>
+        <hr>
         <ol id='outline' class='nav hide'>
         </ol>
     </div>
 </div>
 <div class='span8 offset4' id='coding-form'><!-- Offset is required because the sidebar is fixed. -->
     <?php echo $this->Session->flash(); ?>
+    <div class='block'>
+        <a
+            href='/papers/view/<?php echo $this->data['Paper']['id']; ?>'
+            class='btn btn-success pull-right'
+            target='_blank'
+        >Open Full Paper</a>
+        <h1><?php echo $this->data['Paper']['title']; ?></h1>
+        <blockquote><?php echo $this->data['Paper']['abstract']; ?></blockquote>
+
+    </div>
     <?php
         echo $this->Form->create(
             'Codedpaper',
@@ -332,11 +364,11 @@ $(function() {
     var studies = $('.study');
     for(var i=0; i<studies.length;i++) {
         var tests = $(studies[i]).find('.test');
-        var li = $('<li><a href="#s' + i + '">Study ' + (i+1) + '</a></li>')
+        var li = $('<li><div class="progress"><div class="bar" style="width: 0%;"></div></div><a href="#s' + i + '">Study ' + (i+1) + '</a></li>')
         if(tests.length > 0) {
             var sublist = $('<ol class="nav"></ol>');
             for(var j=0; j<tests.length; j++) {
-                sublist.append('<li><a href="#s' + i + 't' + j + '">Test ' + (i+1) + '.' + (j+1) + '</a></li>');
+                sublist.append('<li><div class="progress"><div class="bar" style="width: 0%;"></div></div><a href="#s' + i + 't' + j + '">Test ' + (i+1) + '.' + (j+1) + '</a></li>');
             }
             li.append(sublist);
         }
@@ -395,7 +427,7 @@ $(function() {
                     .slideDown();
 
                 // Add test to the list
-                var li = $('<li><a href="#s' + s + 't' + t + '">Test ' + (s+1) + '.' + (t+1) + '</a></li>')
+                var li = $('<li><div class="progress"><div class="bar" style="width: 0%;"></div></div><a href="#s' + s + 't' + t + '">Test ' + (s+1) + '.' + (t+1) + '</a></li>')
                     .hide()
                     .appendTo('ol#outline li:nth-of-type(' + (s+1) + ') > ol')
                     .slideDown();
@@ -428,8 +460,8 @@ $(function() {
                     .slideDown();
 
                 // Add study and test to the list
-                var html = '<li><a href="#s' + num_studies + '">Study ' + (num_studies+1) + "</a>";
-                html = html + '<ol class="nav"><li><a href="#s' + num_studies + 't0">Test ' + (num_studies+1) + '.1</a></li></ol>';
+                var html = '<li><div class="progress"><div class="bar" style="width: 0%;"></div></div><a href="#s' + num_studies + '">Study ' + (num_studies+1) + "</a>";
+                html = html + '<ol class="nav"><li><div class="progress"><div class="bar" style="width: 0%;"></div></div><a href="#s' + num_studies + 't0">Test ' + (num_studies+1) + '.1</a></li></ol>';
                 $(html).hide()
                     .appendTo('ol#outline')
                     .slideDown();

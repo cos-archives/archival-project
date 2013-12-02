@@ -1,5 +1,5 @@
 $(function() {
-    updateProgressBars = function(opts) {
+    function initProgressBars(opts) {
         opts = opts === undefined ? {} : opts;
         var P = this;
 
@@ -73,7 +73,47 @@ $(function() {
 
         calculateChildSections();
 
+        var updateBarWidths = function() {
+            sections.each(function(i, el) {
+                var w = $(el).data('progress-cumulative-done') / $(el).data('progress-cumulative-total')
+                w = (Math.round(w * 1000) / 10) + "%";
+
+                $('#outline a[href="#' + $(el).attr('id') + '"]')
+                    .parent()
+                    .find('> .progress')
+                        .attr('title', w)
+                    .find('.bar')
+                        .css({
+                            'width': w
+                        });
+            });
+        }
+
+        updateBarWidths();
+
+        console.log(inputSelector)
+
+        $(document).on('change', inputSelector, function() {
+            initProgressBars({'selector': P.selector});
+        });
+
+        var overallTotal = 0;
+        var overallDone = 0;
+
+        for(var i=0;i<sections.length;i++){
+            overallTotal += $(sections[i]).data('progress-total');
+            overallDone += $(sections[i]).data('progress-done');
+        }
+
+        var overallPercent = (Math.round((overallDone/overallTotal) * 1000) / 10) + "%";
+
+        $('#totalProgress')
+            .attr('title', overallPercent)
+            .find('.bar')
+                .css({ 'width': overallPercent });
+
     }
 
-    foo = updateProgressBars({'selector': '.study, .test'});
+    initProgressBars({'selector': '.study, .test'});
+
 });

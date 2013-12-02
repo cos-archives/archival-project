@@ -240,13 +240,13 @@
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.degrees_of_freedom",
                     'label' => "Degrees of Freedom",
-                    'tip' => "<p>For multiple inferential statistics, separate values with a comma, giving the N second if a &Chi;<sup>2</sup>.</p><p>Enter \"None reported\" if these are smissing.</p>"
+                    'tip' => "<p>For multiple inferential statistics, separate values with a comma, giving the N second if a &Chi;<sup>2</sup>.</p><p>Enter <kbd>None reported</kbd> if these are missing.</p>"
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.inferential_test_statistic_value",
                     'label' => "Value",
-                    'tip' => "If inferential statistics are missing, enter <kbd>None reported</kbd>."
+                    'tip' => "If inferential statistics are missing, leave this field blank."
                 ));
 
                 echo $this->FormField->dropdownbox(array(

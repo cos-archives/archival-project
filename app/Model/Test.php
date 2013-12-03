@@ -95,7 +95,7 @@ class Test extends AppModel {
 		        'rule'    => array('range', 0, 1.0000000000001),
 		        'required' => true,
 	            'allowEmpty' => true,
-		        'message'  => 'Computed significance: Numbers only, decimals marked by dot.',
+		        'message'  => 'Computed significance: Must be a number between 0 and 1',
 		    )
 	    ),
 	    'hypothesis_supported' => array(

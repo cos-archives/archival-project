@@ -125,8 +125,15 @@ class CodedpapersController extends AppController {
 			if( isset($msg) ) {
 				$this->Session->setFlash($msg,$kind);
 			}
-
-			$this->request->data = $this->Codedpaper->findDeep($id);
+			if( empty($errors) )
+			{
+				$this->request->data = $this->Codedpaper->findDeep($id);
+			} else {
+				// Get the title and abstract for the paper.
+				$saved = $this->Codedpaper->findById($id);
+				$this->request->data['Paper'] = $saved['Paper'];
+			}
+			
 		}
 	}
 

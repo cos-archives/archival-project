@@ -4,14 +4,21 @@ class StudiesController extends AppController {
 		$admin = parent::isAuthorized($user); # allow admins to do anything
 		if($admin) return true;
 
-		$req_action = $this->request->params['action'];
-
 		$study_id = $this->request->params['pass'][0];
 		$this->Study->id = $study_id;
-		if (!$this->Study->exists()) {
+		
+		
+
+		if( in_array($this->request->params['action'], array('shell', 'delete')) )
+		{
+			//TODO: Restrict this so unauthorized users can't create new studies.
+			return true;
+		} elseif ( !$this->Study->exists() )
+		{
 		    throw new NotFoundException('Invalid study');
 		}
-		else {
+		else
+		{
 			$allowed = $this->Study->find('first',array(
 				"recursive" => 1,
 				"conditions" => array(
@@ -23,7 +30,6 @@ class StudiesController extends AppController {
 				return true;
 			}
 		}
-		return false;
 	}
 	public function delete($id = null) {
 		$this->Study->id = $id;
@@ -59,11 +65,14 @@ class StudiesController extends AppController {
 		$this->uses = array('Study', 'Test');
 
 		// Require that this be an Ajax request.
-		if(!$this->request->is('ajax')) {
-			throw new NotFoundException();
-		}
+		// if(!$this->request->is('ajax')) {
+		// 	throw new NotFoundException();
+		// }
 
 		// Create a new Study object
+		$this->Study->create();
+		
+		// Save it, containing only the reference to the Codedpaper
 		$this->Study->save(
 			array('codedpaper_id'=>$codedpaper_id),
 			False

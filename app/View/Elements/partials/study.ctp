@@ -21,7 +21,9 @@
                 <p>If others have coded this study before you, follow the naming and numbering scheme that was used.</p>'
             ));
 
-            echo $this->Form->hidden("Study.$i.id");
+            echo $this->Form->hidden("Study.$i.id", array(
+                'value' => $study['id']
+            ));
             echo $this->Form->hidden("Study.$i.codedpaper_id");
 
             echo $this->FormField->dropdownbox(array(
@@ -82,7 +84,7 @@
 
             echo $this->FormField->textbox(array(
                 'field' => "Study.$i.replication_freetext_study",
-                'label' => "Study Number",
+                'label' => "Previous Study Number",
                 'tip' => "Enter <kbd>1</kbd> if there is only one study in the cited paper; otherwise, enter the number of the study with methodology closest to this one.",
                 'rows' => 1
             ));

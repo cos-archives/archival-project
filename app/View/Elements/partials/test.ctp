@@ -12,7 +12,9 @@
 
                 <?php
 
-                echo $this->Form->hidden("Study.$s.Test.$t.id");
+                echo $this->Form->hidden("Study.$s.Test.$t.id", array(
+                    'value' => $test['id']
+                ));
                 echo $this->Form->hidden("Study.$s.Test.$t.effect_id");
 
                 echo $this->FormField->textbox(array(

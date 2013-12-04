@@ -362,7 +362,7 @@ $(function() {
                     .slideDown();
 
                 // Add test to the list
-                var li = $('<li class="unnamed"><div class="progress"><div class="bar" style="width: 0%;"></div></div><a href="#s' + s + 't' + t + '">Test ' + (s+1) + '.' + (t+1) + '</a></li>')
+                var li = $('<li class="unnamed"><div class="progress"><div class="bar" style="width: 0%;"></div></div><a href="#s' + s + 't' + t + '">Unnamed Test</a></li>')
                     .hide()
                     .appendTo('ol#outline li:nth-of-type(' + (s+1) + ') > ol')
                     .slideDown();

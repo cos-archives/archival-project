@@ -41,9 +41,9 @@ class Codedpaper extends AppModel {
 					'Paper' => array(),
 					'User' => array(),
 					'Study' => array( 
-						'order' => array('Study.name ASC','Study.id ASC'),
+						'order' => array('Study.id ASC', 'Study.name ASC'),
 						'Test' => array(
-							'order' => array('Test.name ASC','Test.id ASC'),
+							'order' => array('Test.id ASC', 'Test.name ASC'),
 						),
 					),
 				) 

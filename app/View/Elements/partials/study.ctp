@@ -67,9 +67,9 @@
 
             echo $this->FormField->dropdownbox(array(
                 'field' => "Study.$i.replicates_study_id",
-                'label' => "Previous Study from the Paper",
+                'label' => "Previous Study Name",
                 'options' => $referenced_papers,
-                'detailedTip' => "<p>If the study is a replication of a study performed earlier in this paper, select here the study that the authors referenced as the source for the replication effect. If this is the first study in the paper, do not choose this option. In the drop-down menu, you will see the names of all of the studies you have coded.</p>"
+                'detailedTip' => "If the study is a replication of a study performed earlier in this paper, select here the study that the authors referenced as the source for the replication effect. In the drop-down menu, you will see the names of all of the studies you have coded. If this is the first study in the paper, do not choose this option."
             ));
 
             echo $this->FormField->textbox(array(

@@ -218,7 +218,7 @@ $(function() {
             }
         });
 
-        $('.helpModalToggle').one('click', function(e) {
+        $('#coding-form').on('click', '.helpModalToggle', function(e) {
             /* "Detailed Help" buttons */
             modal = $(e.target).closest('.control-group').find('.help-modal').modal();
             e.preventDefault();

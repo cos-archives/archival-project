@@ -65,9 +65,9 @@ class StudiesController extends AppController {
 		$this->uses = array('Study', 'Test');
 
 		// Require that this be an Ajax request.
-		// if(!$this->request->is('ajax')) {
-		// 	throw new NotFoundException();
-		// }
+		if(!$this->request->is('ajax')) {
+			throw new NotFoundException();
+		}
 
 		// Create a new Study object
 		$this->Study->create();

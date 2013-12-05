@@ -12,6 +12,10 @@ The code can probably be adapted to other meta-analyses, but it requires some kn
 JavaScript, jQuery to do so.
 I'm happy to be contacted and assist if you want to use this for noncommercial purposes.
 
+## Project History
+
+This repository is based on the [OSC-ArchivalProject](http://github.com/rubenarslan/OSC-ArchivalProject/) by [Ruben Arslan](http://github.com/rubenarslan/).
+
 ## Current features
 
 * add papers

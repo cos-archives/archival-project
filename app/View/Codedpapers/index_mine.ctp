@@ -37,7 +37,7 @@ function shortensome($x) {
 				if($coding_complete) {
 					echo '<button class="btn btn-success disabled">Coding complete</button>';
 				} else {
-					echo $this->Html->link(__('Continue coding'), "/codedpapers/code/". $paper['Codedpaper']['id'], array('class' => 'btn btn-primary'));
+					echo $this->Html->link(__('Continue coding'), "/codedpapers/entry/". $paper['Codedpaper']['id'], array('class' => 'btn btn-primary'));
 				}
 			?>
 

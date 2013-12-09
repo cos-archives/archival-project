@@ -161,16 +161,42 @@
                     'rows' => 4
                 ));
 
-                echo $this->FormField->textbox(array(
-                    'field' => "Study.$s.Test.$t.N_total",
-                    'label' => "N Total"
-                ));
+                ?>
+                <div class='control-group exclusions'>
+                    <div class='control-label'>Data &amp; Exclusions</div>
+                    <div class='controls'>
+                    <?php
 
-                echo $this->FormField->textbox(array(
-                    'field' => "Study.$s.Test.$t.data_points_excluded",
-                    'label' => "N Excluded",
-                    'tip' => "This should not include data that were genuinely missing (procedural errors, failure to answer, drop-outs from multiple waves of a study), but should include data that the researchers had, but chose to exclude."
-                ));
+                    echo $this->Form->input(
+                        "Study.$s.Test.$t.N_total",
+                        array(
+                            'label' => "Total",
+                            'data-calc-operator' => '+',
+                            'after' => "<div class='hide help-popover'>The total number of samples.</div>"
+                        )
+                    );
+
+                    echo $this->Form->input(
+                        "Study.$s.Test.$t.data_points_excluded",
+                        array(
+                            'label' => "Excluded",
+                            'data-calc-operator' => '-',
+                            'after' => "<div class='hide help-popover'>This should not include data that were genuinely missing (procedural errors, failure to answer, drop-outs from multiple waves of a study), but should include data that the researchers had, but chose to exclude.</div>"
+                    ));
+
+                    echo $this->Form->input(
+                        "Study.$s.Test.$t.N_used_in_analysis",
+                        array(
+                            'label' => "Used",
+                            'class' => 'result',
+                            'after' => "<div class='hide help-popover'>Use the number of cases totaled after exclusion (using the authors’ stated units of analysis; usually participants, but maybe other factors if hierarchical analysis is used)</div>"
+                        )
+                    );
+                    
+                    ?>
+                    </div>
+                </div>
+                <?php
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.reasons_for_exclusions",
@@ -178,11 +204,7 @@
                     'tip' => "separated by commas if multiple reasons given (using the author’s words as much as possible)"
                 ));
 
-                echo $this->FormField->textbox(array(
-                    'field' => "Study.$s.Test.$t.N_used_in_analysis",
-                    'label' => "Number of Cases Used in Analysis",
-                    'tip' => "Use the number of cases totaled after exclusion (using the authors’ stated units of analysis; usually participants, but maybe other factors if hierarchical analysis is used)"
-                ));
+                
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.type_of_statistical_test_used",

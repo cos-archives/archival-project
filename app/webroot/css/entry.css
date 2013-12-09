@@ -1,0 +1,15 @@
+
+
+.exclusions .input {
+	float:left;
+	width:60px;
+	margin-right:20px;
+}
+
+.exclusions input {
+	width:46px;
+}
+
+.exclusions .control-label {
+	margin-top:24px;
+}

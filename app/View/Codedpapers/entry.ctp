@@ -1,3 +1,4 @@
+<link type='text/css' rel='stylesheet' href='/css/entry.css' />
 <style>
     .block {
         min-height: 20px;
@@ -213,9 +214,9 @@ $(function() {
             /* field hovers */
             'trigger': 'hover',
             'html': true,
-            'content': function() {
-                return $('.control-group:hover .help-popover').html();
-            }
+            'content': function(e) {
+                return $(this).find('+ div.help-popover').html();
+        }
         });
 
         $('#coding-form').on('click', '.helpModalToggle', function(e) {

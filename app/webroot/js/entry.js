@@ -105,7 +105,6 @@ $(function() {
             .attr('title', overallPercent)
             .find('.bar')
                 .css({ 'width': overallPercent });
-
     }
 
     $(document).on('change', updateProgressBars.inputSelector, function() {
@@ -136,5 +135,41 @@ $(function() {
                 'width': '100%'
             })
             .bootstrapSwitch();
+
+    /* Exclusions */
+    var initExclusionCalculators = function(){
+        $('#coding-form .exclusions .result').each(function(idx, el){
+            var el = $(el);
+            var hidden_input = $('<input>').attr({
+                'type': 'hidden',
+                'name': el.attr('name'),
+                'value': el.attr('value'),
+                'class': 'result'
+            });
+            el.attr('name', '').attr('disabled', 'disabled')
+            el.after(hidden_input);
+
+        });
+
+        $('#coding-form').on('change', '.exclusions input', function(e) {
+            var div = $(e.target).closest('.exclusions');
+            var total = 0;
+            div.find('input').not('.result, [type="hidden"]').each(function(idx, el) {
+                var el = $(el)
+                switch(el.data('calc-operator')){
+                    case '+':
+                        total += Number(el.val());
+                        break;
+                    case '-':
+                        total -= Number(el.val());
+                        break;
+                }
+            });
+            div.find('.result').val(total);
+        });
+
+    }
+
+    initExclusionCalculators();
 
 });

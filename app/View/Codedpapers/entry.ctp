@@ -117,8 +117,10 @@
     #coding-form .controls {
         position:relative;
     }
-    #coding-form .helpModalToggle {
-        margin-top:5px;
+    #coding-form .controls input,
+    #coding-form .controls select,
+    #coding-form .controls textarea {
+        margin-right:10px;
     }
     .hide {
         display: none;

@@ -2,15 +2,6 @@
 class FormFieldHelper extends FormHelper {
     public $helpers = array('Form');
 
-    private function generateHelpSpan($helpText) {
-        if($helpText !== null) {
-            return "<span class='help-block'>$helpText</span>";
-        } else {
-            return '';
-        }
-
-    }
-
     private function _default_options($labelText, $tip=null, $detailedTip=null) {
         /* Returns a string-keyed array of options to pass to Form::input() */
         $options = array(
@@ -26,7 +17,7 @@ class FormFieldHelper extends FormHelper {
         );
 
         if($detailedTip !== null) {
-            $options['after'] = "<span class='help-block'><button class='btn btn-small btn-info helpModalToggle'>Detailed Help</button></span>
+            $options['after'] = "<button class='btn btn-small btn-info helpModalToggle'>Detailed Help</button>
             <div class='modal hide fade help-modal' tabindex='-1' role='dialog'>
                 <div class='modal-header'>
                     <button type='button' class='close' data-dismiss='modal'>×</button>

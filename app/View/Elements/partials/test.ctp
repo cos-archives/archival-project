@@ -81,13 +81,13 @@
                     'label' => "Analytic Design Code",
                     'options' => array(
                         '' => '',
-                        'C' => 'C: correlational/multivariate analysis without manipulation',
-                        'IA' => 'IA: correlational/multivariate internal analysis of manipulation check',
-                        'X' => 'X: experimental analysis of manipulation effect',
-                        'RM' => 'RM: experimental analysis of repeated-measures effect',
-                        'RMX' => 'RMX: combined experimental and repeated-measures effect',
-                        'Q' => 'Q: quasi-experimental analysis of manipulation effect',
-                        'O' => 'O: Other, describe in comments'
+                        'C' => 'Correlational/multivariate analysis without manipulation',
+                        'IA' => 'Correlational/multivariate internal analysis of manipulation check',
+                        'X' => 'Experimental analysis of manipulation effect',
+                        'RM' => 'Experimental analysis of repeated-measures effect',
+                        'RMX' => 'Combined experimental and repeated-measures effect',
+                        'Q' => 'Quasi-experimental analysis of manipulation effect',
+                        'O' => 'Other, describe in comments'
                     ),
                     /* TODO: This is so long the modal scrolls. It may not be apparent that it *can* scroll. */
                     'detailedTip' => "<dl>
@@ -279,30 +279,21 @@
                     'options' => array(
                         '' => '',
                         'ns' => 'ns',
-                        '†' => '†',
                         'p<.10' => 'p<.10',
                         'marginal' => 'marginal',
-                        '*'  => '*',
                         'significant' => 'significant',
                         'p<.05' => 'p<.05',
-                        '**' => '**',
                         'p<.01' => 'p<.01',
-                        '***'  => '***',
                         'p<.001' => 'p<.001'
                     ),
-                    'detailedTip' => "<p>If the exact p value is not reported, state the possible range of p values from lowest to highest, p1 to p2, with <kbd>~0</kbd> as the lowest possible result. If the value is not a p value (for example, prep) this fact should also be entered (so, <kbd>p-rep .98</kbd>). <kbd>None reported</kbd> if this is missing.</p>
-                    <p>Examples:</p>
-                    <ul>
-                        <li>a value reported only as p < .001 should be reported <kbd>~0 to .001</kbd></li>
-                        <li>&quot;not significant&quot; and nothing else should be reported <kbd>.05 to 1</kbd> unless a different alpha criterion less than .05 is explicitly used</li>
-                        <li>The entry ** in a table where * = p < .05, ** = p < .01, *** = p < .001 should be reported <kbd>.001 to .01</kbd></li>
-                    </ul>"
+                    'detailedTip' => "<p>If the exact p value is not reported, state the possible range of p values. If an exact p value is reported, write this below in "computed significance."</p>
+
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.computed_significance_of_test",
                     'label' => "Computed Significance",
-                    'detailedTip' => "The exact p value of the test, if not reported but calculable from the inferential statistics. This is an optional code that may depend on your statistical knowledge. If the test is reported as a straightforward z, t, F or &Chi;<sup>2</sup> test <a href='http://graphpad.com/quickcalcs/PValue1.cfm'>this online p value calculator</a> may be used."
+                    'detailedTip' => "The exact p value of the test This is an optional code that may depend on your statistical knowledge. If the test is reported as a straightforward z, t, F or &Chi;<sup>2</sup> test <a href='http://graphpad.com/quickcalcs/PValue1.cfm'>this online p value calculator</a> may be used."
                 ));
 
                 /* TODO: This help text doesn't match the options. */

@@ -30,14 +30,15 @@ App::uses('AppController', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
 class PagesController extends AppController {
-	function isAuthorized($user = null, $request = null) {	
+	function isAuthorized($user = null, $request = null) {
+
 		$req_action = $this->request->params['action'];
 		$page = $this->request->params['pass'][0];
 
 		#return false;
 		
 		if(in_array($req_action, array('display'))
-			AND in_array($page, array('coding_scheme','home','feedback'))) return true; # viewing and adding is allowed to all users
+			AND in_array($page, array('interactive_tutorial', 'coding_scheme','home','feedback', 'getting_involved', 'contact' ))) return true; # viewing and adding is allowed to all users
 
 		return parent::isAuthorized($user); # allow admins to do anything
 	}
@@ -48,7 +49,7 @@ class PagesController extends AppController {
 		
 #		die($this->request->params['pass'][0]);
 		if(in_array($req_action, array('display'))
-			AND in_array($page, array('coding_scheme','home','getting_involved'))) $this->Auth->allow('display'); # viewing and adding is allowed to all users
+			AND in_array($page, array('interactive_tutorial', 'coding_scheme','home','getting_involved', 'contact'))) $this->Auth->allow('display'); # viewing and adding is allowed to all users
 		
 		parent::beforeFilter();
 	}

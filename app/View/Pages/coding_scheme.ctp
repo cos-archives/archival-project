@@ -1,6 +1,3 @@
-<?php echo $this->element('dashboard-menu'); ?>
-</div>
-<div class="row">
 
     <div class="span3">
         <ul class="nav nav-list osfa-affix-sidenav affix" data-spy="affix">
@@ -13,16 +10,16 @@
             <li><a href="#reporting_tests"><i class="icon-chevron-right"></i> &nbsp;&nbsp;&nbsp;&nbsp;Reporting Test Data</a></li>
         </ul>
     </div>
-<div class="span9" style="padding-bottom: 150px">
-    <header id="overview">
+<div class="span9" style="margin-bottom: 150px">
+    <div id="overview">
        <h1>Coding scheme</h1>
-    </header>
-    <p>
-        In phase one of the Archival Project, articles from the 2008 sample of published psychology articles will be coded
-        according to the following scheme. In phase two, we will search the literature forward to present day for articles
-        published after 2008 that explicitly replicate one or more of each 2008 article’s key effects. This scheme instructs
-        coders on how to identify those key effects.
-    </p>
+        <p class="lead">
+            In phase one of the Archival Project, articles from the 2008 sample of published psychology articles will be coded
+            according to the following scheme. In phase two, we will search the literature forward to present day for articles
+            published after 2008 that explicitly replicate one or more of each 2008 article’s key effects. This scheme instructs
+            coders on how to identify those key effects.
+        </p>
+    </div>
     <section id="organization">
         <h3>Identifying article organization</h3>
         <p>Each article reports one or more <strong>studies</strong>. Studies, sometimes called experiments, are a way of

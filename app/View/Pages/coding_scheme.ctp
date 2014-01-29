@@ -21,7 +21,7 @@
         </p>
     </div>
     <section id="organization">
-        <h3>Identifying article organization</h3>
+        <h3>Article organization</h3>
         <p>Each article reports one or more <strong>studies</strong>. Studies, sometimes called experiments, are a way of
             investigating a particular question. Articles separate different studies by naming or numbering them.
         </p>
@@ -36,7 +36,7 @@
             Each key effect may be reported either as hypotheses (e.g., “We expected that gender would relate to coping style”),
             as findings (e.g., “Women showed more interdependent coping styles than men”), or as both.</p>
         <div id="overall_tests">
-            <h4>Overall versus specific effects</h4>
+            <h4>Kinds of tests: overall versus specific</h4>
             <p>Sometimes an effect is phrased in terms of an overall effect, which then has sub-effects that can be tested. Examples of this are:</p>
             <blockquote>The abstract says “Men responded with higher stress in the gender role threat condition than the control
                 condition, while women did not.” Later on in the Results, you find that the interaction between gender and condition
@@ -55,7 +55,7 @@
             </p>
         </div>
         <div id="model_tests">
-            <h4>Model testing</h4>
+            <h4>Model tests</h4>
             <p>Some statistical analyses – in particular, structural equation modeling – take an approach called “model
                 testing” where the authors propose a complex model involving multiple variables and are interested in how well
                 the model fits the data.
@@ -70,7 +70,7 @@
 
     <section id="reporting">
         <div id="reporting_studies">
-            <h3>Reporting study level data</h3>
+            <h3>Reporting study data</h3>
             <p>Article level information, such as the DOI, authors, and journal, is extracted automatically, and is not requested
                 in the coding form. Coders are only required to identify information from within the article.
             </p>
@@ -172,7 +172,7 @@
             </dl>
         </div>
         <div id="reporting_tests">
-            <h3>Reporting test level data</h3>
+            <h3>Reporting test data</h3>
             <p>As previously discussed, tests should be coded if they directly relate to a statement about the study’s
                 hypotheses or results made in the Abstract; or if they are a replication of an effect from a previous study.
                 Studies in psychology often include multiple hypothesis tests in their Results section. By requiring that

@@ -52,7 +52,7 @@
     	?>
 
 	</head>
-	<body>
+	<body data-spy="scroll" data-target=".nav-list-spy" data-offset="120">
 	<div class="bigouterbox">
 	    <div class="navbar-whiter navbar navbar-fixed-top">
 	      <div class="navbar-inner">
@@ -63,8 +63,8 @@
 	            <span class="icon-bar"></span>
 	          </a>
 	          <a href='/' class='brand'><img alt="COS Archival" src="/img/logo.png" width="100px"></a>
-	          <div class="container nav-collapse">
-	            <ul class="nav">
+	          <div class="container nav-collapse ">
+	            <ul class="nav" id="navlist">
 	                <li><?php echo $this->Html->link('Getting Involved', '/pages/getting_involved'); ?></li>
                     <li><?php echo $this->Html->link('Coding Scheme', '/pages/coding_scheme'); ?></li>
                     <li><?php echo $this->Html->link('Tutorial', '/pages/interactive_tutorial'); ?></li>
@@ -73,7 +73,7 @@
 
 
 
-	            <div class='nav pull-right btn-group' style='position:relative;top:13px'>
+	            <div class='nav pull-right btn-group' id='navlist' style='position:relative;top:13px'>
 
 <?php if(AuthComponent::user() !== NULL){ ?>
                     <a href='/papers/index' class='btn btn-warning'>My Dashboard</a>

@@ -1,5 +1,5 @@
-    <div class="span3">
-        <ul class="nav nav-list osfa-affix-sidenav affix" data-spy="affix">
+    <div class="span3 nav-list-spy">
+        <ul class="nav nav-list osfa-affix-sidenav affix" >
             <li class="active"><a href="#overview"><i class="icon-chevron-right"></i> Overview</a></li>
             <li><a href="#abstracts"><i class="icon-chevron-right"></i> Abstracts</a></li>
             <li><a href="#hypotheses"><i class="icon-chevron-right"></i> Hypotheses</a></li>
@@ -7,7 +7,7 @@
             <li><a href="#analytic_design_code"><i class="icon-chevron-right"></i> Analytic Design Code</a></li>
         <ul>
     </div>
-    <div class="span9" style="margin-bottom: 150px">
+    <div class="span9 offset3" style="margin-bottom: 150px">
         <div id="overview">
             <h1>Learning to Code for the Archival Project</h1>
             <p class="lead">The Archival Project has developed a specific coding scheme for volunteers to follow. As a supplement to that scheme,
@@ -22,7 +22,7 @@
                 mentioned there, and look for them in the rest of the article.</p>
             <p>As you read an article, scan the abstract for results and general statements about relationships between variables.</p>
             <h4>Example 1</h4>
-            <img src="/app/webroot/img/tutorial_abst1.png" style="padding-left:100px">
+            <img src="/img/tutorial_abst1.png" style="padding-left:100px">
             <p>Abstract from Fischer, Greitemeyer, and Frey (2008).</p>
             <br>
             <p>In the abstract above, the  highlighting indicates the relationships that the researchers investigated. As stated

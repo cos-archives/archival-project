@@ -1,5 +1,5 @@
 
-    <div class="span3">
+    <div class="span3  nav-list-spy">
         <ul class="nav nav-list osfa-affix-sidenav affix" data-spy="affix">
             <li class="active"><a href="#overview"><i class="icon-chevron-right"></i> Overview</a></li>
             <li><a href="#organization"><i class="icon-chevron-right"></i> Article Organization</a></li>
@@ -10,7 +10,7 @@
             <li><a href="#reporting_tests"><i class="icon-chevron-right"></i> &nbsp;&nbsp;&nbsp;&nbsp;Reporting Test Data</a></li>
         </ul>
     </div>
-<div class="span9" style="margin-bottom: 150px">
+<div class="span9 offset3" style="margin-bottom: 150px">
     <div id="overview">
        <h1>Coding scheme</h1>
         <p class="lead">
@@ -229,7 +229,7 @@
                     <dd>For the second "hypothesis" field, copy and paste the article text where the researchers indicated their
                          hypotheses. Two examples of hypotheses stated within a study:</dd>
                     <dd>
-                    <img src="/app/webroot/img/exp1_intro.png"><img src="/app/webroot/img/exp1_intro2.png" style="padding-bottom: 30px"></dd>
+                    <img src="/img/exp1_intro.png"><img src="/img/exp1_intro2.png" style="padding-bottom: 30px"></dd>
                 <dt><h4>Subsample</h4></dt>
                     <dd><strong>Subsample: </strong>If the test is on a subsample or the overall sample of participants in
                         this study, type which subgroup this effects test is for. For example, if one of the phrases in the
@@ -381,7 +381,7 @@
                     <dd>Significance tells you the probability of confirming a hypothesis via random sampling when the null
                     hypothesis is actually true (i.e. the probability of type I error).</dd>
                     <br>
-                    <dd>Report here the significance reported in the article.  If the exact p value is not reported,
+                    <dd>Report here, in "Significance (Range)" the significance reported in the article.  If the exact p value is not reported,
                     state the possible range of p values:
                         <ul>
                         <li><strong>NS: </strong>not significant</li>
@@ -393,7 +393,7 @@
                         <li><strong>p<.001: </strong>any reported value that is less than 0.001</li>
                         </ul>
                     </dd>
-                    <dd>If the exact p value is reported, or you can calculate it on your own, report this in the "Computed significance"
+                    <dd>If the exact p value is reported, or you can calculate it on your own, report this in the "Significance (Exact)"
                         field.
                     </dd>
                 <dt><h4>Hypothesis Support</h4></dt>

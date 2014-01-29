@@ -275,7 +275,7 @@
 
                 echo $this->FormField->dropdownbox(array(
                     'field' => "Study.$s.Test.$t.reported_significance_of_test",
-                    'label' => "Significance (Reported)",
+                    'label' => "Significance (Range)",
                     'options' => array(
                         '' => '',
                         'ns' => 'ns',
@@ -286,14 +286,14 @@
                         'p<.01' => 'p<.01',
                         'p<.001' => 'p<.001'
                     ),
-                    'detailedTip' => "<p>If the exact p value is not reported, state the possible range of p values. If an exact p value is reported, write this below in "computed significance."</p>
+                    'detailedTip' => "<p>If the exact p value is not reported, state the possible range of p values. If an exact p value is reported, write this below in "significance (reported)."</p>
 
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.computed_significance_of_test",
-                    'label' => "Computed Significance",
-                    'detailedTip' => "The exact p value of the test This is an optional code that may depend on your statistical knowledge. If the test is reported as a straightforward z, t, F or &Chi;<sup>2</sup> test <a href='http://graphpad.com/quickcalcs/PValue1.cfm'>this online p value calculator</a> may be used."
+                    'label' => "Significance (Exact)",
+                    'detailedTip' => "The exact p value of the test. This is an optional code that may depend on your statistical knowledge. If the test is reported as a straightforward z, t, F or &Chi;<sup>2</sup> test <a href='http://graphpad.com/quickcalcs/PValue1.cfm'>this online p value calculator</a> may be used."
                 ));
 
                 /* TODO: This help text doesn't match the options. */

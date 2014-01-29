@@ -2,218 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13803c92-06a7-4190-9983-e600baaafbb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/webroot/img/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/webroot/img/tutorial_abst1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/Abstract-tq1-c.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/Abstract-tq1-i.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/abstract q1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/abstract-q1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/arrows.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/lightbox.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/print/paper.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/print/pdf.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/reveal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/reveal.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/beige.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/default.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/moon.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/mytheme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/night.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/serif.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/simple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/sky.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/solarized.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/source/beige.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/source/default.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/source/moon.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/source/night.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/source/serif.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/source/simple.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/source/sky.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/source/solarized.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/template/mixins.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/template/settings.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/css/theme/template/theme.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/examples/assets/image1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/examples/assets/image2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/examples/barebones.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/examples/embedded-media.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/examples/slide-backgrounds.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/ABCBS_Logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/A_EAcropped.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/BHPAnthemBCBS_wt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/BlueTheme_Medium.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/CompareResultsLoader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Counties.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/DoctorDetails.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Ensure.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Export.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/FeedbackThumbs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/FindADoctor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/GlobalPFstyles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/JqueryLoginModal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Locations" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/PFLoginTeaser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/PlansByState.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Procedures.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/ProviderDetailsPrintLoader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/ProviderResultListView.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Registration_Reminder.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/ScriptResource.axd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/SearchResults.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/SearchResultsLoader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Specialties.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Specialties_Spanish.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Tick.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Uni_lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/WebResource.axd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Webmetro_DSMMTracker_Code.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Webmetro_DSMMTracker_Functions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/Widget.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/alert_tri.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/close_button.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/contact_email.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/contact_fax.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/date.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/fb.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/footer_chinese.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/footer_korean.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/footer_spanish.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/footer_tagalog.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/footer_vietnamese.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/foresee-dhtml.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/foresee-surveydef.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/foresee-trigger.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery-ui-1.7.2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery-ui-1.7.3.custom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery.cluetip.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery.cluetip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery.hoverIntent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery.jqGrid.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery.jqgrid.fluid.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery.tablePagination.0.1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/jquery.tooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/json2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/loader2.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/lock_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/loginjscript.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/mapcontrol.ashx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/member_login.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/pdf.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/pixel.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/rowbreak.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/searchwizard.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/spacer(1).gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/spacer.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/twit.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/ui.accordion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/ui.geo_autocomplete.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/useful_tools.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/veapicore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/webmetro_dsmmtracker(1).js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/webmetro_dsmmtracker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.benefits.BenefitSummaryTooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.claims.checkclaimstatus.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.common.ui.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.public.combined.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.public.combined.part1.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.public.combined.part2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.public.jquery.combined.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.public.msajax.combined.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/wellpoint.public.tealeaf.combined.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/drs_files/yt.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/jquery-1.10.1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/jquery-1.7.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/jquery-ui-1.8.18.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/jquery.smooth-scroll.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/reveal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/js/reveal.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/css/zenburn.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/font/Quicksand_Light.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/font/league_gothic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/font/league_gothic-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/font/league_gothic-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/font/league_gothic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/font/league_gothic_license" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/js/classList.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/js/head.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lib/js/html5shiv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/README.markdown" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/css/lightbox.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/css/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/bg-checker.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/box.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/bullet.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/donate.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/image-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/image-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/image-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/image-4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/image-5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/image-6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/thumb-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/thumb-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/thumb-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/thumb-4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/thumb-5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/examples/thumb-6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/favicon.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/next.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/prev.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/images/speech-bubbles.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/js/jquery-1.7.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/js/jquery-ui-1.8.18.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/js/jquery.smooth-scroll.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/lightbox/js/lightbox.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/highlight/highlight.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/markdown/example.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/markdown/example.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/markdown/markdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/markdown/marked.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/multiplex/client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/multiplex/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/multiplex/master.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/notes-server/client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/notes-server/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/notes-server/notes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/notes/notes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/notes/notes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/postmessage/example.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/postmessage/postmessage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/print-pdf/print-pdf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/remotes/remotes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/search/search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/webroot/interactive_tutorial/plugin/zoom-js/zoom.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/PagesController.php" afterPath="$PROJECT_DIR$/app/Controller/PagesController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp" afterPath="$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Pages/contact.ctp" afterPath="$PROJECT_DIR$/app/View/Pages/contact.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Elements/dashboard-menu.ctp" afterPath="$PROJECT_DIR$/app/View/Elements/dashboard-menu.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Layouts/default.ctp" afterPath="$PROJECT_DIR$/app/View/Layouts/default.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Pages/getting_involved.ctp" afterPath="$PROJECT_DIR$/app/View/Pages/getting_involved.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp" afterPath="$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/css/main.css" afterPath="$PROJECT_DIR$/app/webroot/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Elements/partials/test.ctp" afterPath="$PROJECT_DIR$/app/View/Elements/partials/test.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archival.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390925699291" ignored="false" />
-    <file path="/coding_scheme.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390920473100" ignored="false" />
-    <file path="/test.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390507084996" ignored="false" />
+    <file path="/Dummy.txt" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391006983482" ignored="false" />
+    <file path="/coding_scheme.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391021708520" ignored="false" />
+    <file path="/test.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391021628395" ignored="false" />
     <file path="/code.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390502319938" ignored="false" />
-    <file path="/a.dummy" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390929387200" ignored="false" />
-    <file path="/interactive_tutorial.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390929276238" ignored="false" />
+    <file path="/a.dummy" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391021556307" ignored="false" />
+    <file path="/interactive_tutorial.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391021075074" ignored="false" />
     <file path="/PagesController.php" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390926833839" ignored="false" />
     <file path="/dashboard-menu.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390509311707" ignored="false" />
     <file path="$USER_HOME$/Desktop/centerforopenscience.org/www/jobs/_projectcoordinator.mako" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390833606165" ignored="false" />
@@ -229,10 +32,17 @@
     <file path="/press.mako" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390835529172" ignored="false" />
     <file path="$USER_HOME$/Desktop/osf-jc/website/templates/index.mako" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390836688095" ignored="false" />
     <file path="/index.mako" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390836688095" ignored="false" />
-    <file path="/getting_involved.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390929728684" ignored="false" />
-    <file path="/default.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390929969918" ignored="false" />
-    <file path="/main.css" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390929833422" ignored="false" />
+    <file path="/getting_involved.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390937581492" ignored="false" />
+    <file path="/default.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391021070366" ignored="false" />
+    <file path="/main.css" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390939236718" ignored="false" />
     <file path="/contact.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390929936843" ignored="false" />
+    <file path="/bootstrap-responsive.css" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390938073900" ignored="false" />
+    <file path="$USER_HOME$/scrollspy/scroll example.html" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390946270737" ignored="false" />
+    <file path="/scroll example.html" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390946364113" ignored="false" />
+    <file path="$USER_HOME$/scrollspy/scroll_example.html" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391016824685" ignored="false" />
+    <file path="/scroll_example.html" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391016759147" ignored="false" />
+    <file path="$USER_HOME$/scrollspy/static/bootstrap3/css/bootstrap-custom.css" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391015448239" ignored="false" />
+    <file path="/bootstrap-custom.css" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391015446413" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,27 +62,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="coding_scheme.ctp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="6" selection-start="920" selection-end="920" vertical-scroll-proportion="-5.5555553">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interactive_tutorial.ctp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="38" selection-start="1945" selection-end="1945" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dashboard-menu.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/View/Elements/dashboard-menu.ctp">
           <provider selected="true" editor-type-id="text-editor">
@@ -282,31 +71,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.ctp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="default.ctp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="102" selection-start="3065" selection-end="3065" vertical-scroll-proportion="-2.9245284">
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getting_involved.ctp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/View/Pages/getting_involved.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="45" selection-start="770" selection-end="770" vertical-scroll-proportion="0.16965127">
+            <state line="54" column="71" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.2416">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contact.ctp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Pages/contact.ctp">
+      <file leaf-file-name="interactive_tutorial.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="12" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+            <state line="24" column="23" selection-start="1935" selection-end="1935" vertical-scroll-proportion="-6.792453">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coding_scheme.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="383" column="62" selection-start="32596" selection-end="32596" vertical-scroll-proportion="-7.3396225">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Elements/partials/test.ctp">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="288" column="194" selection-start="20686" selection-end="20686" vertical-scroll-proportion="-4.6415095">
               <folding />
             </state>
           </provider>
@@ -315,30 +122,9 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webroot/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="1" selection-start="299" selection-end="299" vertical-scroll-proportion="-10.384615">
+            <state line="19" column="1" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PagesController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/PagesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="82" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="81" selection-start="4245" selection-end="4247" vertical-scroll-proportion="3.3773584">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
           </provider>
         </entry>
       </file>
@@ -362,22 +148,24 @@
       <list>
         <option value="$PROJECT_DIR$/app/View/Pages/home.ctp" />
         <option value="$PROJECT_DIR$/app/View/Codedpapers/code.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Elements/partials/test.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/PagesController.php" />
         <option value="$PROJECT_DIR$/app/View/Elements/dashboard-menu.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp" />
-        <option value="$PROJECT_DIR$/app/webroot/css/main.css" />
-        <option value="$PROJECT_DIR$/app/View/Layouts/default.ctp" />
         <option value="$PROJECT_DIR$/app/View/Pages/contact.ctp" />
         <option value="$PROJECT_DIR$/app/View/Pages/getting_involved.ctp" />
+        <option value="$PROJECT_DIR$/app/webroot/css/bootstrap-responsive.css" />
+        <option value="$PROJECT_DIR$/app/webroot/css/main.css" />
+        <option value="$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Elements/partials/test.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Layouts/default.ctp" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
     <option name="y" value="22" />
-    <option name="width" value="2560" />
-    <option name="height" value="1418" />
+    <option name="width" value="1436" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -405,7 +193,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -435,46 +222,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="archival" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="archival" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webroot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="archival" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="archival" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webroot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -554,16 +301,74 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="archival" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="archival" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Elements" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="archival" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="archival" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Elements" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -711,15 +516,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1418" extended-state="6" />
+    <frame x="-8" y="22" width="1436" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16101696" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08575198" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10063644" sideWeight="0.83898306" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33597124" sideWeight="0.91424805" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -795,119 +600,54 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/View/Codedpapers/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Elements/test.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/CodedpapersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="51" selection-start="99" selection-end="99" vertical-scroll-proportion="0.036764707">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="51" selection-start="99" selection-end="99" vertical-scroll-proportion="0.036764707" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Elements/partials/study.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="47" selection-start="3736" selection-end="3754" vertical-scroll-proportion="0.35263836">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Elements/partials/test.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="292" column="41" selection-start="20757" selection-end="20757" vertical-scroll-proportion="0.7194337">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
+        <state line="72" column="47" selection-start="3736" selection-end="3754" vertical-scroll-proportion="0.35263836" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="25" selection-start="7819" selection-end="7819" vertical-scroll-proportion="0.3534994">
-          <folding />
-        </state>
+        <state line="182" column="25" selection-start="7819" selection-end="7819" vertical-scroll-proportion="0.3534994" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Codedpapers/code.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="97" selection-start="718" selection-end="725" vertical-scroll-proportion="0.15903413">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="97" selection-start="718" selection-end="725" vertical-scroll-proportion="0.15903413" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/PagesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="82" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="40" column="82" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="81" selection-start="4245" selection-end="4247" vertical-scroll-proportion="3.3773584">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Elements/dashboard-menu.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="64" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="38" selection-start="1945" selection-end="1945" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="1" selection-start="299" selection-end="299" vertical-scroll-proportion="-10.384615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="102" selection-start="3065" selection-end="3065" vertical-scroll-proportion="-2.9245284">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
+        <state line="121" column="81" selection-start="4245" selection-end="4247" vertical-scroll-proportion="3.3773584" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Pages/contact.ctp">
@@ -917,19 +657,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="6" selection-start="920" selection-end="920" vertical-scroll-proportion="-5.5555553">
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/View/Pages/getting_involved.ctp">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Pages/getting_involved.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="45" selection-start="770" selection-end="770" vertical-scroll-proportion="0.16965127">
+        <state line="4" column="28" selection-start="85" selection-end="92" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Elements/dashboard-menu.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="64" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/bootstrap-responsive.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="982" column="16" selection-start="18850" selection-end="18850" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="1" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="23" selection-start="1935" selection-end="1935" vertical-scroll-proportion="-6.792453">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Elements/partials/test.ctp">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="288" column="194" selection-start="20686" selection-end="20686" vertical-scroll-proportion="-4.6415095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="383" column="62" selection-start="32596" selection-end="32596" vertical-scroll-proportion="-7.3396225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="71" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.2416">
           <folding />
         </state>
       </provider>

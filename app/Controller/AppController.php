@@ -71,6 +71,9 @@ class AppController extends Controller {
 	            $this->Session->write('Message.flash', $flash);
 	        }
 	    }
+
+	    // Add uid to all requests.
+	    $this->set('uid', $this->Auth->user());
 	}
 	
 	public function isAuthorized($user = null, $request = null) {

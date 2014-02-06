@@ -52,7 +52,7 @@
     	?>
 
 	</head>
-	<body>
+	<body data-spy="scroll" data-target=".nav-list-spy" data-offset="120">
 	<div class="bigouterbox">
 	    <div class="navbar-whiter navbar navbar-fixed-top">
 	      <div class="navbar-inner">
@@ -62,21 +62,18 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </a>
-	          <a href='/' class='brand'><img alt="COS Archival" src="/img/cos-archival.png"></a>
-	          <div class="container nav-collapse">
-	            <ul class="nav">
-	                <li><?php echo $this->Html->link('Getting involved', '/pages/getting_involved'); ?></li>
-
-<?php if(AuthComponent::user() !== NULL){ ?>
+	          <a href='/' class='brand'><img alt="COS Archival" src="/img/logo.png" width="100px"></a>
+	          <div class="container nav-collapse ">
+	            <ul class="nav" id="navlist">
+	                <li><?php echo $this->Html->link('Getting Involved', '/pages/getting_involved'); ?></li>
+                    <li><?php echo $this->Html->link('Coding Scheme', '/pages/coding_scheme'); ?></li>
+                    <li><?php echo $this->Html->link('Tutorial', '/pages/interactive_tutorial'); ?></li>
                     <li><a href='/pages/contact'>Contact</a></li>
-                    <li><a href='/interactive_tutorial/#/'>Interactive Tutorial</a></li>
-<?php } ?>
-
                 </ul>
 
 
 
-	            <div class='nav pull-right btn-group' style='position:relative;top:13px'>
+	            <div class='nav pull-right btn-group' id='navlist' style='position:relative;top:13px'>
 
 <?php if(AuthComponent::user() !== NULL){ ?>
                     <a href='/papers/index' class='btn btn-warning'>My Dashboard</a>
@@ -137,5 +134,25 @@
 
 	    </div> <!-- /container -->
 	</div>
+	
+
+	<script type="text/javascript">
+	  var _paq = _paq || [];
+	  <?php if($uid): ?>
+	  	_paq.push(["setCustomVariable", 1, "User ID", "<?php echo $uid['id']; ?>", "visit"]);
+	  	_paq.push(["setCustomVariable", 2, "User Name", "<?php echo $uid['username']; ?>", "visit"]);
+	  <?php endif; ?>
+	  _paq.push(["trackPageView"]);
+	  _paq.push(["enableLinkTracking"]);
+
+	  (function() {
+	    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://162.243.104.66/piwik/";
+	    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+	    _paq.push(["setSiteId", "6"]);
+	    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+	    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+
 	</body>
 </html>

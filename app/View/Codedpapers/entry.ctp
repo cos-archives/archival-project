@@ -1,3 +1,4 @@
+<link type='text/css' rel='stylesheet' href='/css/entry.css' />
 <style>
     .block {
         min-height: 20px;
@@ -116,8 +117,10 @@
     #coding-form .controls {
         position:relative;
     }
-    #coding-form .helpModalToggle {
-        margin-top:5px;
+    #coding-form .controls input,
+    #coding-form .controls select,
+    #coding-form .controls textarea {
+        margin-right:10px;
     }
     .hide {
         display: none;
@@ -213,9 +216,9 @@ $(function() {
             /* field hovers */
             'trigger': 'hover',
             'html': true,
-            'content': function() {
-                return $('.control-group:hover .help-popover').html();
-            }
+            'content': function(e) {
+                return $(this).find('+ div.help-popover').html();
+        }
         });
 
         $('#coding-form').on('click', '.helpModalToggle', function(e) {

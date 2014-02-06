@@ -1,3 +1,7 @@
+    <script>
+    var count = 0;
+    </script>
+
     <div class="span3 nav-list-spy">
         <ul class="nav nav-list osfa-affix-sidenav affix" >
             <li class="active"><a href="#overview"><i class="icon-chevron-right"></i> Overview</a></li>
@@ -5,7 +9,7 @@
             <li><a href="#hypotheses"><i class="icon-chevron-right"></i> Hypotheses</a></li>
             <li><a href="#methodology"><i class="icon-chevron-right"></i> Methodology</a></li>
             <li><a href="#analytic_design_code"><i class="icon-chevron-right"></i> Analytic Design Code</a></li>
-        <ul>
+        </ul>
     </div>
     <div class="span9 offset3" style="margin-bottom: 150px">
         <div id="overview">
@@ -38,7 +42,9 @@
             <br>
             <h4>Practice Questions</h4>
             <br>
-            <div class="well well-lg">
+
+            <!-- Question 1 -->
+            <div class="well well-lg" style="height: 440px">
                 <p class="lead">Read the following abstract:</p>
                 <p>"Research has found that positive affect broadens
                     attention. However, these studies have manipulated
@@ -66,75 +72,86 @@
                 <p>Gable and Harmon-Jones (2008)</p>
                 <p class="lead">Which sentence describes an effect to be coded?</p>
 
-                <table>
-                    <tr>
-                        <td style="padding-right: 20px; padding-bottom: 10px">
-                            <!-- Button 1 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst_right">
-                               A
-                            </button>
+                <script type = "text/javascript">
+                        function revealAnswers1() {
+                        document.getElementById("abstbutton1").className = "btn btn-success";
+                        document.getElementById("abstbutton1").disabled = true;
+                        document.getElementById("abstbutton2").className = "btn btn-danger";
+                        document.getElementById("abstbutton2").disabled = true;
+                        count = count + 1;
+                        }
+                </script>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="abst_right" tabindex="-1" role="dialog" aria-labelledby="abst_rightLabel" aria-hidden="true">
-                               <div class="modal-dialog">
-                                   <div class="modal-content">
-                                       <div class="modal-header">
-                                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                           <h4 class="modal-title" id="myModalLabel">You're right!</h4>
-                                       </div>
-                                       <div class="modal-body">
-                                            This sentence describes two of the studies, their results, the IVs (stimuli), and the DV (global attentional focus).
-                                       </div>
-                                       <div class="modal-footer">
-                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       </div>
-                                   </div><!-- /.modal-content -->
-                               </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
-                        </td>
-                        <td>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst_right" id="abstbutton1">
+                                   A
+                            </button>
+                        </div>
+                        <div class="span7">
                             <p>"Participants showed less global attentional
-                            focus after viewing high-approach-motivating positive
-                            stimuli than after viewing low-approach-motivating positive
-                            stimuli (Study 1) or neutral stimuli (Study 2)."</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 2 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst_wrong">
-                               B
+                                focus after viewing high-approach-motivating positive
+                                stimuli than after viewing low-approach-motivating positive
+                                stimuli (Study 1) or neutral stimuli (Study 2)."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst_wrong" id="abstbutton2">
+                                   B
                             </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="abst_wrong" tabindex="-1" role="dialog" aria-labelledby="abst_wrongLabel" aria-hidden="true">
-                               <div class="modal-dialog">
-                                   <div class="modal-content">
-                                       <div class="modal-header">
-                                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                           <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
-                                       </div>
-                                       <div class="modal-body">
-                                           This sentence discusses past literature. While it is relevant to the effects the researchers are looking for, it is not specific to any of their studies.
-                                       </div>
-                                       <div class="modal-footer">
-                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       </div>
-                                   </div><!-- /.modal-content -->
-                               </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span6">
                             <p>"Positive affect that is high in approach motivation should reduce
                             the breadth of attention, as organisms shut out irrelevant
-                            stimuli as they approach desired objects."</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                            stimuli as they approach desired objects."
+                            </p>
+                        </div>
+                    </div>
+                </form>
 
+                <!-- Modal -->
+                <div class="modal fade" id="abst_right" tabindex="-1" role="dialog" aria-labelledby="right" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                   <div class="modal-dialog">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <h4 class="modal-title" id="myModalLabel">You're right!</h4>
+                           </div>
+                           <div class="modal-body">
+                                This sentence describes two of the studies, their results, the IVs (stimuli), and the DV (global attentional focus).
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal" onclick="revealAnswers1()">Close</button>
+                           </div>
+                       </div><!-- /.modal-content -->
+                   </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="abst_wrong" tabindex="-1" role="dialog" aria-labelledby="wrong" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+                   <div class="modal-dialog">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
+                           </div>
+                           <div class="modal-body">
+                               This sentence discusses past literature. While it is relevant to the effects the researchers are looking for, it is not specific to any of their studies.
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal" onclick="revealAnswers1()" >Close</button>
+                           </div>
+                       </div><!-- /.modal-content -->
+                   </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+            </div>
+            <!-- End Question 1 -->
+
+            <!-- Question 2 -->
             <br>
-            <div class="well well-lg">
+            <div class="well well-lg" style="height: 440px">
                 <p class="lead">Read the following abstract:</p>
                 <p>"People often diverge from members of other social groups: They select cultural tastes (e.g., possessions,
                     attitudes, or behaviors) that distinguish them from outsiders and abandon tastes when outsiders adopt
@@ -149,68 +166,79 @@
                 <p>Berger and Heath (2008)</p>
                 <p class="lead">Which sentence describes an effect to be coded?</p>
 
-                <table>
-                    <tr>
-                        <td style="padding-right: 20px; padding-bottom: 10px">
-                            <!-- Button 1 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst2_wrong">
-                               A
+                <script type = "text/javascript">
+                        function revealAnswers2() {
+                        document.getElementById("abstbutton3").className = "btn btn-danger";
+                        document.getElementById("abstbutton3").disabled = true;
+                        document.getElementById("abstbutton4").className = "btn btn-success";
+                        document.getElementById("abstbutton4").disabled = true;
+                        count = count + 1;
+                        }
+                </script>
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst2_wrong" id="abstbutton3">
+                                   A
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>"But while divergence is pervasive, most research on the propagation of culture is based on
-                    conformity."</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 2 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst2_right">
-                               B
+                                conformity."
+                            </p>
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst2_right" id="abstbutton4">
+                                   B
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span6">
                             <p>"Consistent with an identity-signaling perspective, the studies further showed that people often
-                    diverge from dissimilar outgroups to avoid the costs of misidentification."</p>
-                        </td>
-                    </tr>
-                </table>
+                                diverge from dissimilar outgroups to avoid the costs of misidentification."
+                            </p>
+                        </div>
+                    </div>
+                </form>
 
                 <!-- Modal 1 -->
-                            <div class="modal fade" id="abst2_wrong" tabindex="-1" role="dialog" aria-labelledby="abst2_wrongLabel" aria-hidden="true">
-                               <div class="modal-dialog">
-                                   <div class="modal-content">
-                                       <div class="modal-header">
-                                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                           <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
-                                       </div>
-                                       <div class="modal-body">
-                                            This sentence describes past research and a DV used in other researchers work, it does not tell you about the relationships that the present researchers are investigating.
-                                       </div>
-                                       <div class="modal-footer">
-                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       </div>
-                                   </div><!-- /.modal-content -->
-                               </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
+                <div class="modal fade" id="abst2_wrong" tabindex="-1" role="dialog" aria-labelledby="abst2_wrongLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                   <div class="modal-dialog">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
+                           </div>
+                           <div class="modal-body">
+                                This sentence describes past research and a DV used in other researchers work, it does not tell you about the relationships that the present researchers are investigating.
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal" onclick="revealAnswers2()">Close</button>
+                           </div>
+                       </div><!-- /.modal-content -->
+                   </div><!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
                 <!-- Modal 2-->
-                            <div class="modal fade" id="abst2_right" tabindex="-1" role="dialog" aria-labelledby="abst2_rightLabel" aria-hidden="true">
-                               <div class="modal-dialog">
-                                   <div class="modal-content">
-                                       <div class="modal-header">
-                                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                           <h4 class="modal-title" id="myModalLabel">You're right!</h4>
-                                       </div>
-                                       <div class="modal-body">
-                                            Correct. This sentence identifies the DV (divergence) and an IV, group similarity, even telling you the direction of their relationship.
-                                       </div>
-                                       <div class="modal-footer">
-                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                       </div>
-                                   </div><!-- /.modal-content -->
-                               </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
+                <div class="modal fade" id="abst2_right" tabindex="-1" role="dialog" aria-labelledby="abst2_rightLabel" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+                   <div class="modal-dialog">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <h4 class="modal-title" id="myModalLabel">You're right!</h4>
+                           </div>
+                           <div class="modal-body">
+                                Correct. This sentence identifies the IV (divergence) and a DV, similarity of the outgroup, even telling you that divergence occurs more often from a dissimilar outgroup.
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal" onclick="revealAnswers2()">Close</button>
+                           </div>
+                       </div><!-- /.modal-content -->
+                   </div><!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
             </div>
+            <!-- End Question 2 -->
         </div>
         <div id="hypotheses">
             <h3>Hypotheses</h3>
@@ -231,133 +259,159 @@
 
             <h4>Practice Questions</h4>
             <br>
+
+            <!-- Question 3 -->
             <div class="well" style="height: 200px">
                 <p class="lead">What kind of hypothesis is found in Santos, 2008?</p>
                 <p>"If this is the case, and if adults with ASD have reduced top-down influence, then categorization should have a smaller influence on perceptual processing in adults with ASD than in control subjects."</p>
-                <table>
-                    <tr>
-                        <td style="padding-right: 20px; padding-bottom: 10px">
-                            <!-- Button 1 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp_right">
-                               A
+                <br>
+                <script type = "text/javascript">
+                        function revealAnswers3() {
+                        document.getElementById("hypbutton1").className = "btn btn-success";
+                        document.getElementById("hypbutton1").disabled = true;
+                        document.getElementById("hypbutton2").className = "btn btn-danger";
+                        document.getElementById("hypbutton2").disabled = true;
+                        count = count + 1;
+                        }
+                </script>
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp1_right" id="hypbutton1">
+                                   A
                             </button>
-                        </td>
-                        <td>
-                            <p>Directional hypothesis</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 2 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp_wrong">
-                               B
+                        </div>
+                        <div class="span7">
+                            <p>Directional hypothesis
+                            </p>
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp1_wrong" id="hypbutton2">
+                                   B
                             </button>
-                        </td>
-                        <td>
-                            <p>Non-directional hypothesis</p>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                        <div class="span6">
+                            <p>Non-directional hypothesis
+                            </p>
+                        </div>
+                    </div>
+                </form>
+
                 <!-- Modal 1-->
-                    <div class="modal fade" id="hyp_right" tabindex="-1" role="dialog" aria-labelledby="hyp_rightLabel" aria-hidden="true">
+                    <div class="modal fade" id="hyp1_right" tabindex="-1" role="dialog" aria-labelledby="hyp_rightLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                        <div class="modal-dialog">
                            <div class="modal-content">
                                <div class="modal-header">
-                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                    <h4 class="modal-title" id="myModalLabel">You're right!</h4>
                                </div>
                                <div class="modal-body">
                                     It is a directional hypothesis.
                                </div>
                                <div class="modal-footer">
-                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                   <button type="button" class="btn btn-default" data-dismiss="modal" onclick="revealAnswers3()">Close</button>
                                </div>
                            </div><!-- /.modal-content -->
                        </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
 
                 <!-- Modal 2-->
-                <div class="modal fade" id="hyp_wrong" tabindex="-1" role="dialog" aria-labelledby="hyp_wrongLabel" aria-hidden="true">
+                <div class="modal fade" id="hyp1_wrong" tabindex="-1" role="dialog" aria-labelledby="hyp_wrongLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                               <h4 class="modal-title" id="myModalLabel">You're wrong!</h4>
+                               <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
                             </div>
                             <div class="modal-body">
                                 Because the authors say that that the DV will affect certain groups less than others, this is a directional hypothesis.
                             </div>
                             <div class="modal-footer">
-                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                               <button type="button" class="btn btn-default" data-dismiss="modal"  onclick="revealAnswers3()">Close</button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
             </div>
+            <!-- End Question 3 -->
+
+            <!-- Question 4 -->
             <br>
             <div class="well" style="height: 200px">
                 <p class="lead">What kind of hypothesis is found in Goshke, 2008?</p>
                 <p>"We predicted that PM cues would be overlooked (i.e., not acted upon) more often on high- than on low-conﬂict trials because on high-conﬂict trials the current goal (i.e., to perform the ongoing task) is automatically shielded from distracting information."</p>
-                <table>
-                    <tr>
-                        <td style="padding-right: 20px; padding-bottom: 10px">
-                            <!-- Button 1 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp2_right">
-                               A
+                <br>
+                <script type = "text/javascript">
+                        function revealAnswers4() {
+                        document.getElementById("hypbutton3").className = "btn btn-success";
+                        document.getElementById("hypbutton3").disabled = true;
+                        document.getElementById("hypbutton4").className = "btn btn-danger";
+                        document.getElementById("hypbutton4").disabled = true;
+                        count = count + 1;
+                        }
+                </script>
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp2_right" id="hypbutton3">
+                                   A
                             </button>
-                        </td>
-                        <td>
-                            <p>Directional hypothesis</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 2 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp2_wrong">
-                               B
+                        </div>
+                        <div class="span7">
+                            <p>Directional hypothesis
+                            </p>
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp2_wrong" id="hypbutton4">
+                                   B
                             </button>
-                        </td>
-                        <td>
-                            <p>Non-directional hypothesis</p>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                        <div class="span6">
+                            <p>Non-directional hypothesis
+                            </p>
+                        </div>
+                    </div>
+                </form>
+
                 <!-- Modal 1-->
-                    <div class="modal fade" id="hyp2_right" tabindex="-1" role="dialog" aria-labelledby="hyp2_rightLabel" aria-hidden="true">
+                    <div class="modal fade" id="hyp2_right" tabindex="-1" role="dialog" aria-labelledby="hyp2_rightLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                        <div class="modal-dialog">
                            <div class="modal-content">
                                <div class="modal-header">
-                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                    <h4 class="modal-title" id="myModalLabel">You're right!</h4>
                                </div>
                                <div class="modal-body">
                                     This is a directional hypothesis.
                                </div>
                                <div class="modal-footer">
-                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                   <button type="button" class="btn btn-default" data-dismiss="modal" onClick="revealAnswers4()">Close</button>
                                </div>
                            </div><!-- /.modal-content -->
                        </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
 
                 <!-- Modal 2-->
-                <div class="modal fade" id="hyp2_wrong" tabindex="-1" role="dialog" aria-labelledby="hyp2_wrongLabel" aria-hidden="true">
+                <div class="modal fade" id="hyp2_wrong" tabindex="-1" role="dialog" aria-labelledby="hyp2_wrongLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                    <div class="modal-dialog">
                        <div class="modal-content">
                            <div class="modal-header">
-                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                               <h4 class="modal-title" id="myModalLabel">You're wrong!</h4>
+                               <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
                            </div>
                            <div class="modal-body">
                                 The authors specify that the IV (number of PM cues overlooked) will be greater in some trials, based on the DV (conflict level). This means it is a directional hypothesis.
                            </div>
                            <div class="modal-footer">
-                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                               <button type="button" class="btn btn-default" data-dismiss="modal" onClick="revealAnswers4()">Close</button>
                            </div>
                        </div><!-- /.modal-content -->
                    </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
             </div>
+            <!-- End Question 4 -->
         </div>
         <div id="methodology">
             <h3>Methodology</h3>
@@ -385,20 +439,23 @@
             <blockquote>Participants are asked to take a snack, either a banana or chocolate bar, and researchers compare these decisions
             to the weight of the participants</blockquote>
             <h3>Practice Questions</h3>
+
+            <!--Question 5-->
             <div class="well" style="height: 350px">
                 <p class="lead">Based on the following quote, which  methodologies were used in Burt, 2008?</p>
                 <p>"After 45 to 60 min, participants adjourned to individual rooms to complete sociometric rankings (on a scale of 1-4, with 1 meaning 'I liked this person best')...DNA was obtained via Oragene...saliva collection kits."</p>
                 <p>The researchers compared how well liked a person was to information found in their DNA.</p>
                 <div id="methodology_quiz1">
                     <form name = "methodology_form">
-                        <input type = "checkbox" name = "question1"> &nbsp;&nbsp;Archival Measures<br>
-                        <input type = "checkbox" name = "question2"> &nbsp;&nbsp;Brain Imaging Measures<br>
-                        <input type = "checkbox" name = "question3"> &nbsp;&nbsp;Judgment Measures<br>
-                        <input type = "checkbox" name = "question4"> &nbsp;&nbsp;Non-imaging Physiological Measures<br>
-                        <input type = "checkbox" name = "question5"> &nbsp;&nbsp;Self Report Measures<br>
-                        <input type = "checkbox" name = "question6"> &nbsp;&nbsp;Indirect Verbal or Response Time Measures<br>
-                        <input type = "checkbox" name = "question7"> &nbsp;&nbsp;Behavioral/Choice Measures<br><br>
+                        <input type = "checkbox" name = "question1" id ="question1"> &nbsp;&nbsp;Archival Measures<br>
+                        <input type = "checkbox" name = "question2" id ="question2"> &nbsp;&nbsp;Brain Imaging Measures<br>
+                        <input type = "checkbox" name = "question3" id ="question3"> &nbsp;&nbsp;Judgment Measures<br>
+                        <input type = "checkbox" name = "question4" id ="question4"> &nbsp;&nbsp;Non-imaging Physiological Measures<br>
+                        <input type = "checkbox" name = "question5" id ="question5"> &nbsp;&nbsp;Self Report Measures<br>
+                        <input type = "checkbox" name = "question6" id ="question6"> &nbsp;&nbsp;Indirect Verbal or Response Time Measures<br>
+                        <input type = "checkbox" name = "question7" id ="question7"> &nbsp;&nbsp;Behavioral/Choice Measures<br><br>
                         <input type = "button" class="btn btn-primary" value = "Submit" onClick = "scoreQuiz();">
+
                      </form>
 
 
@@ -407,56 +464,71 @@
                             var correct = 0;
                             if (window.document.methodology_form.question1.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question1").disabled = true;
                             } else {
                                 window.document.methodology_form.question1.checked = false;
+                                document.getElementById("question1").disabled = true;
                             }
                             if (window.document.methodology_form.question2.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question2").disabled = true;
                             } else {
                                 window.document.methodology_form.question2.checked = false;
+                                document.getElementById("question2").disabled = true;
                             }
                             if (window.document.methodology_form.question3.checked == true) {
                                 correct = correct + 1;
+                                document.getElementById("question3").disabled = true;
                             } else {
                                 window.document.methodology_form.question3.checked = true;
+                                document.getElementById("question3").disabled = true;
                             }
                             if (window.document.methodology_form.question4.checked == true) {
                                 correct = correct + 1;
+                                document.getElementById("question4").disabled = true;
                             } else {
                                 window.document.methodology_form.question4.checked = true;
+                                document.getElementById("question4").disabled = true;
                             }
                             if (window.document.methodology_form.question5.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question5").disabled = true;
                             } else {
                                 window.document.methodology_form.question5.checked = false;
+                                document.getElementById("question5").disabled = true;
                             }
                             if (window.document.methodology_form.question6.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question6").disabled = true;
                             } else {
                                 window.document.methodology_form.question6.checked = false;
+                                document.getElementById("question6").disabled = true;
                             }
                             if (window.document.methodology_form.question7.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question7").disabled = true;
                             } else {
                                 window.document.methodology_form.question7.checked = false;
+                                document.getElementById("question7").disabled = true;
                             }
 
                             if (correct == 7) {
                                 $('#methodology_right').modal('show');
+                                count = count + 1;
 
                             } else {
                                 $('#methodology_wrong').modal('show');
+                                count = count + 1;
                             }
 
                         }
                     </script>
 
                     <!-- Modal: methodology_right-->
-                    <div class="modal fade" id="methodology_right" tabindex="-1" role="dialog" aria-labelledby="methodology_rightLabel" aria-hidden="true">
+                    <div class="modal fade" id="methodology_right" tabindex="-1" role="dialog" aria-labelledby="methodology_rightLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                        <div class="modal-dialog">
                            <div class="modal-content">
                                <div class="modal-header">
-                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                    <h4 class="modal-title" id="myModalLabel">You're right!</h4>
                                </div>
                                <div class="modal-body">
@@ -470,11 +542,10 @@
                     </div><!-- /.modal -->
 
                      <!-- Modal: methodology_wrong-->
-                     <div class="modal fade" id="methodology_wrong" tabindex="-1" role="dialog" aria-labelledby="methodology_wrongLabel" aria-hidden="true">
+                     <div class="modal fade" id="methodology_wrong" tabindex="-1" role="dialog" aria-labelledby="methodology_wrongLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
                                 </div>
                                 <div class="modal-body">
@@ -486,10 +557,11 @@
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                      </div><!-- /.modal -->
-
                 </div>
             </div>
+            <!--End Question 5-->
 
+            <!--Question 6-->
             <div class="well" style="height: 350px">
                 <p class="lead">Based on the following quote, which  methodologies were used in Demany, 2008?</p>
                 <p>"On each trial, the listener was presented with two successive ‘‘chords’’ (sums of pure tones) and had to indicate if they were identical or not. The listener, sitting in a sound attenuated booth, gave his or her responses by clicking a computer mouse on two virtual buttons."</p>
@@ -497,13 +569,13 @@
 
                 <div id="methodology_quiz2">
                     <form name = "methodology_form2">
-                        <input type = "checkbox" name = "question1"> &nbsp;&nbsp;Archival Measures<br>
-                        <input type = "checkbox" name = "question2"> &nbsp;&nbsp;Brain Imaging Measures<br>
-                        <input type = "checkbox" name = "question3"> &nbsp;&nbsp;Judgment Measures<br>
-                        <input type = "checkbox" name = "question4"> &nbsp;&nbsp;Non-imaging Physiological Measures<br>
-                        <input type = "checkbox" name = "question5"> &nbsp;&nbsp;Self Report Measures<br>
-                        <input type = "checkbox" name = "question6"> &nbsp;&nbsp;Indirect Verbal or Response Time Measures<br>
-                        <input type = "checkbox" name = "question7"> &nbsp;&nbsp;Behavioral/Choice Measures<br><br>
+                        <input type = "checkbox" name = "question1" id = "question21"> &nbsp;&nbsp;Archival Measures<br>
+                        <input type = "checkbox" name = "question2" id = "question22"> &nbsp;&nbsp;Brain Imaging Measures<br>
+                        <input type = "checkbox" name = "question3" id = "question23"> &nbsp;&nbsp;Judgment Measures<br>
+                        <input type = "checkbox" name = "question4" id = "question24"> &nbsp;&nbsp;Non-imaging Physiological Measures<br>
+                        <input type = "checkbox" name = "question5" id = "question25"> &nbsp;&nbsp;Self Report Measures<br>
+                        <input type = "checkbox" name = "question6" id = "question26"> &nbsp;&nbsp;Indirect Verbal or Response Time Measures<br>
+                        <input type = "checkbox" name = "question7" id = "question27"> &nbsp;&nbsp;Behavioral/Choice Measures<br><br>
                         <input type = "button" class="btn btn-primary" value = "Submit" onClick = "scoreQuiz2();">
                      </form>
 
@@ -512,62 +584,77 @@
                             var correct = 0;
                             if (window.document.methodology_form2.question1.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question21").disabled = true;
                             } else {
                                 window.document.methodology_form2.question1.checked = false;
+                                document.getElementById("question21").disabled = true;
                             }
 
                             if (window.document.methodology_form2.question2.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question22").disabled = true;
                             } else {
                                 window.document.methodology_form2.question2.checked = false;
+                                document.getElementById("question22").disabled = true;
                             }
 
                             if (window.document.methodology_form2.question3.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question23").disabled = true;
                             } else {
                                 window.document.methodology_form2.question3.checked = false;
+                                document.getElementById("question23").disabled = true;
                             }
 
                             if (window.document.methodology_form2.question4.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question24").disabled = true;
                             } else {
                                 window.document.methodology_form2.question4.checked = false;
+                                document.getElementById("question24").disabled = true;
                             }
 
                             if (window.document.methodology_form2.question5.checked == true) {
                                 correct = correct + 1;
+                                document.getElementById("question25").disabled = true;
                             } else {
                                 window.document.methodology_form2.question5.checked = true;
+                                document.getElementById("question25").disabled = true;
                             }
 
                             if (window.document.methodology_form2.question6.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question26").disabled = true;
                             } else {
                                 window.document.methodology_form2.question6.checked = false;
+                                document.getElementById("question26").disabled = true;
                             }
 
                             if (window.document.methodology_form2.question7.checked == false) {
                                 correct = correct + 1;
+                                document.getElementById("question27").disabled = true;
                             } else {
                                 window.document.methodology_form2.question7.checked = false;
+                                document.getElementById("question27").disabled = true;
                             }
 
                             if (correct == 7) {
                                 $('#methodology_right2').modal('show');
+                                count = count + 1;
 
                             } else {
                                 $('#methodology_wrong2').modal('show');
+                                count = count + 1;
                             }
 
                         }
                     </script>
 
                     <!-- Modal: methodology_right2-->
-                    <div class="modal fade" id="methodology_right2" tabindex="-1" role="dialog" aria-labelledby="methodology2_rightLabel" aria-hidden="true">
+                    <div class="modal fade" id="methodology_right2" tabindex="-1" role="dialog" aria-labelledby="methodology2_rightLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                        <div class="modal-dialog">
                            <div class="modal-content">
                                <div class="modal-header">
-                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                    <h4 class="modal-title" id="myModalLabel">You're right!</h4>
                                </div>
                                <div class="modal-body">
@@ -581,11 +668,10 @@
                     </div><!-- /.modal -->
 
                      <!-- Modal: methodology_wrong2-->
-                     <div class="modal fade" id="methodology_wrong2" tabindex="-1" role="dialog" aria-labelledby="methodology2_wrongLabel" aria-hidden="true">
+                     <div class="modal fade" id="methodology_wrong2" tabindex="-1" role="dialog" aria-labelledby="methodology2_wrongLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
                                 </div>
                                 <div class="modal-body">
@@ -598,8 +684,8 @@
                         </div><!-- /.modal-dialog -->
                      </div><!-- /.modal -->
                 </div>
-
             </div>
+            <!-- End Question 6-->
         </div>
 
         <div id="analytic_design_code">
@@ -618,6 +704,7 @@
             <p><strong>Quasi-experimental analysis of manipulation effect: </strong>Participants in the study belong to different groups and there is a manipulation, but the researcher is unable to randomize assignment of the IV. For example:</p>
             <blockquote>Researchers investigate competition by priming participants with a sports rival and compare the effect of the prime between men and women.</blockquote>
 
+            <!-- Question 7 -->
             <div class="well" style="height: 400px">
                 <p class="lead">Based on the following information from Burt, 2008, which analytic design code is appropriate?</p>
                 <ul>
@@ -627,112 +714,127 @@
                 </ul>
                 <br>
 
-                <table>
-                    <tr>
-                        <td style="padding-right: 20px; padding-bottom: 10px">
-                            <!-- Button 1 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong">
+                <script type = "text/javascript">
+                        function revealAnswers7() {
+                        document.getElementById("analyticbutton2").className = "btn btn-success";
+                        document.getElementById("analyticbutton2").disabled = true;
+                        document.getElementById("analyticbutton1").className = "btn btn-danger";
+                        document.getElementById("analyticbutton1").disabled = true;
+                        document.getElementById("analyticbutton3").className = "btn btn-danger";
+                        document.getElementById("analyticbutton3").disabled = true;
+                        document.getElementById("analyticbutton4").className = "btn btn-danger";
+                        document.getElementById("analyticbutton4").disabled = true;
+                        document.getElementById("analyticbutton5").className = "btn btn-danger";
+                        document.getElementById("analyticbutton5").disabled = true;
+                        document.getElementById("analyticbutton6").className = "btn btn-danger";
+                        document.getElementById("analyticbutton6").disabled = true;
+                        count = count + 1;
+                        }
+                </script>
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton1">
                                A
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Correlational/Multivariate Internal Analysis of Manipulation Check</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 2 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_right">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_right" id="analyticbutton2">
                                B
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Correlational/Multivariate Analysis Without Manipulation</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 3 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton3">
                                C
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Experimental Analysis of Manipulation Effect</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 4 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton4">
                                D
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Experimental Analysis of Repeated-measures Effect</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 5 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton5">
                                E
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Combined Experimental and Repeated-measures Effect</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 6 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton6">
                                F
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Quasi-experimental Analysis of Manipulation Effect</p>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </form>
+
 
                 <!-- Modal: analytic_right-->
-                    <div class="modal fade" id="analytic_right" tabindex="-1" role="dialog" aria-labelledby="analytic_rightLabel" aria-hidden="true">
-                       <div class="modal-dialog">
-                           <div class="modal-content">
-                               <div class="modal-header">
-                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                   <h4 class="modal-title" id="myModalLabel">You're right!</h4>
-                               </div>
-                               <div class="modal-body">
-                                    Correlational/Multivariate analysis without manipulation is the correct choice.
-                               </div>
-                               <div class="modal-footer">
-                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                               </div>
-                           </div><!-- /.modal-content -->
-                       </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+                <div class="modal fade" id="analytic_right" tabindex="-1" role="dialog" aria-labelledby="analytic_rightLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                   <div class="modal-dialog">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <h4 class="modal-title" id="myModalLabel">You're right!</h4>
+                           </div>
+                           <div class="modal-body">
+                                Correlational/Multivariate analysis without manipulation is the correct choice.
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal" onClick="revealAnswers7()">Close</button>
+                           </div>
+                       </div><!-- /.modal-content -->
+                   </div><!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
 
-                 <!-- Modal: analytic_wrong-->
-                 <div class="modal fade" id="analytic_wrong" tabindex="-1" role="dialog" aria-labelledby="analytic_wrongLabel" aria-hidden="true">
+                <!-- Modal: analytic_wrong-->
+                <div class="modal fade" id="analytic_wrong" tabindex="-1" role="dialog" aria-labelledby="analytic_wrongLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
                             </div>
                             <div class="modal-body">
                                 There is only one correct answer: correlational/multivariate analysis without manipulation. Participants never received a manipulation, but the researchers looked for a relationship between participant's serotenergic activity and judgment ratings.
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onClick="revealAnswers7()">Close</button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
-                 </div><!-- /.modal -->
+                </div>
+                <!-- /.modal -->
             </div>
+            <!-- End Question 7 -->
 
+            <!-- Question 8 -->
             <div class="well" style="height: 450px">
                 <p class="lead">Based on the following information from Demany, 2008, which analytic design code is appropriate?</p>
                 <ul>
@@ -742,112 +844,158 @@
                 </ul>
                 <br>
 
-                <table>
-                    <tr>
-                        <td style="padding-right: 20px; padding-bottom: 10px">
-                            <!-- Button 1 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2">
+                <script type = "text/javascript">
+                        function revealAnswers8() {
+                        document.getElementById("analyticbutton24").className = "btn btn-success";
+                        document.getElementById("analyticbutton24").disabled = true;
+                        document.getElementById("analyticbutton21").className = "btn btn-danger";
+                        document.getElementById("analyticbutton21").disabled = true;
+                        document.getElementById("analyticbutton22").className = "btn btn-danger";
+                        document.getElementById("analyticbutton22").disabled = true;
+                        document.getElementById("analyticbutton23").className = "btn btn-danger";
+                        document.getElementById("analyticbutton23").disabled = true;
+                        document.getElementById("analyticbutton25").className = "btn btn-danger";
+                        document.getElementById("analyticbutton25").disabled = true;
+                        document.getElementById("analyticbutton26").className = "btn btn-danger";
+                        document.getElementById("analyticbutton26").disabled = true;
+                        count = count + 1;
+                        }
+                </script>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton21">
                                A
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Correlational/Multivariate Internal Analysis of Manipulation Check</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 2 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton22">
                                B
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Correlational/Multivariate Analysis Without Manipulation</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 3 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton23">
                                C
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Experimental Analysis of Manipulation Effect</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 4 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_right2">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_right2" id="analyticbutton24">
                                D
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Experimental Analysis of Repeated-measures Effect</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 5 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton25">
                                E
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Combined Experimental and Repeated-measures Effect</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding-right: 20px;  padding-bottom: 10px">
-                            <!-- Button 6 trigger modal -->
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2">
+                        </div>
+                    </div><br><br>
+                    <div class="form-group">
+                        <div class="span1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton26">
                                F
                             </button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="span7">
                             <p>Quasi-experimental Analysis of Manipulation Effect</p>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </form>
 
                 <!-- Modal: analytic_right2-->
-                    <div class="modal fade" id="analytic_right2" tabindex="-1" role="dialog" aria-labelledby="analytic2_rightLabel" aria-hidden="true">
+                    <div class="modal fade" id="analytic_right2" tabindex="-1" role="dialog" aria-labelledby="analytic2_rightLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                        <div class="modal-dialog">
                            <div class="modal-content">
                                <div class="modal-header">
-                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                    <h4 class="modal-title" id="myModalLabel">You're right!</h4>
                                </div>
                                <div class="modal-body">
                                     Experimental analysis of repeated-measures effect is the correct choice.
                                </div>
                                <div class="modal-footer">
-                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                   <button type="button" class="btn btn-default" data-dismiss="modal" onClick="revealAnswers8()">Close</button>
                                </div>
                            </div><!-- /.modal-content -->
                        </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
 
                  <!-- Modal: analytic_wrong2-->
-                 <div class="modal fade" id="analytic_wrong2" tabindex="-1" role="dialog" aria-labelledby="analytic2_wrongLabel" aria-hidden="true">
+                <div class="modal fade" id="analytic_wrong2" tabindex="-1" role="dialog" aria-labelledby="analytic2_wrongLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <h4 class="modal-title" id="myModalLabel">Incorrect</h4>
                             </div>
                             <div class="modal-body">
                                 There is only one correct answer: experimental analysis of repeated-measures effect. There were no separate groups because all of the participants heard the same set of stimuli, and all of the participants were presented with different lengths of time between the tones.
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onClick="revealAnswers8()">Close</button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
-                 </div><!-- /.modal -->
-
+                </div><!-- /.modal -->
             </div>
+            <!-- End Question 8 -->
 
         </div>
+        <!-- End Tutorial -->
+        <Br>
+
+        <script>
+        function determineComplete() {
+
+            if (count == 8) {
+            location.href = "/pages/complete_tutorial";
+            }
+            else {
+             $('#incomplete').modal('show');
+            }
+        }
+        </script>
+
+        <!-- Modal: incomplete-->
+        <div class="modal fade" id="incomplete" tabindex="-1" role="dialog" aria-labelledby="incomplete_tutorial" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="incomplete_header">Tutorial incomplete</h4>
+                    </div>
+                    <div class="modal-body">
+                        Please make sure you have answered all of the questions.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <button type="button" class="btn btn-success btn-lg btn-block" onClick="determineComplete()" id="sendButton">Send tutorial completion report to professor</button>
+
+
+
     </div>

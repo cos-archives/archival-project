@@ -38,7 +38,7 @@ class PagesController extends AppController {
 		#return false;
 		
 		if(in_array($req_action, array('display'))
-			AND in_array($page, array('interactive_tutorial', 'coding_scheme','home','feedback', 'getting_involved', 'contact' ))) return true; # viewing and adding is allowed to all users
+			AND in_array($page, array('interactive_tutorial', 'coding_scheme','home','feedback', 'getting_involved', 'contact', 'complete_tutorial' ))) return true; # viewing and adding is allowed to all users
 
 		return parent::isAuthorized($user); # allow admins to do anything
 	}
@@ -49,7 +49,7 @@ class PagesController extends AppController {
 		
 #		die($this->request->params['pass'][0]);
 		if(in_array($req_action, array('display'))
-			AND in_array($page, array('interactive_tutorial', 'coding_scheme','home','getting_involved', 'contact'))) $this->Auth->allow('display'); # viewing and adding is allowed to all users
+			AND in_array($page, array('interactive_tutorial', 'coding_scheme','home','getting_involved', 'contact', 'complete_tutorial'))) $this->Auth->allow('display'); # viewing and adding is allowed to all users
 		
 		parent::beforeFilter();
 	}

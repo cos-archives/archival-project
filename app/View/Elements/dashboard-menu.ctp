@@ -14,6 +14,5 @@
     <?php echo nav_link('/papers/index', 'All papers'); ?>
     <?php echo nav_link('/codedpapers/index_mine', 'My Coded Papers'); ?>
     <?php echo nav_link('/users/leaderboard', 'Leaderboard'); ?>
-    <?php echo nav_link('/pages/coding_scheme', 'Coding Scheme'); ?>
 </ul>
 <hr>

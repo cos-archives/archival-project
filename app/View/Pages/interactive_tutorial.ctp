@@ -887,7 +887,6 @@
 
         <script>
         function determineComplete() {
-            count=8;
             if (count == 8) {
             location.href = "/pages/complete_tutorial";
             }

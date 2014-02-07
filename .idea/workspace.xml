@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13803c92-06a7-4190-9983-e600baaafbb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/View/Pages/complete_tutorial.ctp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Cake/Test/test_app/View/Themed/TestTheme/webroot/space image.text" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/PagesController.php" afterPath="$PROJECT_DIR$/app/Controller/PagesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp" afterPath="$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="archival.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391632363959" ignored="false" />
+    <file path="/Dummy.txt" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391784168761" ignored="false" />
     <file path="/coding_scheme.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391028400976" ignored="false" />
     <file path="/test.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1391021628395" ignored="false" />
     <file path="/code.ctp" changelist="13803c92-06a7-4190-9983-e600baaafbb5" time="1390502319938" ignored="false" />
@@ -65,25 +60,25 @@
     <leaf>
       <file leaf-file-name="default.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="84" selection-start="3504" selection-end="3515" vertical-scroll-proportion="-4.5471697">
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="84" selection-start="3504" selection-end="3515" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="interactive_tutorial.ctp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="10" selection-start="650" selection-end="650" vertical-scroll-proportion="0.27731094">
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="10" selection-start="650" selection-end="650" vertical-scroll-proportion="0.021008404">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -107,13 +102,13 @@
       </file>
       <file leaf-file-name="test.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/View/Elements/partials/test.ctp">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state line="288" column="194" selection-start="20686" selection-end="20686" vertical-scroll-proportion="0.0">
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
           </provider>
         </entry>
       </file>
@@ -161,8 +156,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2560" />
-    <option name="y" value="270" />
+    <option name="x" value="680" />
+    <option name="y" value="382" />
     <option name="width" value="1436" />
     <option name="height" value="900" />
   </component>
@@ -533,15 +528,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2560" y="270" width="1436" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="680" y="382" width="1436" height="900" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1521739" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25683454" sideWeight="0.84782606" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2640288" sideWeight="0.84782606" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -551,6 +545,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1521739" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -618,19 +613,19 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/Controller/CodedpapersController.php">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="51" selection-start="99" selection-end="99" vertical-scroll-proportion="0.036764707" />
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Elements/partials/study.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="47" selection-start="3736" selection-end="3754" vertical-scroll-proportion="0.35263836" />
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="47" selection-start="3736" selection-end="3754" vertical-scroll-proportion="0.35263836" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Config/bootstrap.php">
@@ -639,27 +634,27 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Codedpapers/code.ctp">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="97" selection-start="718" selection-end="725" vertical-scroll-proportion="0.15903413" />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="121" column="81" selection-start="4245" selection-end="4247" vertical-scroll-proportion="3.3773584" />
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Pages/getting_involved.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="28" selection-start="85" selection-end="92" vertical-scroll-proportion="0.0" />
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="28" selection-start="85" selection-end="92" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/css/bootstrap-responsive.css">
@@ -675,30 +670,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Elements/partials/test.ctp">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="288" column="194" selection-start="20686" selection-end="20686" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Elements/dashboard-menu.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="5" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="5" column="5" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Pages/coding_scheme.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="31" selection-start="14148" selection-end="14148" vertical-scroll-proportion="1.9277109">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="31" selection-start="14148" selection-end="14148" vertical-scroll-proportion="1.9277109" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Pages/contact.ctp">
@@ -709,20 +700,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Layouts/default.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="84" selection-start="3504" selection-end="3515" vertical-scroll-proportion="-4.5471697">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="84" selection-start="3504" selection-end="3515" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/PagesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="18" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="56" column="18" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Pages/complete_tutorial.ctp">
@@ -733,13 +722,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Pages/interactive_tutorial.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="650" selection-end="650" vertical-scroll-proportion="0.27731094">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="10" selection-start="650" selection-end="650" vertical-scroll-proportion="0.021008404">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

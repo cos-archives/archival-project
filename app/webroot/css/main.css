@@ -21,6 +21,15 @@ body
     margin-top: 5px;
 }
 
+#tutorial-nav {
+  width: auto;
+}
+
+.content-body {
+    padding-left: 0px;
+    padding-bottom: 150px;
+}
+
 .hero-unit {
   padding: 40px;
   margin-left:-20px;

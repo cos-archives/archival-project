@@ -3,7 +3,7 @@
     </script>
 
     <div class="span3 nav-list-spy">
-        <ul class="nav nav-list osfa-affix-sidenav affix" >
+        <ul class="nav nav-list osfa-affix-sidenav affix" id="tutorial-nav">
             <li class="active"><a href="#overview"><i class="icon-chevron-right"></i> Overview</a></li>
             <li><a href="#abstracts"><i class="icon-chevron-right"></i> Abstracts</a></li>
             <li><a href="#hypotheses"><i class="icon-chevron-right"></i> Hypotheses</a></li>
@@ -11,7 +11,7 @@
             <li><a href="#analytic_design_code"><i class="icon-chevron-right"></i> Analytic Design Code</a></li>
         </ul>
     </div>
-    <div class="span9 offset3" style="margin-bottom: 150px">
+    <div class="span9 offset3 content-body">
         <div id="overview">
             <h1>Learning to Code for the Archival Project</h1>
             <p class="lead">The Archival Project has developed a specific coding scheme for volunteers to follow. As a supplement to that scheme,
@@ -26,7 +26,9 @@
                 mentioned there, and look for them in the rest of the article.</p>
             <p>As you read an article, scan the abstract for results and general statements about relationships between variables.</p>
             <h4>Example 1</h4>
-            <img src="/img/tutorial_abst1.png" style="padding-left:100px">
+            <blockquote>
+            <img src="/img/tutorial_abst1.png">
+            </blockquote>
             <p>Abstract from Fischer, Greitemeyer, and Frey (2008).</p>
             <br>
             <p>In the abstract above, the  highlighting indicates the relationships that the researchers investigated. As stated
@@ -44,7 +46,7 @@
             <br>
 
             <!-- Question 1 -->
-            <div class="well well-lg" style="height: 440px">
+            <div class="well well-lg">
                 <p class="lead">Read the following abstract:</p>
                 <p>"Research has found that positive affect broadens
                     attention. However, these studies have manipulated
@@ -84,31 +86,23 @@
 
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst_right" id="abstbutton1">
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst_right" id="abstbutton1" style="float: left">
                                    A
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>"Participants showed less global attentional
-                                focus after viewing high-approach-motivating positive
-                                stimuli than after viewing low-approach-motivating positive
-                                stimuli (Study 1) or neutral stimuli (Study 2)."
-                            </p>
-                        </div>
+                        </button>
+                        <p style="padding-left: 60px">"Participants showed less global attentional
+                            focus after viewing high-approach-motivating positive
+                            stimuli than after viewing low-approach-motivating positive
+                            stimuli (Study 1) or neutral stimuli (Study 2)."
+                        </p>
                     </div>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst_wrong" id="abstbutton2">
-                                   B
-                            </button>
-                        </div>
-                        <div class="span6">
-                            <p>"Positive affect that is high in approach motivation should reduce
-                            the breadth of attention, as organisms shut out irrelevant
-                            stimuli as they approach desired objects."
-                            </p>
-                        </div>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst_wrong" id="abstbutton2" style="float: left">
+                               B
+                        </button>
+                        <p style="padding-left: 60px">"Positive affect that is high in approach motivation should reduce
+                        the breadth of attention, as organisms shut out irrelevant
+                        stimuli as they approach desired objects."
+                        </p>
                     </div>
                 </form>
 
@@ -151,7 +145,7 @@
 
             <!-- Question 2 -->
             <br>
-            <div class="well well-lg" style="height: 440px">
+            <div class="well well-lg">
                 <p class="lead">Read the following abstract:</p>
                 <p>"People often diverge from members of other social groups: They select cultural tastes (e.g., possessions,
                     attitudes, or behaviors) that distinguish them from outsiders and abandon tastes when outsiders adopt
@@ -178,28 +172,20 @@
 
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst2_wrong" id="abstbutton3">
-                                   A
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>"But while divergence is pervasive, most research on the propagation of culture is based on
-                                conformity."
-                            </p>
-                        </div>
-                    </div><br><br>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst2_wrong" id="abstbutton3" style="float: left">
+                               A
+                        </button>
+                        <p style="padding-left: 60px">"But while divergence is pervasive, most research on the propagation of culture is based on
+                            conformity."
+                        </p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst2_right" id="abstbutton4">
-                                   B
-                            </button>
-                        </div>
-                        <div class="span6">
-                            <p>"Consistent with an identity-signaling perspective, the studies further showed that people often
-                                diverge from dissimilar outgroups to avoid the costs of misidentification."
-                            </p>
-                        </div>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#abst2_right" id="abstbutton4" style="float: left">
+                               B
+                        </button>
+                        <p style="padding-left: 60px">"Consistent with an identity-signaling perspective, the studies further showed that people often
+                            diverge from dissimilar outgroups to avoid the costs of misidentification."
+                        </p>
                     </div>
                 </form>
 
@@ -261,7 +247,7 @@
             <br>
 
             <!-- Question 3 -->
-            <div class="well" style="height: 200px">
+            <div class="well">
                 <p class="lead">What kind of hypothesis is found in Santos, 2008?</p>
                 <p>"If this is the case, and if adults with ASD have reduced top-down influence, then categorization should have a smaller influence on perceptual processing in adults with ASD than in control subjects."</p>
                 <br>
@@ -277,26 +263,18 @@
 
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp1_right" id="hypbutton1">
-                                   A
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Directional hypothesis
-                            </p>
-                        </div>
-                    </div><br><br>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp1_right" id="hypbutton1" style="float: left">
+                               A
+                        </button>
+                        <p style="padding-left: 60px">Directional hypothesis
+                        </p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp1_wrong" id="hypbutton2">
-                                   B
-                            </button>
-                        </div>
-                        <div class="span6">
-                            <p>Non-directional hypothesis
-                            </p>
-                        </div>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp1_wrong" id="hypbutton2" style="float: left">
+                               B
+                        </button>
+                        <p style="padding-left: 60px">Non-directional hypothesis
+                        </p>
                     </div>
                 </form>
 
@@ -338,7 +316,7 @@
 
             <!-- Question 4 -->
             <br>
-            <div class="well" style="height: 200px">
+            <div class="well">
                 <p class="lead">What kind of hypothesis is found in Goshke, 2008?</p>
                 <p>"We predicted that PM cues would be overlooked (i.e., not acted upon) more often on high- than on low-conﬂict trials because on high-conﬂict trials the current goal (i.e., to perform the ongoing task) is automatically shielded from distracting information."</p>
                 <br>
@@ -354,27 +332,19 @@
 
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp2_right" id="hypbutton3">
-                                   A
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Directional hypothesis
-                            </p>
-                        </div>
-                    </div><br><br>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp2_right" id="hypbutton3" style="float: left">
+                               A
+                        </button>
+                        <p  style="padding-left: 60px">Directional hypothesis
+                        </p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp2_wrong" id="hypbutton4">
-                                   B
-                            </button>
-                        </div>
-                        <div class="span6">
-                            <p>Non-directional hypothesis
-                            </p>
-                        </div>
-                    </div>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#hyp2_wrong" id="hypbutton4" style="float: left">
+                               B
+                        </button>
+                        <p style="padding-left: 60px">Non-directional hypothesis
+                        </p>
+                </div>
                 </form>
 
                 <!-- Modal 1-->
@@ -441,7 +411,7 @@
             <h3>Practice Questions</h3>
 
             <!--Question 5-->
-            <div class="well" style="height: 350px">
+            <div class="well">
                 <p class="lead">Based on the following quote, which  methodologies were used in Burt, 2008?</p>
                 <p>"After 45 to 60 min, participants adjourned to individual rooms to complete sociometric rankings (on a scale of 1-4, with 1 meaning 'I liked this person best')...DNA was obtained via Oragene...saliva collection kits."</p>
                 <p>The researchers compared how well liked a person was to information found in their DNA.</p>
@@ -455,7 +425,6 @@
                         <input type = "checkbox" name = "question6" id ="question6"> &nbsp;&nbsp;Indirect Verbal or Response Time Measures<br>
                         <input type = "checkbox" name = "question7" id ="question7"> &nbsp;&nbsp;Behavioral/Choice Measures<br><br>
                         <input type = "button" class="btn btn-primary" value = "Submit" onClick = "scoreQuiz();">
-
                      </form>
 
 
@@ -557,12 +526,12 @@
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                      </div><!-- /.modal -->
-                </div>
+                </div> <!--End Quiz Div-->
             </div>
             <!--End Question 5-->
 
             <!--Question 6-->
-            <div class="well" style="height: 350px">
+            <div class="well">
                 <p class="lead">Based on the following quote, which  methodologies were used in Demany, 2008?</p>
                 <p>"On each trial, the listener was presented with two successive ‘‘chords’’ (sums of pure tones) and had to indicate if they were identical or not. The listener, sitting in a sound attenuated booth, gave his or her responses by clicking a computer mouse on two virtual buttons."</p>
                 <p>The researchers compared how well liked a person was to information found in their DNA.</p>
@@ -705,7 +674,7 @@
             <blockquote>Researchers investigate competition by priming participants with a sports rival and compare the effect of the prime between men and women.</blockquote>
 
             <!-- Question 7 -->
-            <div class="well" style="height: 400px">
+            <div class="well">
                 <p class="lead">Based on the following information from Burt, 2008, which analytic design code is appropriate?</p>
                 <ul>
                     <li>Participants give DNA samples</li>
@@ -734,64 +703,40 @@
 
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton1">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton1" style="float: left">
                                A
                             </button>
-                        </div>
-                        <div class="span7">
-                            <p>Correlational/Multivariate Internal Analysis of Manipulation Check</p>
-                        </div>
-                    </div><br><br>
+                            <p style="padding-left: 50px">Correlational/Multivariate Internal Analysis of Manipulation Check</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_right" id="analyticbutton2">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_right" id="analyticbutton2" style="float: left">
                                B
                             </button>
-                        </div>
-                        <div class="span7">
-                            <p>Correlational/Multivariate Analysis Without Manipulation</p>
-                        </div>
-                    </div><br><br>
+                            <p style="padding-left: 50px">Correlational/Multivariate Analysis Without Manipulation</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton3">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton3" style="float: left">
                                C
                             </button>
-                        </div>
-                        <div class="span7">
-                            <p>Experimental Analysis of Manipulation Effect</p>
-                        </div>
-                    </div><br><br>
+                            <p style="padding-left: 50px">Experimental Analysis of Manipulation Effect</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton4">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton4" style="float: left">
                                D
                             </button>
-                        </div>
-                        <div class="span7">
-                            <p>Experimental Analysis of Repeated-measures Effect</p>
-                        </div>
-                    </div><br><br>
+                            <p style="padding-left: 50px">Experimental Analysis of Repeated-measures Effect</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton5">
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton5" style="float: left">
                                E
                             </button>
-                        </div>
-                        <div class="span7">
-                            <p>Combined Experimental and Repeated-measures Effect</p>
-                        </div>
-                    </div><br><br>
+                            <p style="padding-left: 50px">Combined Experimental and Repeated-measures Effect</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton6">
-                               F
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Quasi-experimental Analysis of Manipulation Effect</p>
-                        </div>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong" id="analyticbutton6" style="float: left">
+                           F
+                        </button>
+                        <p style="padding-left: 50px">Quasi-experimental Analysis of Manipulation Effect</p>
                     </div>
                 </form>
 
@@ -835,7 +780,7 @@
             <!-- End Question 7 -->
 
             <!-- Question 8 -->
-            <div class="well" style="height: 450px">
+            <div class="well">
                 <p class="lead">Based on the following information from Demany, 2008, which analytic design code is appropriate?</p>
                 <ul>
                     <li>Participants all listen to pairs of tones where one tone is followed by another tone that has a 50% chance of differing from the first</li>
@@ -863,64 +808,40 @@
                 </script>
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton21">
-                               A
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Correlational/Multivariate Internal Analysis of Manipulation Check</p>
-                        </div>
-                    </div><br><br>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton21" style="float: left">
+                           A
+                        </button>
+                        <p style="padding-left: 60px">Correlational/Multivariate Internal Analysis of Manipulation Check</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton22">
-                               B
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Correlational/Multivariate Analysis Without Manipulation</p>
-                        </div>
-                    </div><br><br>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton22" style="float: left">
+                           B
+                        </button>
+                        <p style="padding-left: 60px">Correlational/Multivariate Analysis Without Manipulation</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton23">
-                               C
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Experimental Analysis of Manipulation Effect</p>
-                        </div>
-                    </div><br><br>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton23" style="float: left">
+                           C
+                        </button>
+                        <p style="padding-left: 60px">Experimental Analysis of Manipulation Effect</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_right2" id="analyticbutton24">
-                               D
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Experimental Analysis of Repeated-measures Effect</p>
-                        </div>
-                    </div><br><br>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_right2" id="analyticbutton24" style="float: left">
+                           D
+                        </button>
+                        <p style="padding-left: 60px">Experimental Analysis of Repeated-measures Effect</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton25">
-                               E
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Combined Experimental and Repeated-measures Effect</p>
-                        </div>
-                    </div><br><br>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton25" style="float: left">
+                           E
+                        </button>
+                        <p style="padding-left: 60px">Combined Experimental and Repeated-measures Effect</p>
+                    </div><br>
                     <div class="form-group">
-                        <div class="span1">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton26">
-                               F
-                            </button>
-                        </div>
-                        <div class="span7">
-                            <p>Quasi-experimental Analysis of Manipulation Effect</p>
-                        </div>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#analytic_wrong2" id="analyticbutton26" style="float: left">
+                           F
+                        </button>
+                        <p style="padding-left: 60px">Quasi-experimental Analysis of Manipulation Effect</p>
                     </div>
                 </form>
 
@@ -966,7 +887,7 @@
 
         <script>
         function determineComplete() {
-
+            count=8;
             if (count == 8) {
             location.href = "/pages/complete_tutorial";
             }

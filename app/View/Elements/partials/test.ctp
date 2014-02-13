@@ -286,7 +286,7 @@
                         'p<.01' => 'p<.01',
                         'p<.001' => 'p<.001'
                     ),
-                    'detailedTip' => "<p>If the exact p value is not reported, state the possible range of p values. If an exact p value is reported, write this below in "significance (reported)."</p>
+                    'detailedTip' => "<p>If the exact p value is not reported, state the possible range of p values. If an exact p value is reported, write this below in significance (reported).</p>"
 
                 ));
 

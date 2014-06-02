@@ -62,13 +62,13 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </a>
-	          <a href='/' class='brand'><img alt="COS Archival" src="/img/logo.png" width="100px"></a>
+	          <a href='/' class='brand'><img alt="COS Archival" src="<?php echo $this->webroot; ?>img/logo.png" width="100px"></a>
 	          <div class="container nav-collapse ">
 	            <ul class="nav" id="navlist">
 	                <li><?php echo $this->Html->link('Getting Involved', '/pages/getting_involved'); ?></li>
                     <li><?php echo $this->Html->link('Coding Scheme', '/pages/coding_scheme'); ?></li>
                     <li><?php echo $this->Html->link('Tutorial', '/pages/interactive_tutorial'); ?></li>
-                    <li><a href='/pages/contact'>Contact</a></li>
+                    <li><a href='<?php echo $this->webroot; ?>pages/contact'>Contact</a></li>
                 </ul>
 
 
@@ -76,11 +76,11 @@
 	            <div class='nav pull-right btn-group' id='navlist' style='position:relative;top:13px'>
 
 <?php if(AuthComponent::user() !== NULL){ ?>
-                    <a href='/papers/index' class='btn btn-warning'>My Dashboard</a>
-                    <a href='/users/logout' class='btn btn-warning'>Log out</a>
+                    <a href='<?php echo $this->webroot; ?>papers/index' class='btn btn-warning'>My Dashboard</a>
+                    <a href='<?php echo $this->webroot; ?>users/logout' class='btn btn-warning'>Log out</a>
 <?php } else { ?>
-                    <a href='/users/register' class='btn btn-warning'>Register</a>
-                    <a href='/users/login' class='btn btn-warning'>Log in</a>
+                    <a href='<?php echo $this->webroot; ?>users/register' class='btn btn-warning'>Register</a>
+                    <a href='<?php echo $this->webroot; ?>users/login' class='btn btn-warning'>Log in</a>
 <?php } ?>
                 </div>
 
@@ -90,13 +90,13 @@
 					<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Admin <span class="caret"></span></button>
 					<ul class="dropdown-menu">
 
-		                <li><a href='/users/index'>List users</a></li>
-		                <li><a href='/papers/add'>Add paper</a></li>
-		                <li><a href='/codedpapers/index_mine'>List my coded papers</a></li>
-		                <li><a href='/codedpapers/index'>List all coded papers</a></li>
-		                <li><a href='/joinedCodedpapers/export/CSV'>Export CSV</a></li>
-		                <li><a href='/joinedCodedpapers/export/TSV'>Export TSV</a></li>
-		                <li><a href='/joinedCodedpapers/export/excel'>Export Excel</a></li>
+		                <li><a href='<?php echo $this->webroot; ?>users/index'>List users</a></li>
+		                <li><a href='<?php echo $this->webroot; ?>papers/add'>Add paper</a></li>
+		                <li><a href='<?php echo $this->webroot; ?>codedpapers/index_mine'>List my coded papers</a></li>
+		                <li><a href='<?php echo $this->webroot; ?>codedpapers/index'>List all coded papers</a></li>
+		                <li><a href='<?php echo $this->webroot; ?>joinedCodedpapers/export/CSV'>Export CSV</a></li>
+		                <li><a href='<?php echo $this->webroot; ?>joinedCodedpapers/export/TSV'>Export TSV</a></li>
+		                <li><a href='<?php echo $this->webroot; ?>joinedCodedpapers/export/excel'>Export Excel</a></li>
 		            </ul>
 		        </div>
 <?php endif; ?>

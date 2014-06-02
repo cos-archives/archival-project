@@ -1,4 +1,4 @@
-<link type='text/css' rel='stylesheet' href='/css/entry.css' />
+<link type='text/css' rel='stylesheet' href='<?php echo $this->webroot; ?>css/entry.css' />
 <style>
     .block {
         min-height: 20px;
@@ -173,7 +173,7 @@
         echo $this->Form->hidden("Paper.id");
         echo $this->Form->hidden("Paper.DOI");
         echo $this->Form->hidden("Codedpaper.id");
-        echo $this->Form->hidden("Codedpaper.paper_id");
+        echo $this->Form->hidden("Codedpaper.paper_id");	
     ?>
     <?php
         for($i=0; $i<sizeof($this->data['Study']); $i++) {
@@ -413,4 +413,4 @@ $(function() {
 });
 
 </script>
-<script src='/js/entry.js'></script>
+<script src='<?php echo $this->webroot; ?>js/entry.js'></script>

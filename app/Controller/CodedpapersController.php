@@ -14,6 +14,12 @@ class CodedpapersController extends AppController {
 		    throw new NotFoundException('Invalid coded paper');
 		}
 		else {
+			# Senior coders can see any codedpaper
+			if ($user['Group']['name']==='senior_coder') {
+				return true;
+			}
+
+			# Coders can see their own codedpapers
 			$allowed = $this->Codedpaper->find('first',array(
 				"recursive" => -1,
 				"conditions" => array(
@@ -21,7 +27,7 @@ class CodedpapersController extends AppController {
 					'id' => $codedpaper_id
 					)
 				));
-			if( $allowed['Codedpaper']['user_id'] == $this->Auth->user('id')) { # is this the creator of the coded paper
+			if( $allowed['Codedpaper']['user_id'] == $this->Auth->user('id')) {
 				return true;
 			}
 		}
@@ -133,7 +139,7 @@ class CodedpapersController extends AppController {
 				$saved = $this->Codedpaper->findById($id);
 				$this->request->data['Paper'] = $saved['Paper'];
 			}
-			
+
 		}
 	}
 

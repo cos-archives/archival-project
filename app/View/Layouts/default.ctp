@@ -86,7 +86,7 @@
 
 
 <?php if(AuthComponent::user('Group.name')=='admin'): ?>
-				<div class='nav pull-right btn-group' style='position:relative;top:13px;margin-right:10px;'>
+				<div class='nav pull-right btn-group' style='position:relative;top:18px;margin-right:10px;'>
 					<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Admin <span class="caret"></span></button>
 					<ul class="dropdown-menu">
 
@@ -134,7 +134,7 @@
 
 	    </div> <!-- /container -->
 	</div>
-	
+
 
 	<script type="text/javascript">
 	  var _paq = _paq || [];

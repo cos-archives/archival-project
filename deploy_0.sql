@@ -1,0 +1,1 @@
+ALTER TABLE `codedpapers` ADD `is_review` BOOLEAN NOT NULL DEFAULT FALSE;

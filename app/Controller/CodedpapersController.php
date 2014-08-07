@@ -7,28 +7,30 @@ class CodedpapersController extends AppController {
 		if(in_array($req_action, array('view', 'add', 'index_mine', 'index','moretests','morestudies','compare'))) return true;
 		# viewing and adding is allowed to all users. comparing, indexing and adding empty stuff too.
 
-
-		$codedpaper_id = $this->request->params['pass'][0];
-		$this->Codedpaper->id = $codedpaper_id;
-		if (!$this->Codedpaper->exists()) {
-		    throw new NotFoundException('Invalid coded paper');
-		}
-		else {
-			# Senior coders can see any codedpaper
-			if ($user['Group']['name']==='senior_coder') {
-				return true;
+		$params = $this->request->params['pass'];
+		if ( count($params) > 0 ) {
+			$codedpaper_id = $this->request->params['pass'][0];
+			$this->Codedpaper->id = $codedpaper_id;
+			if (!$this->Codedpaper->exists()) {
+			    throw new NotFoundException('Invalid coded paper');
 			}
+			else {
+				# Senior coders can see any codedpaper
+				if ($user['Group']['name']==='senior_coder') {
+					return true;
+				}
 
-			# Coders can see their own codedpapers
-			$allowed = $this->Codedpaper->find('first',array(
-				"recursive" => -1,
-				"conditions" => array(
-					'user_id' => $this->Auth->user('id'),
-					'id' => $codedpaper_id
-					)
+				# Coders can see their own codedpapers
+				$allowed = $this->Codedpaper->find('first',array(
+					"recursive" => -1,
+					"conditions" => array(
+						'user_id' => $this->Auth->user('id'),
+						'id' => $codedpaper_id
+					),
 				));
-			if( $allowed['Codedpaper']['user_id'] == $this->Auth->user('id')) {
-				return true;
+				if( $allowed['Codedpaper']['user_id'] == $this->Auth->user('id')) {
+					return true;
+				}
 			}
 		}
 
@@ -185,8 +187,39 @@ class CodedpapersController extends AppController {
 	public function index() {
 		$this->set('codedpapers', $this->Codedpaper->find('all',
 			array(
-				'recursive' => 1
+				'recursive' => 1,
+				'conditions' => array(
+					'is_review' => false,
+				),
 			)
 		));
+	}
+
+	public function reviewed() {
+		$this->set('codedpapers', $this->Codedpaper->find('all',
+			array(
+				'recursive' => 1,
+				'conditions' => array(
+					'is_review' => true,
+				),
+			)
+		));
+
+		$this->set('title', 'My Reviewed Papers');
+	}
+
+	public function reviewed_all() {
+		$this->set('codedpapers', $this->Codedpaper->find('all',
+			array(
+				'recursive' => 1,
+				'conditions' => array(
+					'is_review' => true,
+				),
+			)
+		));
+
+
+		$this->set('title', 'All Reviewed Papers');
+		$this->render('reviewed');
 	}
 }

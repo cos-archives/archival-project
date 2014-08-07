@@ -2,15 +2,14 @@
     <div class="row">
         <div class="span10">
         <h1>Contact</h1>
-        <br>
-        <p>For technical feedback, please write to Ruben at <?php echo $this->Html->link(Configure::read('Email.Ruben'), 'mailto:'.Configure::read('Email.Ruben')
-        .'?subject=Archival%20Project%20Support'); ?>.</p>
 
-        <p>For questions about the project, its progress, and its future directions, contact Roger at <?php echo $this->Html->link(Configure::read('Email.Roger'), 'mailto:'.Configure::read('Email.Roger')
-        .'?subject=Archival%20Project%20Support'); ?>.</p>
+        <p>For questions about the project, its progress, and its future directions, contact
+          <a href="mailto:<?php echo Configure::read('Email.Johanna'); ?>?subject=Archival%20Project%20Support">Roger Giner-Soroll</a>.
+        </p>
 
-        <p>For any other questions, please contact Johanna at <?php echo $this->Html->link(Configure::read('Email.Johanna'), 'mailto:'.Configure::read('Email.Johanna')
-        .'?subject=Archival%20Project%20Support'); ?>.</p>
+        <p>For any other questions &mdash; including technical assistance &mdash; please contact
+            <a href="mailto:<?php echo Configure::read('Email.Johanna'); ?>?subject=Archival%20Project%20Support">Johanna Cohoon</a>.
+        </p>
         </div>
     </div>
 </div>

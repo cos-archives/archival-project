@@ -12,7 +12,7 @@
 
 <ul class="nav-offset3 sub_nav nav nav-pills">
     <?php echo nav_link('/papers/index', 'All papers'); ?>
-    <?php echo nav_link('/codedpapers/index_mine', 'My Coded Papers'); ?>
+    <?php echo nav_link('/codedpapers/index', 'Coded Papers'); ?>
     <?php echo nav_link('/codedpapers/reviewed', 'My Reviewed Papers'); ?>
     <?php echo nav_link('/users/leaderboard', 'Leaderboard'); ?>
 </ul>

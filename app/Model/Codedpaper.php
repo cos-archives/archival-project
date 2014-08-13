@@ -3,12 +3,15 @@ class Codedpaper extends AppModel {
 	public $belongsTo = array('User','Paper');
 	public $hasMany = array('Study' => array('dependent'=>TRUE));
 	public $actsAs = array('Containable');
-	public function createDummy ($paper_id = NULL, $user_id = NULL, $cascade = true) {
+
+
+	public function createDummy ($paper_id = NULL, $user_id = NULL, $cascade = true, $isReview = false) {
 		$newcodedpaper['paper_id'] = $paper_id;
 		$newcodedpaper['user_id'] = $user_id;
 		$this->create(); # have to call this for save to work, but apparently it doesn't confound the find query.
 		$this->Paper->id = $paper_id;
-		
+		$newcodedpaper['is_review'] = $isReview;
+
 		$preexisting = $this->find('first',array('conditions' => $newcodedpaper));
 		if( $preexisting ) { # use the user and paper id to see whether this has been coded by this user already, if so, send him there
 			$message = __('You can\'t code the same paper twice. We thus took you to your first coding attempt.');
@@ -16,7 +19,13 @@ class Codedpaper extends AppModel {
 			$cid = $preexisting['Codedpaper']['id'];
 		}
 		else if( $this->save($newcodedpaper) ) { # if not, create a new one, save it and send him there
-			$message = __('A new paper can be coded now.');
+			if ( $isReview ) {
+				$message = __('You may now review the codings for this paper.');
+			} else {
+				$message = __('You may now code this paper.');
+			}
+
+
 			$alert = 'alert-success';
 			$cid = $this->read(null);
 			$cid = $cid['Codedpaper']['id'];
@@ -40,13 +49,13 @@ class Codedpaper extends AppModel {
 				'contain' => array(
 					'Paper' => array(),
 					'User' => array(),
-					'Study' => array( 
+					'Study' => array(
 						'order' => array('Study.id ASC', 'Study.name ASC'),
 						'Test' => array(
 							'order' => array('Test.id ASC', 'Test.name ASC'),
 						),
 					),
-				) 
+				)
 			));
 	}
 	public function compare ($id1 = NULL, $id2 = NULL) {
@@ -56,18 +65,18 @@ class Codedpaper extends AppModel {
 		unset($c2['Paper']);
 		unset($c1['Codedpaper']);
 		unset($c2['Codedpaper']);
-		
+
 		function array_unshift_assoc(&$arr, $key, $val)
 		{
-		   $arr = array_reverse($arr, true); 
-		   $arr[$key] = $val; 
-		   $arr = array_reverse($arr, true); 
+		   $arr = array_reverse($arr, true);
+		   $arr[$key] = $val;
+		   $arr = array_reverse($arr, true);
 		   return $arr;
 		}
 		$c1 = array_unshift_assoc($c1,"Coders", '<a title="Email this coder" href="mailto:'.$c1['User']['email'].'">'.$c1['User']['username'].' <i class="icon-envelope"></i></a>');
 		$c2 = array_unshift_assoc($c2,"Coders", '<a title="Email this coder"  href="mailto:'.$c2['User']['email'].'">'.$c2['User']['username'].' <i class="icon-envelope"></i></a>');
-		unset($c1['User']); 
-		unset($c2['User']); 
+		unset($c1['User']);
+		unset($c2['User']);
 		$c1 = Set::remove($c1,'Study.{n}.Codedpaper');
 		$c1 = Set::remove($c1,'Study.{n}.created');
 		$c1 = Set::remove($c1,'Study.{n}.modified');
@@ -79,7 +88,7 @@ class Codedpaper extends AppModel {
 		$c2 = Set::remove($c2,'Study.{n}.modified');
 		$c2 = Set::remove($c2,'Study.{n}.certainty_key_effect_tests');
 		$c2 = Set::remove($c2,'Study.{n}.certainty_replication_status');
-		
+
 		$c1 = Set::remove($c1,'Study.{n}.Test.{n}.Study');
 		$c1 = Set::remove($c1,'Study.{n}.Test.{n}.created');
 		$c1 = Set::remove($c1,'Study.{n}.Test.{n}.modified');
@@ -87,7 +96,7 @@ class Codedpaper extends AppModel {
 		$c1 = Set::remove($c1,'Study.{n}.Test.{n}.certainty_meth_var');
 		$c1 = Set::remove($c1,'Study.{n}.Test.{n}.certainty_statistics');
 		$c1 = Set::remove($c1,'Study.{n}.Test.{n}.certainty_hypothesis_supported');
-		
+
 		$c2 = Set::remove($c2,'Study.{n}.Test.{n}.Study');
 		$c2 = Set::remove($c2,'Study.{n}.Test.{n}.created');
 		$c2 = Set::remove($c2,'Study.{n}.Test.{n}.modified');
@@ -96,7 +105,7 @@ class Codedpaper extends AppModel {
 		$c2 = Set::remove($c2,'Study.{n}.Test.{n}.certainty_statistics');
 		$c2 = Set::remove($c2,'Study.{n}.Test.{n}.certainty_hypothesis_supported');
 #		debug($c1);
-		$c1 = Set::flatten($c1); 
+		$c1 = Set::flatten($c1);
 		$c2 = Set::flatten($c2);
 #		return array( Set::diff($c1,$c2), Set::diff($c2,$c1));
 		$keys = array_keys($c1) + array_keys($c2);

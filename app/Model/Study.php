@@ -1,7 +1,20 @@
 <?php
 class Study extends AppModel {
-	public $belongsTo = 'Codedpaper';
-	public $hasMany = array('Test' => array('dependent'=>TRUE));
+	public $belongsTo = array(
+		'Codedpaper' => array(),
+		'ReviewedBy' => array(
+			'className' => 'Study',
+			'foreignKey' => 'reviewed_id',
+		),
+	);
+	public $hasMany = array(
+		'Test' => array('dependent'=>TRUE),
+		'ReviewOf' => array(
+			'className' => 'Study',
+			'foreignKey' => 'reviewed_id',
+		),
+	);
+
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
@@ -16,18 +29,18 @@ class Study extends AppModel {
 		'replicates_study_id' => array(
 			'rule' => 'numeric',
 			'required' => false,
-            'allowEmpty' => true,	
+            'allowEmpty' => true,
 	    ),
 		'replication_freetext' => array(
 			'rule' => 'notEmpty',
 			'required' => false,
 	        'allowEmpty' => true,
 	    ),
-	
+
 	);
 	public function createDummy ($codedpaper_id, $sstart = 0, $cascade=true) {
 		$this->create();
-		$data = array('Study' => 
+		$data = array('Study' =>
 			array('codedpaper_id' => $codedpaper_id)
 		);
 		if($dummyentry = $this->save($data,$validate=FALSE)) {
@@ -52,7 +65,7 @@ class Study extends AppModel {
 
 		if(count($all_studies)> 0) {
 			$study_names = array_combine(
-					array_merge((array)'', Set::extract($all_studies,"{n}.studies.id") ), 
+					array_merge((array)'', Set::extract($all_studies,"{n}.studies.id") ),
 					array_merge((array)'', Set::format($all_studies,"{3} ({0}, {1})", array(
 						"{n}.papers.first_author",
 						"{n}.papers.year",
@@ -63,7 +76,7 @@ class Study extends AppModel {
 		} else {
 			$study_names = array('' => '');
 		}
-		
+
 		return $study_names;
 	}
 }

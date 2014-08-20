@@ -108,6 +108,10 @@ class CodedpapersController extends AppController {
 		// Set the object in $this->Codedpaper to the Codedpaper we're looking at.
 		$this->Codedpaper->id = $id;
 
+		// Codedpapers should be added through the above "add" action.
+		if (!$this->Codedpaper->exists())
+		    throw new NotFoundException('Invalid coded paper');
+
 		$isReview = $this->Codedpaper->field('is_review');
 
 		if ( $isReview ) {
@@ -119,7 +123,6 @@ class CodedpapersController extends AppController {
 						'is_review' => false,
 					),
 					'contain' => array(
-						'Study' => array('Test'),
 						'User' => 'username',
 					),
 				)
@@ -128,10 +131,6 @@ class CodedpapersController extends AppController {
 			$codings = array();
 		}
 		$this->set('otherCodings', $codings);
-
-		// Codedpapers should be added through the above "add" action.
-		if (!$this->Codedpaper->exists())
-		    throw new NotFoundException('Invalid coded paper');
 
 		// Add list of referenced papers to the view.
 		$this->set(array('referenced_papers' => $this->Codedpaper->Study->getReplicable($id)));

@@ -261,7 +261,7 @@ class CodedpapersController extends AppController {
 			)
 		);
 
-		if ( $this->isAdmin ) {
+		if ( $this->isAdmin || $this->isSeniorCoder ) {
 			$this->set(
 				'all_codings',
 				$this->Codedpaper->find('all',

@@ -4,11 +4,37 @@
     echo " data-study-id='" . $study['id'] . "'";
     echo " data-study-seq='$i'";
     echo ">";
+
+    $reviewedValues = $study['ReviewOf'];
+
+
+
+
 ?>
     <header>
         <button class='btn btn-danger deleteSection'>Delete Study</button>
         <h3>Unnamed Study</h3>
     </header>
+
+    <div class="alert alert-info associated-studies">
+
+    <?php foreach ( $otherCodings as $coding ): ?>
+
+    <div class="control-group">
+      <label class="control-label"><?php echo $coding['User']['username']; ?></label>
+    <div class="controls">
+      <select>
+        <option value="">-- choose --</option>
+        <?php foreach ( $coding['Study'] as $otherStudy ): ?>
+          <option <?php if ( $otherStudy['reviewed_id'] == $study['id'] ) { echo 'selected="selected"'; } ?> value="<?php echo $otherStudy['id']; ?>"><?php echo $otherStudy['name'] == '' ? '[ Untitled ]' : $otherStudy['name']; ?></option>
+        <?php endforeach; ?>
+      </select>
+
+      </div>
+    </div>
+    <?php endforeach; ?>
+    <button class="btn btn-warning study-connect">Save &amp; Reload Page</button>
+    </div>
 
         <?php
 
@@ -18,7 +44,8 @@
                 'class' => 'title_entry',
                 'tip' => "Use the study's number or name from the article, if possible",
                 'detailedTip' => '<p>Often, the article will give each study a name or number (e.g. "Experiment 1"). If there is only one study, enter <kbd>1</kbd>.</p>
-                <p>If others have coded this study before you, follow the naming and numbering scheme that was used.</p>'
+                <p>If others have coded this study before you, follow the naming and numbering scheme that was used.</p>',
+                'otherCoders' => format_other_responses($reviewedValues, 'name')
             ));
 
             echo $this->Form->hidden("Study.$i.id", array(
@@ -36,7 +63,8 @@
                 ),
                 'class' => 'is-replication',
                 'tip' => 'The word "replicate" need not be used in the study.',
-                'detailedTip' => 'A study is considered to be a replication if a previous study–in this article or one that has already been published–is cited and explicitly named as a source of methodology for at least one independent and at least one dependent variable. The word "replicate" need not be used, so long as the present authors are measuring the same items and deriving their methodology from an older resource.'
+                'detailedTip' => 'A study is considered to be a replication if a previous study–in this article or one that has already been published–is cited and explicitly named as a source of methodology for at least one independent and at least one dependent variable. The word "replicate" need not be used, so long as the present authors are measuring the same items and deriving their methodology from an older resource.',
+                'otherCoders' => format_other_responses($reviewedValues, 'replication')
             ));
 
             echo $this->FormField->inputGroupStart(

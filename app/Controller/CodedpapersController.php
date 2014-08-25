@@ -124,6 +124,9 @@ class CodedpapersController extends AppController {
 					),
 					'contain' => array(
 						'User' => 'username',
+						'Study' => array(
+							'Test' => array()
+						),
 					),
 				)
 			);

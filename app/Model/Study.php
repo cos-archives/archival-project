@@ -15,6 +15,10 @@ class Study extends AppModel {
 		),
 	);
 
+	public $virtualFields = array(
+		'user_name' => '(select users.username from users where users.id = (select codedpapers.user_id from codedpapers WHERE codedpapers.id = codedpaper_id))',
+	);
+
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
@@ -36,8 +40,8 @@ class Study extends AppModel {
 			'required' => false,
 	        'allowEmpty' => true,
 	    ),
-
 	);
+
 	public function createDummy ($codedpaper_id, $sstart = 0, $cascade=true) {
 		$this->create();
 		$data = array('Study' =>

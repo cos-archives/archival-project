@@ -1,4 +1,14 @@
-<link type='text/css' rel='stylesheet' href='/css/entry.css' />
+<?php
+function format_other_responses($others, $field) {
+  $rv = array();
+  foreach ( $others as $response ) {
+    array_push($rv, array('user' => $response['user_name'], 'value' => $response[$field]));
+  }
+
+  return $rv;
+}
+
+?><link type='text/css' rel='stylesheet' href='/css/entry.css' />
 <style>
     .block {
         min-height: 20px;
@@ -136,6 +146,12 @@
         font-size:12px;
     }
 
+    table.coder-responses td:last-child span {
+      text-decoration: underline;
+      cursor: hand;
+      cursor: pointer;
+    }
+
 
 </style>
 <div class='span4' id='static-sidebar'>
@@ -177,6 +193,7 @@
     ?>
     <?php
         for($i=0; $i<sizeof($this->data['Study']); $i++) {
+
             echo $this->element('partials/study', array(
                 'i' => $i,
                 'data' => $this->data,
@@ -284,6 +301,34 @@ $(function() {
                 'offset': {'top': -90 }
             });
         });
+
+        $('button.study-connect').on('click', function(e) {
+          e.preventDefault();
+          section = $(this).parents(".associated-studies");
+
+          var inputs = section.find('select');
+          var associatedIds = new Array();
+          for( var i=0; i<inputs.length; i++) {
+            var value = $(inputs[i]).val();
+            if(value != "") { associatedIds.push(value); }
+          }
+
+          $.post(
+            '/studies/associate.json',
+            {
+              'review': $(section).parent().data('study-id'),
+              'reviewed': associatedIds
+            }, function() {
+              window.location.reload();
+            }
+          );
+
+        });
+
+        $('table.coder-responses td:last-child > span').on('click', function(e) {
+          var field = $(e.target).parents('.control-group');
+          field.find('input, select').val( $(e.target).text() );
+        });
     }
 
     // Build the initial outline
@@ -339,7 +384,6 @@ $(function() {
         } else {
             outlineLink.parent().removeClass('unnamed');
         }
-        foo = outlineLink.parent();
     }
 
     function addTest(e) {
@@ -349,8 +393,6 @@ $(function() {
         var t = $(e.target).closest('.study').find('.test').length;
         var s = $(e.target).closest('.study').data('study-seq');
         var study_id = $(e.target).closest('.study').data('study-id');
-
-        foo = e
 
         //  return
 

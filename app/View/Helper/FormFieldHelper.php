@@ -2,14 +2,27 @@
 class FormFieldHelper extends FormHelper {
     public $helpers = array('Form');
 
-    private function _default_options($labelText, $tip=null, $detailedTip=null) {
+    private function _default_options($labelText, $tip=null, $detailedTip=null, $otherCoders=null) {
         /* Returns a string-keyed array of options to pass to Form::input() */
+        if ( !$otherCoders ) {
+          $after = '';
+        } else {
+          $after = "<table class='coder-responses'><tr><th>Reviewer</th><th>Response</th></tr>";
+          foreach ( $otherCoders as $other ) {
+            $after .= "<tr>";
+            $after .= "<td>" . $other['user'] . "</td>";
+            $after .= "<td><span>" . $other['value'] . "</span></td>";
+            $after .= "</tr>";
+          }
+          $after .= "</table>";
+        }
+
         $options = array(
             'div' => false,
             'placeholder' => false,
             'before' => "<div class='control-group'>",
             'between' => "<div class='controls'>",
-            'after' => '</div></div>',
+            'after' => "</div>$after</div>",
             'label' => array(
                 'text' => $labelText,
                 'class' => 'control-label'
@@ -41,14 +54,15 @@ class FormFieldHelper extends FormHelper {
         /* Returns a regular textbox or a textarea, per Form:input()'s
         introspection on the model field
         */
-        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip', 'otherCoders');
+
         foreach($strippedKeys as $k){
             $$k = isset($options[$k]) ? $options[$k] : null;
             unset($options[$k]);
         }
 
         $options = array_merge(
-            $this->_default_options($label, $tip, $detailedTip),
+            $this->_default_options($label, $tip, $detailedTip, $otherCoders),
             $options
         );
 
@@ -58,14 +72,14 @@ class FormFieldHelper extends FormHelper {
     }
 
     public function dropdownbox($options) {
-        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip', 'otherCoders');
         foreach($strippedKeys as $k){
             $$k = isset($options[$k]) ? $options[$k] : null;
             unset($options[$k]);
         }
 
         $options = array_merge(
-            $this->_default_options($label, $tip, $detailedTip),
+            $this->_default_options($label, $tip, $detailedTip, $otherCoders),
             $options
         );
 
@@ -75,7 +89,7 @@ class FormFieldHelper extends FormHelper {
     }
 
     public function checkboxes($options) {
-        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip', 'otherCoders');
         foreach($strippedKeys as $k){
             $$k = isset($options[$k]) ? $options[$k] : null;
             unset($options[$k]);
@@ -92,7 +106,7 @@ class FormFieldHelper extends FormHelper {
                 'hiddenField' => false,
                 'selected' => $selected
             ),
-            $this->_default_options($label, $tip, $detailedTip),
+            $this->_default_options($label, $tip, $detailedTip, $otherCoders),
             $options
         );
 

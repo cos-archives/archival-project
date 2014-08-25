@@ -13,9 +13,8 @@
       <th>Coder</th>
       <th class="actions"><?php echo __('Actions'); ?></th>
   </tr>
-  <pre>Incomplete:<?php var_dump($incomplete); ?></pre>
-  <pre>Complete:<?php var_dump($complete); ?></pre>
-  <?php foreach ($incomplete as $paper) { echo $this->element('reviewed_coding_row'); } ?>
+  <?php foreach ($incomplete as $paper) {
+    echo $this->element('reviewed_coding_row', array('paper' => $paper)); } ?>
   </table>
 
 </div>

@@ -121,6 +121,7 @@ class CodedpapersController extends AppController {
 					'conditions' => array(
 						'paper_id' => $this->Codedpaper->field('paper_id'),
 						'is_review' => false,
+						'completed' => true,
 					),
 					'contain' => array(
 						'User' => 'username',

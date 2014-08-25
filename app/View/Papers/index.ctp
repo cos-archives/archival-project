@@ -37,6 +37,7 @@
 			<div class="btn-toolbar">
 				<div class="actions btn-group">
 					<?php echo $this->Html->link(__('View'), array('action' => 'view', $paper['Paper']['id']), array('class' => 'btn')); ?>
+
 		 			<?php if(AuthComponent::user('Group.name')=='admin'): ?>
 					 <button class="btn dropdown-toggle" data-toggle="dropdown">
 					    <span class="caret"></span>
@@ -51,6 +52,21 @@
 			<?php
 			echo $this->element('get_multiple', array('paper_id' => $paper['Paper']['id']));
 			?>
+			<?php if ( $isSeniorCoder ): ?>
+				<?php if ( $paper['Paper']['senior_coder_id'] == AuthComponent::user('id') ): ?>
+					<?php if ( $paper['Paper']['senior_coding_complete'] ): ?>
+						<a class="btn btn-primary disabled">Coding Complete</a>
+					<?php else: ?>
+						<a class="btn btn-success">Continue Review</a>
+					<?php endif; ?>
+				<?php else: ?>
+					<?php if ( $paper['Paper']['senior_coding_claimed'] ): ?>
+						<a class="btn btn-info disabled">Claimed for Review</a>
+					<?php else: ?>
+						<a class="btn btn-warning" href="/codedpapers/add/<?php echo $paper['Paper']['id']; ?>/?review">Lock &amp; Review</a>
+					<?php endif; ?>
+				<?php endif; ?>
+			<?php endif; ?>
 			</div>
 		</td>
 	</tr>

@@ -21,7 +21,6 @@
         }
       }
     ?>
-
     <?php
     echo $this->element(
       'get_other_codings',

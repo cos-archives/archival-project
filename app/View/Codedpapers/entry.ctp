@@ -2,7 +2,12 @@
 function format_other_responses($others, $field) {
   $rv = array();
   foreach ( $others as $response ) {
-    array_push($rv, array('user' => $response['user_name'], 'value' => $response[$field]));
+    if ( array_key_exists($field, $response) ) {
+      $value = $response[$field];
+    } else {
+      $value = '';
+    }
+    array_push($rv, array('user' => $response['user_name'], 'value' => $value));
   }
 
   return $rv;

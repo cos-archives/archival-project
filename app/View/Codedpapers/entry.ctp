@@ -302,9 +302,17 @@ $(function() {
             });
         });
 
-        $('button.study-connect').on('click', function(e) {
+        $('div.associate button.connect').on('click', function(e) {
           e.preventDefault();
-          section = $(this).parents(".associated-studies");
+          section = $(this).parents("div.associate");
+
+          var isStudy = true;
+          var id = $(section).parent().data('study-id')
+          if(!id) {
+            id = $(section).parent().data('test-id')
+            isStudy = false;
+          }
+
 
           var inputs = section.find('select');
           var associatedIds = new Array();
@@ -314,9 +322,9 @@ $(function() {
           }
 
           $.post(
-            '/studies/associate.json',
+            isStudy ? '/studies/associate.json' : '/tests/associate.json',
             {
-              'review': $(section).parent().data('study-id'),
+              'review': $(section).parent().data(isStudy ? 'study-id' : 'test-id'),
               'reviewed': associatedIds
             }, function() {
               window.location.reload();
@@ -327,7 +335,16 @@ $(function() {
 
         $('table.coder-responses td:last-child > span').on('click', function(e) {
           var field = $(e.target).parents('.control-group');
-          field.find('input, select').val( $(e.target).text() );
+          var clickedText = $(e.target).text();
+
+          var inputs = field.find('input, select, textarea')
+
+          if( inputs.length == 1 ) {
+            inputs.val( clickedText )
+            .trigger('input')
+            .trigger('change');
+          }
+
         });
     }
 

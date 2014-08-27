@@ -57,7 +57,7 @@
 					<?php if ( $paper['Paper']['senior_coding_complete'] ): ?>
 						<a class="btn btn-primary disabled">Coding Complete</a>
 					<?php else: ?>
-						<a class="btn btn-success">Continue Review</a>
+						<a class="btn btn-success" href="/codedpapers/entry/<?php echo $paper['Paper']['senior_coding_id']; ?>/">Continue Review</a>
 					<?php endif; ?>
 				<?php else: ?>
 					<?php if ( $paper['Paper']['senior_coding_claimed'] ): ?>

@@ -4,10 +4,9 @@ class FormFieldHelper extends FormHelper {
 
     private function _default_options($labelText, $tip=null, $detailedTip=null, $otherCoders=null) {
         /* Returns a string-keyed array of options to pass to Form::input() */
-        if ( !$otherCoders ) {
-          $after = '';
-        } else {
-          $after = "<table class='coder-responses'><tr><th>Reviewer</th><th>Response</th></tr>";
+        $after = '';
+        if ( $otherCoders ) {
+          $after .= "<table class='coder-responses'><tr><th>Reviewer</th><th>Response</th></tr>";
           foreach ( $otherCoders as $other ) {
             $after .= "<tr>";
             $after .= "<td>" . $other['user'] . "</td>";

@@ -1,8 +1,25 @@
 <?php
 class Test extends AppModel {
-	public $belongsTo = 'Study';
+	public $belongsTo = array(
+		'Study' => array(),
+		'ReviewedBy' => array(
+			'className' => 'Test',
+			'foreignKey' => 'reviewed_id',
+		),
+	);
+	public $hasMany = array(
+		'ReviewOf' => array(
+			'className' => 'Test',
+			'foreignKey' => 'reviewed_id',
+		),
+	);
+
+	public $virtualFields = array(
+		'user_name' => '(select users.username from users where users.id = (select codedpapers.user_id from codedpapers WHERE codedpapers.id = (select codedpaper_id from studies where studies.id = study_id)))',
+	);
+
 	public $validate = array(
-		
+
 		'hypothesized' => array(
 	        'rule' => 'notEmpty',
 			'required' => true,
@@ -22,7 +39,7 @@ class Test extends AppModel {
 			'rule' => 'notEmpty',
 	        'required' => false,
 	        'allowEmpty' => true
-	    ),	
+	    ),
 		'independent_variables' => array(
 	       	'rule' => 'notEmpty',
 			'required' => true	,
@@ -123,7 +140,7 @@ class Test extends AppModel {
 			'Test' => array('study_id' => $study['id'])
 		);
 		if($dummyentry = $this->save($data,$validate=FALSE)) {
-			$ret = array('Study' => 
+			$ret = array('Study' =>
 				array(
 					$sstart => $study
 				)

@@ -16,7 +16,7 @@
         <h3>Unnamed Study</h3>
     </header>
 
-    <div class="alert alert-info associated-studies">
+    <div class="alert alert-info associate">
 
     <?php foreach ( $otherCodings as $coding ): ?>
 
@@ -26,14 +26,14 @@
       <select>
         <option value="">-- choose --</option>
         <?php foreach ( $coding['Study'] as $otherStudy ): ?>
-          <option <?php if ( $otherStudy['reviewed_id'] == $study['id'] ) { echo 'selected="selected"'; } ?> value="<?php echo $otherStudy['id']; ?>"><?php echo $otherStudy['name'] == '' ? '[ Untitled ]' : $otherStudy['name']; ?></option>
+          <option <?php if ( $otherStudy['reviewed_id'] == $study['id'] ) { echo 'selected="selected"'; } ?> value="<?php echo $otherStudy['id']; ?>"><?php echo $otherStudy['name'] == '' ? '[ Untitled Study ]' : $otherStudy['name']; ?></option>
         <?php endforeach; ?>
       </select>
 
       </div>
     </div>
     <?php endforeach; ?>
-    <button class="btn btn-warning study-connect">Save &amp; Reload Page</button>
+    <button class="btn btn-warning connect">Save &amp; Reload Page</button>
     </div>
 
         <?php
@@ -92,14 +92,16 @@
                     <dd>The study’s stated goal is, at least in part of the design, to test the hypothesis of the previous study, using the same conceptual variables but changing their operationalization in ways that go beyond merely adapting the materials for a new population or occasion.</dd>
                     <dt>+X</dt>
                     <dd>The study also contains elements of extension that go beyond the type of replication recorded</dd>
-                </dl>"
+                </dl>",
+                'otherCoders' => format_other_responses($reviewedValues, 'replication_code')
             ));
 
             echo $this->FormField->dropdownbox(array(
                 'field' => "Study.$i.replicates_study_id",
                 'label' => "Previous Study Name",
                 'options' => $referenced_papers,
-                'detailedTip' => "If the study is a replication of a study performed earlier in this paper, select here the study that the authors referenced as the source for the replication effect. In the drop-down menu, you will see the names of all of the studies you have coded. If this is the first study in the paper, do not choose this option."
+                'detailedTip' => "If the study is a replication of a study performed earlier in this paper, select here the study that the authors referenced as the source for the replication effect. In the drop-down menu, you will see the names of all of the studies you have coded. If this is the first study in the paper, do not choose this option.",
+                'otherCoders' => format_other_responses($reviewedValues, 'replicates_study_id')
             ));
 
             echo $this->FormField->textbox(array(
@@ -107,14 +109,16 @@
                 'label' => "... or paste a free-form reference",
                 'tip' => "If the article is not listed above, paste the citation here.",
                 'rows' => 2,
-                'detailedTip' => "<p>If more than one article is cited, give the one from which the methods were most directly taken; if this cannot be determined, give the earliest one chronologically.</p>"
+                'detailedTip' => "<p>If more than one article is cited, give the one from which the methods were most directly taken; if this cannot be determined, give the earliest one chronologically.</p>",
+                'otherCoders' => format_other_responses($reviewedValues, 'replication_freetext')
             ));
 
             echo $this->FormField->textbox(array(
                 'field' => "Study.$i.replication_freetext_study",
                 'label' => "Previous Study Number",
                 'tip' => "Enter <kbd>1</kbd> if there is only one study in the cited paper; otherwise, enter the number of the study with methodology closest to this one.",
-                'rows' => 1
+                'rows' => 1,
+                'otherCoders' => format_other_responses($reviewedValues, 'replication_freetext_study')
             ));
 
             echo $this->FormField->inputGroupEnd();
@@ -174,7 +178,8 @@
                     echo $this->FormField->textbox(array(
                         'field' => "Study.$i.study_comment",
                         'label' => "Comments",
-                        'rows' => 2
+                        'rows' => 2,
+                        'otherCoders' => format_other_responses($reviewedValues, 'study_comment')
                     ));
             ?>
 

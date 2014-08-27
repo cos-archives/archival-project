@@ -15,10 +15,6 @@ class Study extends AppModel {
 		),
 	);
 
-	public $virtualFields = array(
-		'user_name' => '(select users.username from users where users.id = (select codedpapers.user_id from codedpapers WHERE codedpapers.id = codedpaper_id))',
-	);
-
 	public $validate = array(
 		'name' => array(
 			'rule' => 'notEmpty',
@@ -41,6 +37,14 @@ class Study extends AppModel {
 	        'allowEmpty' => true,
 	    ),
 	);
+
+	public function __construct($id = false, $table = null, $ds = null) {
+	    parent::__construct($id, $table, $ds);
+	    $this->virtualFields['user_name'] = sprintf(
+	        '(select users.username from users where users.id = (select codedpapers.user_id from codedpapers WHERE codedpapers.id = %s.codedpaper_id))', $this->alias
+	    );
+	}
+
 
 	public function createDummy ($codedpaper_id, $sstart = 0, $cascade=true) {
 		$this->create();

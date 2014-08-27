@@ -1,6 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 class CodedpapersController extends AppController {
+	public $uses = array('Codedpaper', 'Study', 'Test');
 	function isAuthorized($user = null, $request = null) {
 		parent::isAuthorized($user);
 
@@ -24,6 +25,7 @@ class CodedpapersController extends AppController {
 				break;
 
 			case 'reviewed':
+			case 'delete':
 				return ( $this->isSeniorCoder || $this->isAdmin );
 				break;
 
@@ -213,6 +215,58 @@ class CodedpapersController extends AppController {
 			}
 
 		}
+	}
+
+	public function delete($id = NULL) {
+
+		$this->Codedpaper->id = $id;
+
+		if ( ! $this->Codedpaper->exists() ) {
+			throw new NotFoundException('Invalid coded paper');
+		}
+
+		$codedPaper = $this->Codedpaper->findDeep($id);
+
+		if ( $codedPaper['Codedpaper']['user_id'] !== $this->Auth->user('id') ) {
+			if ( ! $this->isAdmin ) {
+				throw new ForbiddenException('Only admins may delete others\' review codings.');
+			}
+		}
+
+		$studiesToDelete = array();
+		$studiesToUpdate = array();
+		$testsToDelete = array();
+		$testsToUpdate = array();
+
+		foreach ( $codedPaper['Study'] as $study) {
+			// Add study to list to be deleted
+			array_push($studiesToDelete, $study['id']);
+			$studiesToUpdate = array_merge($studiesToUpdate, $study['ReviewOf']);
+
+			foreach ( $study['Test'] as $test ) {
+				// Add test to list to be deleted
+				array_push($testsToDelete, $test['id']);
+				$testsToUpdate = array_merge($testsToUpdate, $test['ReviewOf']);
+			}
+		}
+
+		for ( $i=0 ; $i < sizeof($studiesToUpdate) ; $i++ ) {
+			$studiesToUpdate[$i]['reviewed_id'] = null;
+		}
+		$this->Study->saveMany($studiesToUpdate);
+
+		for ( $i=0 ; $i < sizeof($testsToUpdate) ; $i++ ) {
+			$testsToUpdate[$i]['reviewed_id'] = null;
+		}
+		$this->Test->saveMany($testsToUpdate);
+
+		foreach ( $testsToDelete as $test ) { $this->Test->delete($test); }
+		foreach ( $studiesToDelete as $study ) { $this->Study->delete($study); }
+
+		$this->Codedpaper->delete($id);
+
+		$this->redirect('reviewed/');
+
 	}
 
 	public function compare ($id1 = NULL, $id2 = NULL) {

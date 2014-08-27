@@ -253,12 +253,19 @@ class CodedpapersController extends AppController {
 		for ( $i=0 ; $i < sizeof($studiesToUpdate) ; $i++ ) {
 			$studiesToUpdate[$i]['reviewed_id'] = null;
 		}
-		$this->Study->saveMany($studiesToUpdate);
+		$this->Study->saveMany($studiesToUpdate, array(
+			'validate' => false,
+			'fieldList' => array('reviewed_id')
+		));
 
 		for ( $i=0 ; $i < sizeof($testsToUpdate) ; $i++ ) {
 			$testsToUpdate[$i]['reviewed_id'] = null;
 		}
-		$this->Test->saveMany($testsToUpdate);
+		$this->Test->saveMany(
+			$testsToUpdate, array(
+				'validate' => false,
+				'fieldList' => array('reviewed_id')
+		));
 
 		foreach ( $testsToDelete as $test ) { $this->Test->delete($test); }
 		foreach ( $studiesToDelete as $study ) { $this->Study->delete($study); }

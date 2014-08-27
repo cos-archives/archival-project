@@ -9,7 +9,7 @@
   <table  class="table">
   <tr>
       <th>DOI</th>
-      <th>APA reference</th>
+      <th>Title</th>
       <th>Coder</th>
       <th class="actions"><?php echo __('Actions'); ?></th>
   </tr>

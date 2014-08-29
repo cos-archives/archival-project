@@ -5,7 +5,8 @@
 ?>
 
 <div class="papers index">
-  <h2><?php echo $title; ?></h2>
+  <?php if ( sizeof($myIncompleteReviewCodings) > 0 ): ?>
+  <h2>My Incomplete Reviewed Papers</h2>
   <table  class="table">
   <tr>
       <th>DOI</th>
@@ -13,9 +14,40 @@
       <th>Coder</th>
       <th class="actions"><?php echo __('Actions'); ?></th>
   </tr>
-  <?php foreach ($incomplete as $paper) {
-    echo $this->element('reviewed_coding_row', array('paper' => $paper)); } ?>
+  <?php foreach ($myIncompleteReviewCodings as $paper) {
+    echo $this->element('reviewed_coding_row', array('paper' => $paper, 'editable' => true)); } ?>
   </table>
+  <?php endif; ?>
+
+  <?php if ( sizeof($myCompleteReviewCodings) > 0 ): ?>
+  <h2>My Complete Reviewed Papers</h2>
+  <table  class="table">
+  <tr>
+      <th>DOI</th>
+      <th>Title</th>
+      <th>Coder</th>
+      <th class="actions"><?php echo __('Actions'); ?></th>
+  </tr>
+  <?php foreach ($myCompleteReviewCodings as $paper) {
+    echo $this->element('reviewed_coding_row', array('paper' => $paper, 'editable' => true)); } ?>
+  </table>
+  <?php endif; ?>
+
+  <?php if ( sizeof($allReviewCodings) > 0 ): ?>
+  <h2>All Reviewed Papers</h2>
+  <table  class="table">
+  <tr>
+      <th>DOI</th>
+      <th>Title</th>
+      <th>Coder</th>
+      <th class="actions"><?php echo __('Actions'); ?></th>
+  </tr>
+  <?php foreach ($allReviewCodings as $paper) {
+    echo $this->element('reviewed_coding_row', array('paper' => $paper, 'editable' => false)); } ?>
+  </table>
+  <?php endif; ?>
+
+
 
 </div>
 <div class="actions btn-group">

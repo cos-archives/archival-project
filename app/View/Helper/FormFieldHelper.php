@@ -6,7 +6,7 @@ class FormFieldHelper extends FormHelper {
         /* Returns a string-keyed array of options to pass to Form::input() */
         $after = '';
         if ( $otherCoders ) {
-          $after .= "<table class='coder-responses'><tr><th>Reviewer</th><th>Response</th></tr>";
+          $after .= "<table class='coder-responses table' style='margin-top: 15px;'><tr><th style=\"width:160px\">Reviewer</th><th>Response</th></tr>";
           foreach ( $otherCoders as $other ) {
             $after .= "<tr>";
             $after .= "<td>" . $other['user'] . "</td>";
@@ -25,7 +25,7 @@ class FormFieldHelper extends FormHelper {
             'label' => array(
                 'text' => $labelText,
                 'class' => 'control-label'
-            )
+            ),
         );
 
         if($detailedTip !== null) {

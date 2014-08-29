@@ -1,7 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 class CodedpapersController extends AppController {
-	public $uses = array('Codedpaper', 'Study', 'Test');
+	public $uses = array('Codedpaper', 'Study', 'Test', 'User');
 	function isAuthorized($user = null, $request = null) {
 		parent::isAuthorized($user);
 
@@ -110,6 +110,9 @@ class CodedpapersController extends AppController {
 		// Set the object in $this->Codedpaper to the Codedpaper we're looking at.
 		$this->Codedpaper->id = $id;
 
+		// Was the study complete when we started? Need to know this later.
+		$wasComplete = $this->Codedpaper->field("completed");
+
 		// Codedpapers should be added through the above "add" action.
 		if (!$this->Codedpaper->exists())
 		    throw new NotFoundException('Invalid coded paper');
@@ -214,6 +217,27 @@ class CodedpapersController extends AppController {
 				$this->request->data['Paper'] = $saved['Paper'];
 			}
 
+		}
+
+		// Set flag to prevent changes if appropriate.
+		$isLocked = false;
+
+		// See if a review coding exists.
+		if ( (! $this->Codedpaper->field('is_review')) && $this->Codedpaper->Paper->field('senior_coding_claimed') ) {
+			$isLocked = true;
+		}
+
+		$this->set( 'locked', $isLocked );
+
+		// If this is a review coding and it has just been marked complete, send an email.
+		if( $this->Codedpaper->field('is_review') && $this->Codedpaper->field('completed') && ! $wasComplete ) {
+			foreach ( $codings as $coding ) {
+				$user = $this->User->findById($coding['Codedpaper']['user_id']);
+				$email = new CakeEmail('smtp');
+				$email->to($user['User']['email']) //)
+					->subject("Coding Review Completed")
+					->send("The review of your Archival Project coding \"" . $coding['Paper']['title'] . "\" is complete.");
+			}
 		}
 	}
 
@@ -338,54 +362,38 @@ class CodedpapersController extends AppController {
 
 	public function reviewed() {
 
-		$this->set('complete', $this->Codedpaper->find('all',
+		$this->set('myCompleteReviewCodings', $this->Codedpaper->find('all',
 			array(
 				'recursive' => 1,
 				'conditions' => array(
 					'is_review' => true,
 					'completed' => true,
+					'user_id' => $this->Auth->user('id')
 				),
 			)
 		));
 
-		$incompletePapers = $this->Codedpaper->find('all',
+		$this->set('myIncompleteReviewCodings', $this->Codedpaper->find('all',
 			array(
 				'recursive' => 1,
 				'conditions' => array(
 					'is_review' => true,
 					'completed' => false,
-				),
-			)
-		);
-
-		$this->set('incomplete', $incompletePapers);
-
-		$this->set('title', 'My Reviewed Papers');
-	}
-
-	public function reviewed_all() {
-		$this->set('complete', $this->Codedpaper->find('all',
-			array(
-				'recursive' => 1,
-				'conditions' => array(
-					'is_review' => true,
-					'completed' => true,
+					'user_id' => $this->Auth->user('id')
 				),
 			)
 		));
 
-		$this->set('incomplete', $this->Codedpaper->find('all',
+		$this->set('allReviewCodings', $this->Codedpaper->find('all',
 			array(
 				'recursive' => 1,
 				'conditions' => array(
 					'is_review' => true,
-					'completed' => false,
 				),
 			)
 		));
 
 
-		$this->set('title', 'All Reviewed Papers');
-		$this->render('reviewed');
 	}
+
 }

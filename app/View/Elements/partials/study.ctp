@@ -16,6 +16,7 @@
         <h3>Unnamed Study</h3>
     </header>
 
+    <?php if( count($otherCodings) > 0 ): ?>
     <div class="alert alert-info associate">
 
     <?php foreach ( $otherCodings as $coding ): ?>
@@ -35,6 +36,7 @@
     <?php endforeach; ?>
     <button class="btn btn-warning connect">Save &amp; Reload Page</button>
     </div>
+    <?php endif; ?>
 
         <?php
 

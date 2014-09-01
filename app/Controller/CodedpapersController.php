@@ -96,6 +96,36 @@ class CodedpapersController extends AppController {
 
 		$this->Session->setFlash($message, $alertClass);
 
+		// If this is a review coding, send an email to teh junior coders
+		if( $isReview ) {
+			// If this is a review coding and it has just been marked complete, send an email.
+			$codings = $this->Codedpaper->find(
+				'all',
+				array(
+					'conditions' => array(
+						'paper_id' => $this->Codedpaper->field('paper_id'),
+						'is_review' => false,
+						'completed' => true,
+					),
+					'contain' => array(
+						'Paper' => 'title',
+						'User' => 'username',
+						'Study' => array(
+							'Test' => array()
+						),
+					),
+				)
+			);
+
+			foreach ( $codings as $coding ) {
+				$user = $this->User->findById($coding['Codedpaper']['user_id']);
+				$email = new CakeEmail('smtp');
+				$email->to($user['User']['email']) //)
+					->subject("Coding Review Begun")
+					->send("The review of your Archival Project coding \"" . $coding['Paper']['title'] . "\" has been	 claimed by a senior coder for review.");
+			}
+		}
+
 		if($newCodedPaperId !== null) {
 			$this->redirect('entry/' . $newCodedPaperId);
 		} else {
@@ -239,6 +269,9 @@ class CodedpapersController extends AppController {
 					->send("The review of your Archival Project coding \"" . $coding['Paper']['title'] . "\" is complete.");
 			}
 		}
+
+
+
 	}
 
 	public function delete($id = NULL) {

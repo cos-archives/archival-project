@@ -233,7 +233,7 @@ $(function() {
     }).trigger('change');
 
     /* set inputs to disabled if this coding is finalized */
-    var isLocked = <?php echo @$locked ? 'true' : 'false'; ?>;
+    var isLocked = <?php if ($locked) { echo 'true'; } else { echo 'false'; } ?>;
     if(isLocked) {
       var form = $('#CodedpaperEntryForm');
       form.find('input, textarea, select').attr('disabled', 'disabled');

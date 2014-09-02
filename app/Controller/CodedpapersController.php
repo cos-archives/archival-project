@@ -253,6 +253,8 @@ class CodedpapersController extends AppController {
 		$isLocked = false;
 
 		// See if a review coding exists.
+		$this->Codedpaper->Paper->id = $this->Codedpaper->field('paper_id');
+
 		if ( (! $this->Codedpaper->field('is_review')) && $this->Codedpaper->Paper->field('senior_coding_claimed') ) {
 			$isLocked = true;
 		}

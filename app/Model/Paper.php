@@ -31,7 +31,7 @@ class Paper extends AppModel {
 		'senior_coding_claimed' => '(select count(*) from codedpapers where paper_id = Paper.id and is_review = true)',
 		'senior_coding_complete' => '(select count(*) from codedpapers where paper_id = Paper.id and is_review = true and completed = true)',
 		'senior_coder_id' => '(select user_id from codedpapers where paper_id = Paper.id and is_review = true)',
-		'senior_coding_id' => '(select codedpapers.id from codedpapers where paper_id = Paper.id and is_review = true)',
+		'senior_coding_id' => '(select codedpapers.id from codedpapers where codedpapers.paper_id = Paper.id and is_review = true)',
 	);
 
 	public function getMultipleCodings ($id = null) {

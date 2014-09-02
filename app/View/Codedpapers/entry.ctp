@@ -219,13 +219,31 @@ function format_other_responses($others, $field) {
         </div>
     <?php echo $this->Form->end(); ?>
 </div><!-- #coding-form -->
+
+<div class="modal fade" id="confirmCompleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Mark as complete</h4>
+      </div>
+      <div class="modal-body">
+        <p>Once a coding has been marked as complete, no further changes should be made to it.</p>
+        <?php if( ! $this->data['Codedpaper']['is_review'] ): ?>
+        <p>Once this paper has been claimed by a senior coder for review, it will be locked to prevent edits.</p>
+        <?php endif; ?>
+        <p>Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Mark as Complete</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <script>
-
-
-
-
 $(function() {
-
     /* show/hide is-replication div based on form value */
     $('.is-replication').on('change', function(e) {
         t = $(e.target).closest('.study').find('.replication-fields')

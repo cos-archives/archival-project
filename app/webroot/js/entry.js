@@ -114,8 +114,9 @@ $(function() {
     updateProgressBars({'selector': '.study, .test'});
 
     /* "Complete" Checkbox */
+    var confirmCompleteModal = $('#confirmCompleteModal');
     $('#chkComplete')
-        .on('change', function() {
+        .on('change', function(e) {
             $('input[name="data[Codedpaper][completed]"]').val(this.checked ? 1 : 0);
         })
         .prop('checked', function() {
@@ -129,12 +130,24 @@ $(function() {
                 'off': 'danger',
                 'off-label': 'No',
                 'on': 'success',
-                'on-label': 'Yes'
+                'on-label': 'Yes',
             })
             .css({
                 'width': '100%'
             })
-            .bootstrapSwitch();
+            .bootstrapSwitch()
+            .on('switch-change', function(e, state) {
+              if(state.value ) {
+                confirmCompleteModal.modal('show');
+              }
+            });
+    confirmCompleteModal.find(".modal-footer .btn-danger").on('click', function() {
+      $('#chkComplete').parent().bootstrapSwitch('setState', false)
+    });
+    confirmCompleteModal.find(".modal-footer .btn-primary").on('click', function () {
+      $('#CodedpaperEntryForm').submit()
+    })
+
 
     /* Exclusions */
     var initExclusionCalculators = function(){

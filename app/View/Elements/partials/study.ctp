@@ -155,22 +155,20 @@
                 </div>
             </div>
             <?php
-                    echo $this->FormField->dropdownbox(array(
+                    echo $this->FormField->radios(array(
                         'field' => "Study.$i.certainty_key_effect_tests",
                         'label' => "How certain are you that you correctly identified the study's key effect tests?",
                         'options' => array(
-                            '' => '',
                             '1' => 'not at all',
                             '2' => 'somewhat',
                             '3' => 'very'
                         )
                     ));
 
-                    echo $this->FormField->dropdownbox(array(
+                    echo $this->FormField->radios(array(
                         'field' => "Study.$i.certainty_replication_status",
                         'label' => "How certain are you that you correctly identified the study's status as a replication?",
                         'options' => array(
-                            '' => '',
                             '1' => 'not at all',
                             '2' => 'somewhat',
                             '3' => 'very'

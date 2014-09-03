@@ -109,9 +109,47 @@ class FormFieldHelper extends FormHelper {
             $options
         );
 
-
-
         return $this->Form->input($field, $options);
+    }
+
+    public function radios($options) {
+      // Remove the null value from the options list.
+      unset($options['options']['']);
+
+      $strippedKeys = array('field', 'label', 'tip', 'detailedTip', 'otherCoders');
+      foreach($strippedKeys as $k){
+          $$k = isset($options[$k]) ? $options[$k] : null;
+          unset($options[$k]);
+      }
+
+      // Get the value of the selected items for the current field
+      $this->setEntity($field);
+      $value = $this->value();
+      $selected = explode(',', $value['value']);
+
+      $attributes = array(
+        'legend' => false,
+        'separator' => '<br>',
+      );
+
+      $options = array_merge(
+          array(
+              // 'multiple' => 'checkbox',
+              'hiddenField' => false,
+              'selected' => $selected,
+          ),
+          $this->_default_options($label, $tip, $detailedTip, $otherCoders),
+          $options
+      );
+
+      $html = '<div class="control-group">';
+      $html .= '<label class="control-label">' . $label . '</label>';
+      $html .= '<div class="controls" style="padding-top:5px">';
+      $html .= $this->Form->radio($field, $options['options'], $attributes);
+      $html .= '</div>';
+      $html .= '</div>';
+
+      return $html;
     }
 
     public function inputGroupStart($options=null) {

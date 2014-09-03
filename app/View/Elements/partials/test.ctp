@@ -91,11 +91,10 @@
                     'otherCoders' => format_other_responses($reviewedValues, 'prior_hypothesis_page')
                 ));
 
-                echo $this->FormField->dropdownbox(array(
+                echo $this->FormField->radios(array(
                     'field' => "Study.$s.Test.$t.certainty_hypothesis",
                     'label' => "How certain are you that you correctly identified the test's hypothesis?",
                     'options' => array(
-                        '' => '',
                         '1' => 'not at all',
                         '2' => 'somewhat',
                         '3' => 'very'
@@ -368,33 +367,30 @@
                     'otherCoders' => format_other_responses($reviewedValues, 'hypothesis_supported')
                 ));
 
-                echo $this->FormField->dropdownbox(array(
+                echo $this->FormField->radios(array(
                     'field' => "Study.$s.Test.$t.certainty_meth_var",
                     'label' => "How certain are you that you correctly identified the test's methodology and variables?",
                     'options' => array(
-                        '' => '',
                         '1' => 'not at all',
                         '2' => 'somewhat',
                         '3' => 'very'
                     )
                 ));
 
-                echo $this->FormField->dropdownbox(array(
+                echo $this->FormField->radios(array(
                     'field' => "Study.$s.Test.$t.certainty_statistics",
                     'label' => "How certain are you that you correctly identified the test's statistcs?",
                     'options' => array(
-                        '' => '',
                         '1' => 'not at all',
                         '2' => 'somewhat',
                         '3' => 'very'
                     )
                 ));
 
-                echo $this->FormField->dropdownbox(array(
+                echo $this->FormField->radios(array(
                     'field' => "Study.$s.Test.$t.certainty_hypothesis_supported",
                     'label' => "How certain are you that you correctly identified the test's support for hypothesis?",
                     'options' => array(
-                        '' => '',
                         '1' => 'not at all',
                         '2' => 'somewhat',
                         '3' => 'very'

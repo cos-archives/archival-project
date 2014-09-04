@@ -352,7 +352,8 @@
                     'field' => "Study.$s.Test.$t.computed_significance_of_test",
                     'label' => "Significance (Exact)",
                     'detailedTip' => "The exact p value of the test. This is an optional code that may depend on your statistical knowledge. If the test is reported as a straightforward z, t, F or &Chi;<sup>2</sup> test <a href='http://graphpad.com/quickcalcs/PValue1.cfm'>this online p value calculator</a> may be used.",
-                    'otherCoders' => format_other_responses($reviewedValues, 'computed_significance_of_test')
+                    'otherCoders' => format_other_responses($reviewedValues, 'computed_significance_of_test'),
+                    'class' => 'p-value',
                 ));
 
                 /* TODO: This help text doesn't match the options. */

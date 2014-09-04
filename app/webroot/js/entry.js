@@ -14,7 +14,17 @@ $(function() {
       } else {
         resultElement.removeClass('error')
       }
-    })
+    });
+
+    $(document).on('change', 'input.p-value', function(e) {
+      var element = $(e.target);
+      var value = Number(element.val());
+      if(! (0 < value && value < 1) ){
+        element.addClass('error');
+      } else {
+        element.removeClass('error');
+      }
+    });
 
     function updateProgressBars(opts) {
         opts = opts === undefined ? {} : opts;

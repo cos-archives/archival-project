@@ -33,7 +33,7 @@
   </table>
   <?php endif; ?>
 
-  <?php if ( sizeof($allReviewCodings) > 0 ): ?>
+  <?php if ( isset($allReviewCodings) && sizeof($allReviewCodings) > 0 ): ?>
   <h2>All Reviewed Papers</h2>
   <table  class="table">
   <tr>

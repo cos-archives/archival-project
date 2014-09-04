@@ -422,14 +422,16 @@ class CodedpapersController extends AppController {
 			)
 		));
 
-		$this->set('allReviewCodings', $this->Codedpaper->find('all',
-			array(
-				'recursive' => 1,
-				'conditions' => array(
-					'is_review' => true,
-				),
-			)
-		));
+		if ( $this->isAdmin ) {
+			$this->set('allReviewCodings', $this->Codedpaper->find('all',
+				array(
+					'recursive' => 1,
+					'conditions' => array(
+						'is_review' => true,
+					),
+				)
+			));
+		}
 
 
 	}

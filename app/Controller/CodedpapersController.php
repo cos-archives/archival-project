@@ -413,8 +413,11 @@ class CodedpapersController extends AppController {
 				'recursive' => 1,
 				'conditions' => array(
 					'is_review' => true,
-					'completed' => false,
-					'user_id' => $this->Auth->user('id')
+					'user_id' => $this->Auth->user('id'),
+					'OR' => array(
+						array('completed' => false),
+						array('completed' => null)
+					),
 				),
 			)
 		));

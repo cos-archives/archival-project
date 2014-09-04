@@ -1,4 +1,21 @@
 $(function() {
+    $(document).on('change', '.exclusions input[type=number]', function(e) {
+      var value = Number($(e.target).val());
+      if( value % 1 !== 0 || value < 0 ) {
+        $(e.target).addClass('error')
+      } else {
+        $(e.target).removeClass('error')
+      }
+
+      var resultElement = $($('.exclusions input[type=number]')[2]);
+
+      if( resultElement.val() < 0 ) {
+        resultElement.addClass('error')
+      } else {
+        resultElement.removeClass('error')
+      }
+    })
+
     function updateProgressBars(opts) {
         opts = opts === undefined ? {} : opts;
         var P = this;

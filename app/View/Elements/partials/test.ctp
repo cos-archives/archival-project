@@ -233,6 +233,7 @@
 
                     ?>
                     </div>
+                    <?php if( count($otherCodings) > 0 ): ?>
                     <table class='coder-responses'><tr><th>Reviewer</th><th>Response</th><th>Response</th></tr>
                         <?php
                           $responsesTotal = format_other_responses($reviewedValues, 'N_total');
@@ -242,6 +243,7 @@
                           }
                         ?>
                     </table>
+                    <?php endif; ?>
                 </div>
                 <?php
 

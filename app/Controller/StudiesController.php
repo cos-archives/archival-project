@@ -66,7 +66,7 @@ class StudiesController extends AppController {
 
 	public function shell($codedpaper_id, $i) {
 		$this->layout = null;
-		$this->uses = array('Study', 'Test');
+		$this->uses = array('Study', 'Test', 'Codedpaper');
 
 		// Require that this be an Ajax request.
 		if(!$this->request->is('ajax')) {
@@ -92,7 +92,8 @@ class StudiesController extends AppController {
 			array(
 				'recursive' => 3,
 				'contain' => array(
-					'Test'
+					'Test',
+					'ReviewOf'
 				),
 				'conditions' => array(
 					'id' => $this->Study->getInsertID()
@@ -107,6 +108,34 @@ class StudiesController extends AppController {
 		$this->request->data['Study'][0]['Test'] = array(
 			$response['Test'][0]
 		);
+
+		$this->request->data['Study'][0]['ReviewOf'] = null;
+
+		$cp = $this->Codedpaper->find('first', array(
+			'conditions' => array('codedpaper.id' => $codedpaper_id)
+		));
+
+		if ( $cp['Codedpaper']['is_review'] ) {
+			$codings = $this->Codedpaper->find(
+				'all',
+				array(
+					'conditions' => array(
+						'paper_id' => $this->Codedpaper->field('paper_id'),
+						'is_review' => false,
+						'completed' => true,
+					),
+					'contain' => array(
+						'User' => 'username',
+						'Study' => array(
+							'Test' => array()
+						),
+					),
+				)
+			);
+		} else {
+			$codings = array();
+		}
+		$this->set('otherCodings', $codings);
 
 		$this->set(array(
 			'i' => $i,

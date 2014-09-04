@@ -5,7 +5,11 @@
     echo " data-test-seq='$t'";
     echo ">";
 
-    $reviewedValues = $test['ReviewOf'];
+    if ( isset($test['ReviewOf']) ) {
+      $reviewedValues = $test['ReviewOf'];
+    } else {
+      $reviewedValues = array();
+    }
 ?>
     <header>
         <button class='btn btn-danger deleteSection'>Delete Test</button>
@@ -51,7 +55,7 @@
                     'label' => "Test Number &amp; Name",
                     'class' => 'title_entry',
                     'tip' => "You will only code studies whose findings are mentioned in the abstract. If others have coded this test before you, follow the naming and numbering scheme that was used.",
-                    'otherCoders' => format_other_responses($reviewedValues, 'name'),
+                    'otherCoders' => array($reviewedValues, 'name'),
                 ));
 
                 // Prior Hypothesis
@@ -73,7 +77,7 @@
                         <dt>No</dt>
                         <dd>This code applies to studies whose effects were mentioned in the abstract, and therefore warrant coding, but did not have a particular hypothesis associated with them.</dd>
                     </dl>",
-                    'otherCoders' => format_other_responses($reviewedValues, 'hypothesized')
+                    'otherCoders' => array($reviewedValues, 'hypothesized')
                 ));
 
                 echo $this->FormField->textbox(array(
@@ -81,14 +85,14 @@
                     'label' => "Hypothesis",
                     'tip' => "Paste the test's hypothesis.",
                     'rows' => 2,
-                    'otherCoders' => format_other_responses($reviewedValues, 'prior_hypothesis')
+                    'otherCoders' => array($reviewedValues, 'prior_hypothesis')
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.prior_hypothesis_page",
                     'label' => "Hypothesis Page",
                     'tip' => "The page number where the hypothesis was found.",
-                    'otherCoders' => format_other_responses($reviewedValues, 'prior_hypothesis_page')
+                    'otherCoders' => array($reviewedValues, 'prior_hypothesis_page')
                 ));
 
                 echo $this->FormField->radios(array(
@@ -106,7 +110,7 @@
                     'label' => "Subsample",
                     'tip' => "Was this test done on a subsample/-group? If so, please note its characteristics.",
                     'rows' => 2,
-                    'otherCoders' => format_other_responses($reviewedValues, 'subsample')
+                    'otherCoders' => array($reviewedValues, 'subsample')
                 ));
 
                 echo $this->FormField->dropdownbox(array(
@@ -139,7 +143,7 @@
                         <dt>O: Other</dt>
                         <dd>A design is used that does not fit any of these categories. The coder should briefly describe the design, using whatever short term or label for the design the authors use.</dd>
                     </dl>",
-                    'otherCoders' => format_other_responses($reviewedValues, 'analytic_design_code')
+                    'otherCoders' => array($reviewedValues, 'analytic_design_code')
                 ));
 
                 echo $this->FormField->checkboxes(array(
@@ -172,7 +176,7 @@
                         <dt>Other</dt>
                         <dd>A methodology is used that does not fit any of these categories. The coder should briefly describe the methodology, using whatever short term or label for the methodology the authors use.</dd>
                     </dl>",
-                    'otherCoders' => format_other_responses($reviewedValues, 'methodology_codes')
+                    'otherCoders' => array($reviewedValues, 'methodology_codes')
                 ));
 
                 echo $this->FormField->textbox(array(
@@ -180,7 +184,7 @@
                     'label' => "Independent Variables",
                     'tip' => "One per line",
                     'rows' => 4,
-                    'otherCoders' => format_other_responses($reviewedValues, 'independent_variables')
+                    'otherCoders' => array($reviewedValues, 'independent_variables')
                 ));
 
                 echo $this->FormField->textbox(array(
@@ -188,7 +192,7 @@
                     'label' => "Dependent Variables",
                     'tip' => "One per line",
                     'rows' => 4,
-                    'otherCoders' => format_other_responses($reviewedValues, 'dependent_variables')
+                    'otherCoders' => array($reviewedValues, 'dependent_variables')
                 ));
 
                 echo $this->FormField->textbox(array(
@@ -196,7 +200,7 @@
                     'label' => "Other Variables",
                     'tip' => "One per line",
                     'rows' => 4,
-                    'otherCoders' => format_other_responses($reviewedValues, 'other_variables')
+                    'otherCoders' => array($reviewedValues, 'other_variables')
                 ));
 
                 ?>
@@ -237,8 +241,8 @@
                     <?php if( count($otherCodings) > 0 ): ?>
                     <table class='coder-responses table' style='margin-top:15px'><tr><th style='width:157px'>Reviewer</th><th style='width:65px;padding-right:4px;'>Response</th><th>Response</th></tr>
                         <?php
-                          $responsesTotal = format_other_responses($reviewedValues, 'N_total');
-                          $responsesExcluded = format_other_responses($reviewedValues, 'data_points_excluded');
+                          $responsesTotal = $this->FormField->format_other_responses($reviewedValues, 'N_total');
+                          $responsesExcluded = $this->FormField->format_other_responses($reviewedValues, 'data_points_excluded');
                           for ( $i = 0 ; $i < sizeof($responsesTotal) ; $i++ ) {
                             echo "<tr><td>" . $responsesTotal[$i]['user'] . "</td><td>" . $responsesTotal[$i]['value'] . "</td><td>" . $responsesExcluded[$i]['value'] . "</td></tr>";
                           }
@@ -252,7 +256,7 @@
                     'field' => "Study.$s.Test.$t.reasons_for_exclusions",
                     'label' => "Reasons for Exclusion",
                     'tip' => "separated by commas if multiple reasons given (using the author’s words as much as possible)",
-                    'otherCoders' => format_other_responses($reviewedValues, 'reasons_for_exclusions')
+                    'otherCoders' => array($reviewedValues, 'reasons_for_exclusions')
                 ));
 
 
@@ -261,7 +265,7 @@
                     'field' => "Study.$s.Test.$t.type_of_statistical_test_used",
                     'label' => "Type of Statistical Test",
                     'tip' => "Type of statistical test used, in the authors’ words (examples: ANCOVA; structural equation model; mediation analysis with bootstrapping)",
-                    'otherCoders' => format_other_responses($reviewedValues, 'type_of_statistical_test_used')
+                    'otherCoders' => array($reviewedValues, 'type_of_statistical_test_used')
                 ));
 
                 echo $this->FormField->dropdownbox(array(
@@ -288,13 +292,13 @@
                         'sem.coefficient' => 'SEM coefficient (details in comments please)',
                         'multilevel.coefficient' => 'Multilevel coefficient (details in comments please)'
                     ),
-                    'otherCoders' => format_other_responses($reviewedValues, 'reported_effect_size_statistic')
+                    'otherCoders' => array($reviewedValues, 'reported_effect_size_statistic')
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.reported_effect_size_statistic_value",
                     'label' => "Reported effect size",
-                    'otherCoders' => format_other_responses($reviewedValues, 'reported_effect_size_statistic_value')
+                    'otherCoders' => array($reviewedValues, 'reported_effect_size_statistic_value')
                 ));
 
                 echo $this->FormField->dropdownbox(array(
@@ -313,21 +317,21 @@
                     <p>
                         Do not report values of <em>r</em>, <em>B</em> or &beta; from correlations or regressions here because they are better seen as effect size statistics, not inferential test statistics. Often, significance tests of r, B and &beta; are reported without an inferential test statistic, which usually should be <em>t</em>.
                     </p>",
-                    'otherCoders' => format_other_responses($reviewedValues, 'inferential_test_statistic')
+                    'otherCoders' => array($reviewedValues, 'inferential_test_statistic')
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.degrees_of_freedom",
                     'label' => "Degrees of Freedom",
                     'tip' => "<p>For multiple inferential statistics, separate values with a comma, giving the N second if a &Chi;<sup>2</sup>.</p><p>Enter <kbd>None reported</kbd> if these are missing.</p>",
-                    'otherCoders' => format_other_responses($reviewedValues, 'degrees_of_freedom')
+                    'otherCoders' => array($reviewedValues, 'degrees_of_freedom')
                 ));
 
                 echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.inferential_test_statistic_value",
                     'label' => "Value",
                     'tip' => "If inferential statistics are missing, leave this field blank.",
-                    'otherCoders' => format_other_responses($reviewedValues, 'inferential_test_statistic_value')
+                    'otherCoders' => array($reviewedValues, 'inferential_test_statistic_value')
                 ));
 
                 echo $this->FormField->dropdownbox(array(
@@ -344,7 +348,7 @@
                         'p<.001' => 'p<.001'
                     ),
                     'detailedTip' => "<p>If the exact p value is not reported, state the possible range of p values. If an exact p value is reported, write this below in significance (reported).</p>",
-                    'otherCoders' => format_other_responses($reviewedValues, 'reported_significance_of_test')
+                    'otherCoders' => array($reviewedValues, 'reported_significance_of_test')
 
                 ));
 
@@ -352,7 +356,7 @@
                     'field' => "Study.$s.Test.$t.computed_significance_of_test",
                     'label' => "Significance (Exact)",
                     'detailedTip' => "The exact p value of the test. This is an optional code that may depend on your statistical knowledge. If the test is reported as a straightforward z, t, F or &Chi;<sup>2</sup> test <a href='http://graphpad.com/quickcalcs/PValue1.cfm'>this online p value calculator</a> may be used.",
-                    'otherCoders' => format_other_responses($reviewedValues, 'computed_significance_of_test'),
+                    'otherCoders' => array($reviewedValues, 'computed_significance_of_test'),
                     'class' => 'p-value',
                 ));
 
@@ -368,7 +372,7 @@
                         'Complex' => 'Complex'
                     ),
                     'detailedTip' => "As evaluated by the authors in the Discussion section, does the test provide evidence for their hypotheses that were stated prior to the result? If no relevant hypotheses were stated code <kbd>NH</kbd>; otherwise, code <kbd>Yes</kbd>, <kbd>No</kbd> or <kbd>Complex</kbd> if the authors find only partial support for the hypotheses.",
-                    'otherCoders' => format_other_responses($reviewedValues, 'hypothesis_supported')
+                    'otherCoders' => array($reviewedValues, 'hypothesis_supported')
                 ));
 
                 echo $this->FormField->radios(array(
@@ -405,7 +409,7 @@
                     'field' => "Study.$s.Test.$t.comment",
                     'label' => "Comments",
                     'tip' => "Examples:<ul><li>coding format did not apply to the effect test</li><li>difficulties or uncertainties during coding</li></ul>",
-                    'otherCoders' => format_other_responses($reviewedValues, 'comment')
+                    'otherCoders' => array($reviewedValues, 'comment')
                 ));
 
                 ?>

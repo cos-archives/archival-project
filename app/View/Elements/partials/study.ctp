@@ -4,9 +4,7 @@
     echo " data-study-id='" . $study['id'] . "'";
     echo " data-study-seq='$i'";
     echo ">";
-
     $reviewedValues = $study['ReviewOf'];
-
 
 
 
@@ -47,7 +45,7 @@
                 'tip' => "Use the study's number or name from the article, if possible",
                 'detailedTip' => '<p>Often, the article will give each study a name or number (e.g. "Experiment 1"). If there is only one study, enter <kbd>1</kbd>.</p>
                 <p>If others have coded this study before you, follow the naming and numbering scheme that was used.</p>',
-                'otherCoders' => format_other_responses($reviewedValues, 'name')
+                'otherCoders' => array($reviewedValues, 'name')
             ));
 
             echo $this->Form->hidden("Study.$i.id", array(
@@ -66,7 +64,7 @@
                 'class' => 'is-replication',
                 'tip' => 'The word "replicate" need not be used in the study.',
                 'detailedTip' => 'A study is considered to be a replication if a previous study–in this article or one that has already been published–is cited and explicitly named as a source of methodology for at least one independent and at least one dependent variable. The word "replicate" need not be used, so long as the present authors are measuring the same items and deriving their methodology from an older resource.',
-                'otherCoders' => format_other_responses($reviewedValues, 'replication')
+                'otherCoders' => array($reviewedValues, 'replication')
             ));
 
             echo $this->FormField->inputGroupStart(
@@ -95,7 +93,7 @@
                     <dt>+X</dt>
                     <dd>The study also contains elements of extension that go beyond the type of replication recorded</dd>
                 </dl>",
-                'otherCoders' => format_other_responses($reviewedValues, 'replication_code')
+                'otherCoders' => array($reviewedValues, 'replication_code')
             ));
 
             echo $this->FormField->dropdownbox(array(
@@ -103,7 +101,7 @@
                 'label' => "Previous Study Name",
                 'options' => $referenced_papers,
                 'detailedTip' => "If the study is a replication of a study performed earlier in this paper, select here the study that the authors referenced as the source for the replication effect. In the drop-down menu, you will see the names of all of the studies you have coded. If this is the first study in the paper, do not choose this option.",
-                'otherCoders' => format_other_responses($reviewedValues, 'replicates_study_id')
+                'otherCoders' => array($reviewedValues, 'replicates_study_id')
             ));
 
             echo $this->FormField->textbox(array(
@@ -112,7 +110,7 @@
                 'tip' => "If the article is not listed above, paste the citation here.",
                 'rows' => 2,
                 'detailedTip' => "<p>If more than one article is cited, give the one from which the methods were most directly taken; if this cannot be determined, give the earliest one chronologically.</p>",
-                'otherCoders' => format_other_responses($reviewedValues, 'replication_freetext')
+                'otherCoders' => array($reviewedValues, 'replication_freetext')
             ));
 
             echo $this->FormField->textbox(array(
@@ -120,7 +118,7 @@
                 'label' => "Previous Study Number",
                 'tip' => "Enter <kbd>1</kbd> if there is only one study in the cited paper; otherwise, enter the number of the study with methodology closest to this one.",
                 'rows' => 1,
-                'otherCoders' => format_other_responses($reviewedValues, 'replication_freetext_study')
+                'otherCoders' => array($reviewedValues, 'replication_freetext_study')
             ));
 
             echo $this->FormField->inputGroupEnd();
@@ -179,7 +177,7 @@
                         'field' => "Study.$i.study_comment",
                         'label' => "Comments",
                         'rows' => 2,
-                        'otherCoders' => format_other_responses($reviewedValues, 'study_comment')
+                        'otherCoders' => array($reviewedValues, 'study_comment')
                     ));
             ?>
 

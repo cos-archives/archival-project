@@ -2,10 +2,25 @@
 class FormFieldHelper extends FormHelper {
     public $helpers = array('Form');
 
+    public function format_other_responses($others, $field) {
+      $rv = array();
+      foreach ( $others as $response ) {
+        if ( array_key_exists($field, $response) ) {
+          $value = $response[$field];
+        } else {
+          $value = '';
+        }
+        array_push($rv, array('user' => $response['user_name'], 'value' => $value));
+      }
+
+      return $rv;
+    }
+
     private function _default_options($labelText, $tip=null, $detailedTip=null, $otherCoders=null) {
         /* Returns a string-keyed array of options to pass to Form::input() */
         $after = '';
-        if ( $otherCoders ) {
+        if ( $otherCoders && is_array($otherCoders) && count($otherCoders[0]) > 0 ) {
+          $otherCoders = $this->format_other_responses($otherCoders[0], $otherCoders[1]);
           $after .= "<table class='coder-responses table' style='margin-top: 15px;'><tr><th style=\"width:160px\">Reviewer</th><th>Response</th></tr>";
           foreach ( $otherCoders as $other ) {
             $after .= "<tr>";

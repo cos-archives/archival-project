@@ -1,19 +1,4 @@
-<?php
-function format_other_responses($others, $field) {
-  $rv = array();
-  foreach ( $others as $response ) {
-    if ( array_key_exists($field, $response) ) {
-      $value = $response[$field];
-    } else {
-      $value = '';
-    }
-    array_push($rv, array('user' => $response['user_name'], 'value' => $value));
-  }
-
-  return $rv;
-}
-
-?><link type='text/css' rel='stylesheet' href='/css/entry.css' />
+<link type='text/css' rel='stylesheet' href='/css/entry.css' />
 <style>
     .block {
         min-height: 20px;

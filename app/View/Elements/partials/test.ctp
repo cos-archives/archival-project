@@ -233,8 +233,9 @@
 
                     ?>
                     </div>
+                    <div class='clearfix'></div>
                     <?php if( count($otherCodings) > 0 ): ?>
-                    <table class='coder-responses'><tr><th>Reviewer</th><th>Response</th><th>Response</th></tr>
+                    <table class='coder-responses table' style='margin-top:15px'><tr><th style='width:157px'>Reviewer</th><th style='width:65px;padding-right:4px;'>Response</th><th>Response</th></tr>
                         <?php
                           $responsesTotal = format_other_responses($reviewedValues, 'N_total');
                           $responsesExcluded = format_other_responses($reviewedValues, 'data_points_excluded');
@@ -244,7 +245,7 @@
                         ?>
                     </table>
                     <?php endif; ?>
-                </div>
+</div>
                 <?php
 
                 echo $this->FormField->textbox(array(

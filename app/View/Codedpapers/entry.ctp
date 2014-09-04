@@ -220,7 +220,7 @@ function format_other_responses($others, $field) {
     <?php echo $this->Form->end(); ?>
 </div><!-- #coding-form -->
 
-<div class="modal fade" id="confirmCompleteModal">
+<div class="modal hide fade" id="confirmCompleteModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

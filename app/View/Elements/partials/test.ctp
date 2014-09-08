@@ -180,6 +180,12 @@
                 ));
 
                 echo $this->FormField->textbox(array(
+                    'field' => "Study.$s.Test.$t.methodology_codes_freeform",
+                    'label' => "Methodology Codes (Other)",
+                    'otherCoders' => array($reviewedValues, 'methodology_codes_freeform')
+                ));
+
+                echo $this->FormField->textbox(array(
                     'field' => "Study.$s.Test.$t.independent_variables",
                     'label' => "Independent Variables",
                     'tip' => "One per line",

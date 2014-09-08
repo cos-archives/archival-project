@@ -26,6 +26,28 @@ $(function() {
       }
     });
 
+    // Pre-fill fields where junior coders agree.
+    $('.coder-responses').not('.samples').each(function(idx, elem) {
+      // Ignore if the field already contains a selection.
+      if( $(elem).parent().find('.controls').find('input, select, textarea').val() !== '') {
+        return;
+      }
+
+      var responses = [];
+
+      $(elem).find('td:nth-child(2)').each(function(idx, elem) {
+        responses.push($(elem).text());
+      });
+
+      if ( responses.length == 0 ) { return }
+
+      for(var i=0; i<responses.length; i++) {
+        if(responses[i] !== responses[0]) { return }
+      }
+
+      $(elem).find('span').click();
+    });
+
     function updateProgressBars(opts) {
         opts = opts === undefined ? {} : opts;
         var P = this;

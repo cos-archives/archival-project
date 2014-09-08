@@ -21,14 +21,14 @@ class FormFieldHelper extends FormHelper {
         $after = '';
         if ( $otherCoders && is_array($otherCoders) && count($otherCoders[0]) > 0 ) {
           $otherCoders = $this->format_other_responses($otherCoders[0], $otherCoders[1]);
-          $after .= "<table class='coder-responses table' style='margin-top: 15px;'><tr><th style=\"width:160px\">Reviewer</th><th>Response</th></tr>";
+          $after .= "<table class='coder-responses table' style='margin-top: 15px;'><thead><tr><th style=\"width:160px\">Reviewer</th><th>Response</th></tr></thead><tbody>";
           foreach ( $otherCoders as $other ) {
             $after .= "<tr>";
             $after .= "<td>" . $other['user'] . "</td>";
             $after .= "<td><span>" . $other['value'] . "</span></td>";
             $after .= "</tr>";
           }
-          $after .= "</table>";
+          $after .= "</tbody></table>";
         }
 
         $options = array(

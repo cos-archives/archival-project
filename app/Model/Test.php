@@ -1,5 +1,14 @@
 <?php
 class Test extends AppModel {
+
+	public function __construct($id = false, $table = null, $ds = null) {
+		parent::__construct($id, $table, $ds);
+		$this->virtualFields['user_name'] = sprintf(
+				'(select users.username from users where users.id = (select codedpapers.user_id from codedpapers WHERE codedpapers.id = (select codedpaper_id from studies where studies.id = %s.study_id)))', $this->alias
+		);
+	}
+
+
 	public $belongsTo = array(
 		'Study' => array(),
 		'ReviewedBy' => array(
@@ -12,10 +21,6 @@ class Test extends AppModel {
 			'className' => 'Test',
 			'foreignKey' => 'reviewed_id',
 		),
-	);
-
-	public $virtualFields = array(
-		'user_name' => '(select users.username from users where users.id = (select codedpapers.user_id from codedpapers WHERE codedpapers.id = (select codedpaper_id from studies where studies.id = study_id)))',
 	);
 
 	public $validate = array(

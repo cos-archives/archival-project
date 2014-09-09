@@ -85,6 +85,11 @@ class TestsController extends AppController {
 
 		$test = $this->Test->data['Test'];
 
+		$otherCodings = array();
+
+		$this->set('otherCodings', $otherCodings);
+
+
 		$this->set(compact('s', 't', 'test'));
 
 	}

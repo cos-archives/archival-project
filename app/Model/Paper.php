@@ -24,7 +24,16 @@ class Paper extends AppModel {
 			'dependent' => false,
 		)
 	);
-	
+
+	public $virtualFields = array(
+		'codings_complete' => '(select coalesce(sum(completed), 0) from codedpapers WHERE paper_id = Paper.id)',
+		'codings_incomplete' => '(select coalesce(count(*) - sum(completed), 0) from codedpapers WHERE paper_id = Paper.id)',
+		'senior_coding_claimed' => '(select count(*) from codedpapers where paper_id = Paper.id and is_review = true)',
+		'senior_coding_complete' => '(select count(*) from codedpapers where paper_id = Paper.id and is_review = true and completed = true)',
+		'senior_coder_id' => '(select user_id from codedpapers where paper_id = Paper.id and is_review = true)',
+		'senior_coding_id' => '(select codedpapers.id from codedpapers where codedpapers.paper_id = Paper.id and is_review = true)',
+	);
+
 	public function getMultipleCodings ($id = null) {
 		$mult = $this->find('first', # GET THAT PAPER
 			array(
@@ -33,12 +42,12 @@ class Paper extends AppModel {
 					),
 				'fields' => 'id',
 				'contain' => array(
-					'Codedpaper' => array( 
+					'Codedpaper' => array(
 						'fields' => array('id','completed','user_id','paper_id'),
 						'User' => array('fields' => 'username'),
-						'conditions' => array( 'completed' => true ) 
+						'conditions' => array( 'completed' => true )
 						),
-				) 
+				)
 			));
 		$cps = Set::extract($mult,'Codedpaper.{n}.id');
 		$usernames = Set::extract($mult,'Codedpaper.{n}.User.username');
@@ -54,16 +63,16 @@ class Paper extends AppModel {
 					),
 				'fields' => 'id',
 				'contain' => array(
-					'Codedpaper' => array( 
+					'Codedpaper' => array(
 						'fields' => array('id','completed'),
 						'User' => array('fields' => 'username'),
-						'conditions' => array( 'user_id' => $user_id ) 
+						'conditions' => array( 'user_id' => $user_id )
 						),
-				) 
+				)
 			));
 		if(isset($mult['Codedpaper'][0]))
 			return $mult['Codedpaper'][0]['completed'];
-		else 
+		else
 			return null;
 	}
 	public function fetchByFreeForm($freeform = null) {
@@ -84,7 +93,7 @@ class Paper extends AppModel {
 			Google Scholar or another service<br>';
 			pr($json);
 		}
-		
+
 		return $this->fetchByDOI($json[0]['doi']);
 	}
 	public function fetchPubmedIDByDOI($DOI = null) {
@@ -123,7 +132,7 @@ class Paper extends AppModel {
 		if( $dom->getElementsByTagName('AbstractText')->length > 0 )
 			$abstract = $dom->getElementsByTagName('AbstractText') ->item(0)->nodeValue;
 		else $abstract = '';
-		
+
 		return $abstract;
 	}
 	public function fetchCitationCountByPubmedID($id = null) {
@@ -142,7 +151,7 @@ class Paper extends AppModel {
 		$dom = new DomDocument();
 		$dom->loadXml($xml);
 		$cites = (int) $dom->getElementsByTagName('Id')->length - 1; # one ID is the article itself
-		
+
 		return $cites;
 	}
 	public function fetchByDOI($DOI = null) {
@@ -151,7 +160,7 @@ class Paper extends AppModel {
 #		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$apa_ref = curl_exec_follow($ch);
-		
+
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array("Accept: application/citeproc+json"));
 		$json = curl_exec_follow($ch); # get associative array
 		curl_close($ch);
@@ -161,13 +170,13 @@ class Paper extends AppModel {
 			$json['year'] = $json['issued']['date-parts'][0][0];
 			$json['first_author'] = $json['author'][0]['family'] . ", " . $json['author'][0]['given'];
 			$json['URL'] = 'http://dx.doi.org/'.$json['DOI'];
-			unset($json['container-title']); unset($json['issued']); unset($json['author']); unset($json['editor']); 
+			unset($json['container-title']); unset($json['issued']); unset($json['author']); unset($json['editor']);
 		}
 		else $json = array('DOI' => $DOI);
-		
+
 		/*
 		$consumerkey = Configure::read('Mendeley.consumerkey');
-		$ch_mendeley = curl_init("http://api.mendeley.com/oapi/documents/details/". 
+		$ch_mendeley = curl_init("http://api.mendeley.com/oapi/documents/details/".
 		urlencode(urlencode($DOI)). "/?type=doi&consumer_key=" . $consumerkey);
 		curl_setopt($ch_mendeley, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch_mendeley, CURLOPT_RETURNTRANSFER, true);

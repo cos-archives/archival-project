@@ -13,3 +13,7 @@
 .exclusions .control-label {
 	margin-top:24px;
 }
+
+input.error {
+	border-color:red;
+}

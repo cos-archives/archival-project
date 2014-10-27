@@ -12,7 +12,7 @@ class UsersController extends AppController {
 
 		if($admin) return true;
 
-		if(in_array($req_action, array('index','leaderboard'))) return true; # viewing and adding is allowed to all users
+		if(in_array($req_action, array('leaderboard'))) return true; # viewing and adding is allowed to all users
 	}
 
 	public function index() {
@@ -56,7 +56,7 @@ class UsersController extends AppController {
 			    $this->request->data['User'] = array_merge($this->request->data['User'], array('id' => $id));
 			    $this->Auth->login();
                 $this->Session->setFlash(__('You have been registered and logged in.'));
-                $this->redirect(array('action' => 'index'));
+                $this->redirect('/');
             } else {
                 $this->Session->setFlash(__('Registration unsuccessful. Please, try again.'));
             }

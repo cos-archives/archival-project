@@ -136,6 +136,12 @@
         font-size:12px;
     }
 
+    table.coder-responses td:last-child span {
+      text-decoration: underline;
+      cursor: hand;
+      cursor: pointer;
+    }
+
 
 </style>
 <div class='span4' id='static-sidebar'>
@@ -177,6 +183,7 @@
     ?>
     <?php
         for($i=0; $i<sizeof($this->data['Study']); $i++) {
+
             echo $this->element('partials/study', array(
                 'i' => $i,
                 'data' => $this->data,
@@ -197,18 +204,90 @@
         </div>
     <?php echo $this->Form->end(); ?>
 </div><!-- #coding-form -->
+
+<div class="modal hide fade" id="confirmCompleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Mark as complete</h4>
+      </div>
+      <div class="modal-body">
+        <p>Once a coding has been marked as complete, no further changes should be made to it.</p>
+        <?php if( ! $this->data['Codedpaper']['is_review'] ): ?>
+        <p>Once this paper has been claimed by a senior coder for review, it will be locked to prevent edits.</p>
+        <?php endif; ?>
+        <p>Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Mark as Complete</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <script>
-
-
-
-
 $(function() {
-
     /* show/hide is-replication div based on form value */
     $('.is-replication').on('change', function(e) {
         t = $(e.target).closest('.study').find('.replication-fields')
         $(e.target).val() == 'Replication' ? t.slideDown() : t.slideUp();
     }).trigger('change');
+
+    /* set inputs to disabled if this coding is finalized */
+    var isLocked = <?php if ($locked) { echo 'true'; } else { echo 'false'; } ?>;
+    if(isLocked) {
+      var form = $('#CodedpaperEntryForm');
+      form.find('input, textarea, select').attr('disabled', 'disabled');
+      form.find('.btn, .testFooter, .studyFooter').not('.helpModalToggle').hide();
+    }
+
+    $('div.associate button.connect').on('click', function(e) {
+      e.preventDefault();
+      section = $(this).parents("div.associate");
+
+      var isStudy = true;
+      var id = $(section).parent().data('study-id')
+      if(!id) {
+        id = $(section).parent().data('test-id')
+        isStudy = false;
+      }
+
+
+      var inputs = section.find('select');
+      var associatedIds = new Array();
+      for( var i=0; i<inputs.length; i++) {
+        var value = $(inputs[i]).val();
+        if(value != "") { associatedIds.push(value); }
+      }
+
+      $.post(
+        isStudy ? '/studies/associate.json' : '/tests/associate.json',
+        {
+          'review': $(section).parent().data(isStudy ? 'study-id' : 'test-id'),
+          'reviewed': associatedIds
+        }, function() {
+          window.location.reload();
+        }
+      );
+
+    });
+
+    $('table.coder-responses td:last-child > span').on('click', function(e) {
+      if(isLocked) { return false }
+      var field = $(e.target).parents('.control-group');
+      var clickedText = $(e.target).text();
+
+      var inputs = field.find('input, select, textarea')
+
+      if( inputs.length == 1 ) {
+        inputs.val( clickedText )
+        .trigger('input')
+        .trigger('change');
+      }
+
+    });
 
     var initSections = function() {
 
@@ -339,7 +418,6 @@ $(function() {
         } else {
             outlineLink.parent().removeClass('unnamed');
         }
-        foo = outlineLink.parent();
     }
 
     function addTest(e) {
@@ -349,8 +427,6 @@ $(function() {
         var t = $(e.target).closest('.study').find('.test').length;
         var s = $(e.target).closest('.study').data('study-seq');
         var study_id = $(e.target).closest('.study').data('study-id');
-
-        foo = e
 
         //  return
 

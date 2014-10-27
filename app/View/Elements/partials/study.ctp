@@ -4,11 +4,37 @@
     echo " data-study-id='" . $study['id'] . "'";
     echo " data-study-seq='$i'";
     echo ">";
+    $reviewedValues = $study['ReviewOf'];
+
+
+
 ?>
     <header>
         <button class='btn btn-danger deleteSection'>Delete Study</button>
         <h3>Unnamed Study</h3>
     </header>
+
+    <?php if( count($otherCodings) > 0 ): ?>
+    <div class="alert alert-info associate">
+
+    <?php foreach ( $otherCodings as $coding ): ?>
+
+    <div class="control-group">
+      <label class="control-label"><?php echo $coding['User']['username']; ?></label>
+    <div class="controls">
+      <select>
+        <option value="">-- choose --</option>
+        <?php foreach ( $coding['Study'] as $otherStudy ): ?>
+          <option <?php if ( $otherStudy['reviewed_id'] == $study['id'] ) { echo 'selected="selected"'; } ?> value="<?php echo $otherStudy['id']; ?>"><?php echo $otherStudy['name'] == '' ? '[ Untitled Study ]' : $otherStudy['name']; ?></option>
+        <?php endforeach; ?>
+      </select>
+
+      </div>
+    </div>
+    <?php endforeach; ?>
+    <button class="btn btn-warning connect">Save &amp; Reload Page</button>
+    </div>
+    <?php endif; ?>
 
         <?php
 
@@ -18,7 +44,8 @@
                 'class' => 'title_entry',
                 'tip' => "Use the study's number or name from the article, if possible",
                 'detailedTip' => '<p>Often, the article will give each study a name or number (e.g. "Experiment 1"). If there is only one study, enter <kbd>1</kbd>.</p>
-                <p>If others have coded this study before you, follow the naming and numbering scheme that was used.</p>'
+                <p>If others have coded this study before you, follow the naming and numbering scheme that was used.</p>',
+                'otherCoders' => array($reviewedValues, 'name')
             ));
 
             echo $this->Form->hidden("Study.$i.id", array(
@@ -36,7 +63,8 @@
                 ),
                 'class' => 'is-replication',
                 'tip' => 'The word "replicate" need not be used in the study.',
-                'detailedTip' => 'A study is considered to be a replication if a previous study–in this article or one that has already been published–is cited and explicitly named as a source of methodology for at least one independent and at least one dependent variable. The word "replicate" need not be used, so long as the present authors are measuring the same items and deriving their methodology from an older resource.'
+                'detailedTip' => 'A study is considered to be a replication if a previous study–in this article or one that has already been published–is cited and explicitly named as a source of methodology for at least one independent and at least one dependent variable. The word "replicate" need not be used, so long as the present authors are measuring the same items and deriving their methodology from an older resource.',
+                'otherCoders' => array($reviewedValues, 'replication')
             ));
 
             echo $this->FormField->inputGroupStart(
@@ -64,14 +92,16 @@
                     <dd>The study’s stated goal is, at least in part of the design, to test the hypothesis of the previous study, using the same conceptual variables but changing their operationalization in ways that go beyond merely adapting the materials for a new population or occasion.</dd>
                     <dt>+X</dt>
                     <dd>The study also contains elements of extension that go beyond the type of replication recorded</dd>
-                </dl>"
+                </dl>",
+                'otherCoders' => array($reviewedValues, 'replication_code')
             ));
 
             echo $this->FormField->dropdownbox(array(
                 'field' => "Study.$i.replicates_study_id",
                 'label' => "Previous Study Name",
                 'options' => $referenced_papers,
-                'detailedTip' => "If the study is a replication of a study performed earlier in this paper, select here the study that the authors referenced as the source for the replication effect. In the drop-down menu, you will see the names of all of the studies you have coded. If this is the first study in the paper, do not choose this option."
+                'detailedTip' => "If the study is a replication of a study performed earlier in this paper, select here the study that the authors referenced as the source for the replication effect. In the drop-down menu, you will see the names of all of the studies you have coded. If this is the first study in the paper, do not choose this option.",
+                'otherCoders' => array($reviewedValues, 'replicates_study_id')
             ));
 
             echo $this->FormField->textbox(array(
@@ -79,14 +109,16 @@
                 'label' => "... or paste a free-form reference",
                 'tip' => "If the article is not listed above, paste the citation here.",
                 'rows' => 2,
-                'detailedTip' => "<p>If more than one article is cited, give the one from which the methods were most directly taken; if this cannot be determined, give the earliest one chronologically.</p>"
+                'detailedTip' => "<p>If more than one article is cited, give the one from which the methods were most directly taken; if this cannot be determined, give the earliest one chronologically.</p>",
+                'otherCoders' => array($reviewedValues, 'replication_freetext')
             ));
 
             echo $this->FormField->textbox(array(
                 'field' => "Study.$i.replication_freetext_study",
                 'label' => "Previous Study Number",
                 'tip' => "Enter <kbd>1</kbd> if there is only one study in the cited paper; otherwise, enter the number of the study with methodology closest to this one.",
-                'rows' => 1
+                'rows' => 1,
+                'otherCoders' => array($reviewedValues, 'replication_freetext_study')
             ));
 
             echo $this->FormField->inputGroupEnd();
@@ -121,22 +153,20 @@
                 </div>
             </div>
             <?php
-                    echo $this->FormField->dropdownbox(array(
+                    echo $this->FormField->radios(array(
                         'field' => "Study.$i.certainty_key_effect_tests",
                         'label' => "How certain are you that you correctly identified the study's key effect tests?",
                         'options' => array(
-                            '' => '',
                             '1' => 'not at all',
                             '2' => 'somewhat',
                             '3' => 'very'
                         )
                     ));
 
-                    echo $this->FormField->dropdownbox(array(
+                    echo $this->FormField->radios(array(
                         'field' => "Study.$i.certainty_replication_status",
                         'label' => "How certain are you that you correctly identified the study's status as a replication?",
                         'options' => array(
-                            '' => '',
                             '1' => 'not at all',
                             '2' => 'somewhat',
                             '3' => 'very'
@@ -146,7 +176,8 @@
                     echo $this->FormField->textbox(array(
                         'field' => "Study.$i.study_comment",
                         'label' => "Comments",
-                        'rows' => 2
+                        'rows' => 2,
+                        'otherCoders' => array($reviewedValues, 'study_comment')
                     ));
             ?>
 

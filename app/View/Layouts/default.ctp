@@ -86,14 +86,14 @@
 
 
 <?php if(AuthComponent::user('Group.name')=='admin'): ?>
-				<div class='nav pull-right btn-group' style='position:relative;top:13px;margin-right:10px;'>
+				<div class='nav pull-right btn-group' style='position:relative;top:18px;margin-right:10px;'>
 					<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Admin <span class="caret"></span></button>
 					<ul class="dropdown-menu">
 
 		                <li><a href='/users/index'>List users</a></li>
 		                <li><a href='/papers/add'>Add paper</a></li>
-		                <li><a href='/codedpapers/index_mine'>List my coded papers</a></li>
 		                <li><a href='/codedpapers/index'>List all coded papers</a></li>
+										<li><a href='/codedpapers/reviewed_all'>List all reviewed papers</a></li>
 		                <li><a href='/joinedCodedpapers/export/CSV'>Export CSV</a></li>
 		                <li><a href='/joinedCodedpapers/export/TSV'>Export TSV</a></li>
 		                <li><a href='/joinedCodedpapers/export/excel'>Export Excel</a></li>
@@ -134,7 +134,7 @@
 
 	    </div> <!-- /container -->
 	</div>
-	
+
 
 	<script type="text/javascript">
 	  var _paq = _paq || [];

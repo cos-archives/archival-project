@@ -6,12 +6,19 @@ App::uses('AppController', 'Controller');
  * @property Paper $Paper
  */
 class PapersController extends AppController {
-	function isAuthorized($user = null, $request = null) {	
-		$admin = parent::isAuthorized($user); # allow admins to do anything
-		if($admin) return true;
-		
+	function isAuthorized($user = null, $request = null) {
+		parent::isAuthorized($user);
+
+		if ( $this->isAdmin ) return true;
+
 		$req_action = $this->request->params['action'];
-		if(in_array($req_action, array('view', 'index','find_multiple'))) return true; # viewing and indexing is allowed to all users
+		if ( in_array($req_action, array('view', 'index','find_multiple')) ) {
+			return true; # viewing and indexing is allowed to all users
+		}
+
+		if ( $this->isSeniorCoder && $req_action == 'ready' ) {
+			return true;
+		}
 	}
 /**
  * index method
@@ -22,8 +29,19 @@ class PapersController extends AppController {
 #		$ids = Set::flatten($this->Paper->find('all',array('fields'=>'Paper.id', 'recursive'=>-1) ));
 #		$mult = $this->Paper->getMultipleCodings($ids);
 #		$this->set('multipleCodings', $mult);
-		
+
 		$this->Paper->recursive = 0;
+		$this->set('papers', $this->paginate());
+	}
+
+	public function ready() {
+
+		$this->paginate = array(
+				'recursive' => 1,
+				'conditions' => array(
+					'codings_complete >' => 3,
+				),
+			);
 		$this->set('papers', $this->paginate());
 	}
 
@@ -86,7 +104,7 @@ class PapersController extends AppController {
 				$this->Session->setFlash(__('Metadata was automatically retrieved based on DOI.'));
 			}
 			$this->request->data['Paper']  = array_merge($this->request->data['Paper'], $metadata);
-			
+
 			if ($this->Paper->save($this->request->data)) {
 				$this->redirect(array('action' => 'view', $this->Paper->getInsertID()));
 			} else {

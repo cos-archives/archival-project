@@ -1,4 +1,53 @@
 $(function() {
+    $(document).on('change', '.exclusions input[type=number]', function(e) {
+      var value = Number($(e.target).val());
+      if( value % 1 !== 0 || value < 0 ) {
+        $(e.target).addClass('error')
+      } else {
+        $(e.target).removeClass('error')
+      }
+
+      var resultElement = $($('.exclusions input[type=number]')[2]);
+
+      if( resultElement.val() < 0 ) {
+        resultElement.addClass('error')
+      } else {
+        resultElement.removeClass('error')
+      }
+    });
+
+    $(document).on('change', 'input.p-value', function(e) {
+      var element = $(e.target);
+      var value = Number(element.val());
+      if(! (0 < value && value < 1) ){
+        element.addClass('error');
+      } else {
+        element.removeClass('error');
+      }
+    });
+
+    // Pre-fill fields where junior coders agree.
+    $('.coder-responses').not('.samples').each(function(idx, elem) {
+      // Ignore if the field already contains a selection.
+      if( $(elem).parent().find('.controls').find('input, select, textarea').val() !== '') {
+        return;
+      }
+
+      var responses = [];
+
+      $(elem).find('td:nth-child(2)').each(function(idx, elem) {
+        responses.push($(elem).text());
+      });
+
+      if ( responses.length == 0 ) { return }
+
+      for(var i=0; i<responses.length; i++) {
+        if(responses[i] !== responses[0]) { return }
+      }
+
+      $(elem).find('span').click();
+    });
+
     function updateProgressBars(opts) {
         opts = opts === undefined ? {} : opts;
         var P = this;
@@ -114,8 +163,9 @@ $(function() {
     updateProgressBars({'selector': '.study, .test'});
 
     /* "Complete" Checkbox */
+    var confirmCompleteModal = $('#confirmCompleteModal');
     $('#chkComplete')
-        .on('change', function() {
+        .on('change', function(e) {
             $('input[name="data[Codedpaper][completed]"]').val(this.checked ? 1 : 0);
         })
         .prop('checked', function() {
@@ -129,12 +179,24 @@ $(function() {
                 'off': 'danger',
                 'off-label': 'No',
                 'on': 'success',
-                'on-label': 'Yes'
+                'on-label': 'Yes',
             })
             .css({
                 'width': '100%'
             })
-            .bootstrapSwitch();
+            .bootstrapSwitch()
+            .on('switch-change', function(e, state) {
+              if(state.value ) {
+                confirmCompleteModal.modal('show');
+              }
+            });
+    confirmCompleteModal.find(".modal-footer .btn-danger").on('click', function() {
+      $('#chkComplete').parent().bootstrapSwitch('setState', false)
+    });
+    confirmCompleteModal.find(".modal-footer .btn-primary").on('click', function () {
+      $('#CodedpaperEntryForm').submit()
+    })
+
 
     /* Exclusions */
     var initExclusionCalculators = function(){

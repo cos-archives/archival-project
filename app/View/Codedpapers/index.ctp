@@ -1,31 +1,26 @@
-<div class="papers index">
-	<h2><?php echo __('Papers'); ?></h2>
-	<table  class="table">
-	<tr>
-			<th>DOI</th>
-			<th>APA reference</th>
-			<th>Coder</th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php
-	foreach ($codedpapers as $paper): ?>
-	<tr>
-		<td><?php echo $this->Html->link($paper['Paper']['DOI'], $paper['Paper']['URL']); ?>&nbsp;</td>
-		<td><?php echo h($paper['Paper']['APA']); ?>&nbsp;</td>
-		<td><?php echo h($paper['User']['username']); ?>&nbsp;</td>
-		<td class="actions">
-			<div class="btn-toolbar">
-			<?php echo $this->Html->link(__('View'), "/codedpapers/view/". $paper['Codedpaper']['id'], array('class' => 'btn')); ?>
-			<?php
-			echo $this->element('get_other_codings', array('paper_id' => $paper['Paper']['id'],'user_name' => $paper['User']['username']));
-			?>
-			</div>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
+<style>
+	td.actions {
+		width:200px;
+	}
+</style>
+<?php
+function shortensome($x, $length=9) {
+		if(strlen($x)>$length) $x = substr($x,0,$length-1). "…";
+		return $x;
+	}
+?>
+<?php echo $this->element('dashboard-menu'); ?>
 
-</div>
+<?php if ( isset($my_codings) ) {
+				echo $this->element('codedpapers_table', array('title' => 'My Coded Papers', 'papers' => $my_codings, 'asUser' => True));
+			}
+?>
+
+<?php if ( isset($all_codings) ) {
+				echo $this->element('codedpapers_table', array('title' => 'All Coded Papers', 'papers' => $all_codings, 'asUser' => False));
+			}
+?>
+
 <div class="actions btn-group">
 	<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><?php echo __('Actions'); ?><span class="caret"></span>
 	  </a>

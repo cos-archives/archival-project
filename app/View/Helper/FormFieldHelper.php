@@ -2,18 +2,45 @@
 class FormFieldHelper extends FormHelper {
     public $helpers = array('Form');
 
-    private function _default_options($labelText, $tip=null, $detailedTip=null) {
+    public function format_other_responses($others, $field) {
+      $rv = array();
+      foreach ( $others as $response ) {
+        if ( array_key_exists($field, $response) ) {
+          $value = $response[$field];
+        } else {
+          $value = '';
+        }
+        array_push($rv, array('user' => $response['user_name'], 'value' => $value));
+      }
+
+      return $rv;
+    }
+
+    private function _default_options($labelText, $tip=null, $detailedTip=null, $otherCoders=null) {
         /* Returns a string-keyed array of options to pass to Form::input() */
+        $after = '';
+        if ( $otherCoders && is_array($otherCoders) && count($otherCoders[0]) > 0 ) {
+          $otherCoders = $this->format_other_responses($otherCoders[0], $otherCoders[1]);
+          $after .= "<table class='coder-responses table' style='margin-top: 15px;'><thead><tr><th style=\"width:160px\">Reviewer</th><th>Response</th></tr></thead><tbody>";
+          foreach ( $otherCoders as $other ) {
+            $after .= "<tr>";
+            $after .= "<td>" . $other['user'] . "</td>";
+            $after .= "<td><span>" . $other['value'] . "</span></td>";
+            $after .= "</tr>";
+          }
+          $after .= "</tbody></table>";
+        }
+
         $options = array(
             'div' => false,
             'placeholder' => false,
             'before' => "<div class='control-group'>",
             'between' => "<div class='controls'>",
-            'after' => '</div></div>',
+            'after' => "</div>$after</div>",
             'label' => array(
                 'text' => $labelText,
                 'class' => 'control-label'
-            )
+            ),
         );
 
         if($detailedTip !== null) {
@@ -41,14 +68,15 @@ class FormFieldHelper extends FormHelper {
         /* Returns a regular textbox or a textarea, per Form:input()'s
         introspection on the model field
         */
-        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip', 'otherCoders');
+
         foreach($strippedKeys as $k){
             $$k = isset($options[$k]) ? $options[$k] : null;
             unset($options[$k]);
         }
 
         $options = array_merge(
-            $this->_default_options($label, $tip, $detailedTip),
+            $this->_default_options($label, $tip, $detailedTip, $otherCoders),
             $options
         );
 
@@ -58,14 +86,14 @@ class FormFieldHelper extends FormHelper {
     }
 
     public function dropdownbox($options) {
-        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip', 'otherCoders');
         foreach($strippedKeys as $k){
             $$k = isset($options[$k]) ? $options[$k] : null;
             unset($options[$k]);
         }
 
         $options = array_merge(
-            $this->_default_options($label, $tip, $detailedTip),
+            $this->_default_options($label, $tip, $detailedTip, $otherCoders),
             $options
         );
 
@@ -75,7 +103,7 @@ class FormFieldHelper extends FormHelper {
     }
 
     public function checkboxes($options) {
-        $strippedKeys = array('field', 'label', 'tip', 'detailedTip');
+        $strippedKeys = array('field', 'label', 'tip', 'detailedTip', 'otherCoders');
         foreach($strippedKeys as $k){
             $$k = isset($options[$k]) ? $options[$k] : null;
             unset($options[$k]);
@@ -92,13 +120,51 @@ class FormFieldHelper extends FormHelper {
                 'hiddenField' => false,
                 'selected' => $selected
             ),
-            $this->_default_options($label, $tip, $detailedTip),
+            $this->_default_options($label, $tip, $detailedTip, $otherCoders),
             $options
         );
 
-
-
         return $this->Form->input($field, $options);
+    }
+
+    public function radios($options) {
+      // Remove the null value from the options list.
+      unset($options['options']['']);
+
+      $strippedKeys = array('field', 'label', 'tip', 'detailedTip', 'otherCoders');
+      foreach($strippedKeys as $k){
+          $$k = isset($options[$k]) ? $options[$k] : null;
+          unset($options[$k]);
+      }
+
+      // Get the value of the selected items for the current field
+      $this->setEntity($field);
+      $value = $this->value();
+      $selected = explode(',', $value['value']);
+
+      $attributes = array(
+        'legend' => false,
+        'separator' => '<br>',
+      );
+
+      $options = array_merge(
+          array(
+              // 'multiple' => 'checkbox',
+              'hiddenField' => false,
+              'selected' => $selected,
+          ),
+          $this->_default_options($label, $tip, $detailedTip, $otherCoders),
+          $options
+      );
+
+      $html = '<div class="control-group">';
+      $html .= '<label class="control-label">' . $label . '</label>';
+      $html .= '<div class="controls" style="padding-top:5px">';
+      $html .= $this->Form->radio($field, $options['options'], $attributes);
+      $html .= '</div>';
+      $html .= '</div>';
+
+      return $html;
     }
 
     public function inputGroupStart($options=null) {

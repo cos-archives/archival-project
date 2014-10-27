@@ -49,7 +49,7 @@ class AppController extends Controller {
 				            )
 				),
 				'authorize' => array(
-		'Controller' => 
+		'Controller' =>
 			array(
 				'userModel' => 'User',
 		'		recursive' => 3)
@@ -58,6 +58,7 @@ class AppController extends Controller {
 			);
 	function beforeFilter() {
 			parent::beforeFilter();
+
 			$this->Auth->allow('login','logout','register','pages','forgotPassword','resetPassword');
 	        $this->Auth->loginAction = array('controller' => 'Users', 'action' => 'login');
 	        $this->Auth->logoutRedirect = array('controller' => 'Users', 'action' => 'login');
@@ -75,9 +76,22 @@ class AppController extends Controller {
 	    // Add uid to all requests.
 	    $this->set('uid', $this->Auth->user());
 	}
-	
+
 	public function isAuthorized($user = null, $request = null) {
+
+		// For access in controllers
+		$this->isJuniorCoder = $user['Group']['name'] === 'user';
+		$this->isManager = $user['Group']['name'] === 'manager';
+		$this->isSeniorCoder = $user['Group']['name'] === 'senior_coder';
+		$this->isAdmin = $user['Group']['name'] === 'admin';
+
+		// For access in views
+		$this->set('isJuniorCoder', $this->isJuniorCoder);
+		$this->set('isManager', $this->isManager);
+		$this->set('isSeniorCoder', $this->isSeniorCoder);
+		$this->set('isAdmin', $this->isAdmin);
+
 		$admin = $user['Group']['name']==='admin' OR $user['Group']['name']==='manager';
-		return $admin; # admins can do anything 
+		return $admin; # admins can do anything
 	}
 }

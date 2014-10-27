@@ -5,6 +5,10 @@ class TestsController extends AppController {
 		$admin = parent::isAuthorized($user); # allow admins to do anything
 		if($admin) return true;
 
+		if( $this->request->params['action'] == 'associate' ) {
+			return true;
+		}
+
 		$req_action = $this->request->params['action'];
 
 		$test_id = $this->request->params['pass'][0];
@@ -81,7 +85,70 @@ class TestsController extends AppController {
 
 		$test = $this->Test->data['Test'];
 
+		$otherCodings = array();
+
+		$this->set('otherCodings', $otherCodings);
+
+
 		$this->set(compact('s', 't', 'test'));
+
+	}
+
+	public function associate() {
+
+		// Require that this be an Ajax request.
+		if(!$this->request->is('ajax')) {
+			throw new NotFoundException();
+		}
+
+		if ( !(
+				array_key_exists('review', $this->request->data)
+		//		&& array_key_exists('reviewed', $this->request->data)
+		) ) {
+			throw new BadRequestException();
+		}
+
+
+		// Get the test being reviewed
+		$review = $this->Test->find('first', array(
+			'recursive' => -1,
+			'conditions' => array(
+				'Test.id' => $this->request->data['review'],
+			)
+		));
+
+		if ( array_key_exists('reviewed', $this->request->data ) ) {
+			$reviewedIds = $this->request->data['reviewed'];
+		} else {
+			$reviewedIds = array();
+		}
+
+		$this->Test->id = intval($this->request->data['review']);
+
+		$oldReviewedIds = array_keys(
+			$this->Test->ReviewOf->find(
+				'list',
+				array(
+					'fields' => array('id'),
+					'conditions' => array(
+						'ReviewOf.reviewed_id' => $this->Test->id
+					),
+					'recursive' => 0,
+				)
+			)
+		);
+
+		$removed = array_diff($oldReviewedIds, $reviewedIds);
+		$this->Test->updateAll(
+			array('Test.reviewed_id' => null),
+			array('Test.id' => $removed)
+		);
+
+		$added = array_diff($reviewedIds, $oldReviewedIds);
+		$this->Test->updateAll(
+			array('Test.reviewed_id' => $review['Test']['id']),
+			array('Test.id' => $added)
+		);
 
 	}
 }

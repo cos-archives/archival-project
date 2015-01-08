@@ -4,7 +4,7 @@
         <h1>Contact</h1>
 
         <p>For questions about the project, its progress, and its future directions, contact
-          <a href="mailto:<?php echo Configure::read('Email.Johanna'); ?>?subject=Archival%20Project%20Support">Roger Giner-Soroll</a>.
+          <a href="mailto:<?php echo Configure::read('Email.Roger'); ?>?subject=Archival%20Project">Roger Giner-Sorolla</a>.
         </p>
 
         <p>For any other questions &mdash; including technical assistance &mdash; please contact
